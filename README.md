@@ -1,4 +1,4 @@
 # have-a-try
 
-Hi Gays,
+Hi guys,
 Welcome to web world.
