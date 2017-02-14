@@ -110,7 +110,7 @@ h3{
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6" ng-if="$even">
+			<div class="col-sm-6" ng-if="$even && ($index +1) < quantity">
 				<div class="wrapper">
 					<div class="repo_name row">
 						<div class="col-sm-3 col-md-2"><h5><strong>Name:</strong></h5></div>
@@ -126,7 +126,7 @@ h3{
 		</div>
 
 		<div class="show_items_count">
-			<button type="button" class="btn btn-outline-primary" ng-click="updateItemsShownCount($event, 6)">6</button>
+			<button type="button" class="btn btn-outline-primary" ng-click="updateItemsShownCount($event, 5)">5</button>
 			<button type="button" class="btn btn-outline-primary btn_highlight" ng-click="updateItemsShownCount($event, 10)">10</button>
 			<button type="button" class="btn btn-outline-primary" ng-click="updateItemsShownCount($event, 20)">20</button>
 			<button type="button" class="btn btn-outline-primary" ng-click="updateItemsShownCount($event, 30)">30</button>
@@ -140,6 +140,7 @@ h3{
 	app.controller('control', function($scope){
 		$scope.quantity = 10;
 		$scope.items = null;
+
 		$scope.updateItemsShownCount = function($event, count){
 			$(".show_items_count .btn").removeClass("btn_highlight");
 			$($event.target).addClass("btn_highlight");
