@@ -4,4 +4,4 @@
 I will do the request.
 
 ## test for image
-[myimage](./closure.jpg)
+[Sample](./closure.jpg)
