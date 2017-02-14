@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GitHub Repositories Search</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="Github Repositories">
+	<meta charset="utf-8">
+</head>
+<body>
+<style>
+.wrapper{
+	margin-top:8px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-right:15px;
+	padding-bottom: 15px;
+	background-color: #dcefff;
+}
+
+.right_content1{
+	display: block;
+	position: absolute;
+	margin-left:80px;
+	margin-top:-16px;
+	margin-right:30px;
+	color: orange;
+	font-family:  sans-serif,"Microsoft YaHei", "微软雅黑","Times New Roman", STXihei;
+}
+
+.right_content2{
+	display: block;
+	position: absolute;
+	margin-left:80px;
+	margin-top:-13px;
+	margin-right:30px;
+	margin-bottom:20px;
+	color:purple;
+	font-family:  sans-serif,"Microsoft YaHei", "微软雅黑","Times New Roman", STXihei;
+}
+
+.show_items_count{
+	margin-top:10px;
+}
+
+.row .name{
+	color: orange;
+	font-family:  sans-serif,"Microsoft YaHei", "微软雅黑","Times New Roman", STXihei;
+}
+
+.row .description{
+	color: purple;
+	font-family:  sans-serif,"Microsoft YaHei", "微软雅黑","Times New Roman", STXihei;
+}
+
+.btn_highlight{
+	background-color: #fff8c0;
+}
+
+.search_input{
+	width:360px;
+	height: 32px;
+	font-size: 18px;
+	border:1px solid #aad4e2;
+	padding-left: 4px;
+	color:#3a70bf;
+	margin-right:3px;
+	font-family:  sans-serif,"Microsoft YaHei", "微软雅黑","Times New Roman", STXihei;
+}
+
+.btn.btn-md{
+	margin-bottom: 4px;
+}
+
+.container{
+	margin-bottom: 5px;
+}
+
+h3{
+	color:#7B1FA2;
+}
+
+</style>
+
+<div ng-app="github_repository" ng-controller='control'>
+  <center>
+	<div>
+		<h3>GitHub Repositories Search Page</h3>
+		<br>
+	</div>
+	<div class="container">
+				<input class="search_input" id="inputSuccess" type="text" ng-model="search" ng-init="search='javascript'" placeholder="javascript"></input> 
+				<button type="submit" class="btn btn-info btn-md" ng-click="doSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+	</div>
+  </center>
+	<div  class="container">
+		<div class="row" ng-repeat="item in items | limitTo:quantity">
+			<div class="col-sm-6" ng-if="$even">
+				<div class="wrapper">
+					<div class="repo_name row">
+						<div class="col-sm-3 col-md-2"><h5><strong>Name:</strong></h5></div>
+						<div class="col-sm-9 col-md-10 name"><h5>{{items[$index].full_name}}</h5></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-3 col-md-2"><h6><strong>Description:</strong></h6></div>
+						<div class="col-sm-9 col-md-10 description"><h6>{{items[$index].description}}</h6></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6" ng-if="$even">
+				<div class="wrapper">
+					<div class="repo_name row">
+						<div class="col-sm-3 col-md-2"><h5><strong>Name:</strong></h5></div>
+						<div class="col-sm-9 col-md-10 name"><h5>{{items[$index+1].full_name}}</h5></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-3 col-md-2"><h6><strong>Description:</strong></h6></div>
+						<div class="col-sm-9 col-md-10 description"><h6>{{items[$index+1].description}}</h6></div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix visible-sm" ng-if="$even"></div>
+		</div>
+
+		<div class="show_items_count">
+			<button type="button" class="btn btn-outline-primary" ng-click="updateItemsShownCount($event, 6)">6</button>
+			<button type="button" class="btn btn-outline-primary btn_highlight" ng-click="updateItemsShownCount($event, 10)">10</button>
+			<button type="button" class="btn btn-outline-primary" ng-click="updateItemsShownCount($event, 20)">20</button>
+			<button type="button" class="btn btn-outline-primary" ng-click="updateItemsShownCount($event, 30)">30</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	//jQuery.ajaxSetup({async:false});
+	var app = angular.module('github_repository', []);
+
+	app.controller('control', function($scope){
+		$scope.quantity = 10;
+		$scope.items = null;
+		$scope.updateItemsShownCount = function($event, count){
+			$(".show_items_count .btn").removeClass("btn_highlight");
+			$($event.target).addClass("btn_highlight");
+			$scope.quantity = count;
+		}
+
+		$scope.doSearch = function(){
+			$.get("https://api.github.com/search/repositories?q=" + $scope.search, function(result){
+			$scope.items = result.items;
+            $scope.$apply();
+			});
+		};
+
+		$.get("https://api.github.com/search/repositories?q=" + $scope.search, function(result){
+			$scope.items = result.items;
+			$scope.$apply();
+		});
+	});
+</script>
+</body>
+</html>
