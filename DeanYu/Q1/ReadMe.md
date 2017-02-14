@@ -4,4 +4,4 @@
 I will do the request.
 
 ## test for image
-(./demo.jpg)
+![Sample](./closure.jpg)
