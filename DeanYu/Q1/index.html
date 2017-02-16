@@ -45,8 +45,6 @@
         }
 
         function onbtnclick() {
-            var table = document.getElementById("content");
-
             request = new XMLHttpRequest();
             request.onreadystatechange = onstatechange;
             request.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
