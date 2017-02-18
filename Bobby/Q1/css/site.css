@@ -1,0 +1,7 @@
+
+td { 
+    Word-break: break-all;
+    word-wrap: break-word;
+    width: 400px;
+    height: 100px;
+} 
