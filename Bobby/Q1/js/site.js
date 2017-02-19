@@ -1,4 +1,6 @@
+'use strict'
 
+var gXmlhttpRequest = null;
 function onPageLoad() {
     gXmlhttpRequest = new XMLHttpRequest();
     gXmlhttpRequest.onreadystatechange = function () {
