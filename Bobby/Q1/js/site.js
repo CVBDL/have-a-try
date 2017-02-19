@@ -7,8 +7,6 @@ function onPageLoad() {
         if (null == gXmlhttpRequest || 4 != gXmlhttpRequest.readyState || 200 != gXmlhttpRequest.status) {
             return;
         }
-        var pageStatus = document.getElementById('status');
-        pageStatus.parentNode.removeChild(pageStatus);
         var json = JSON.parse(gXmlhttpRequest.responseText)
         displayData(json);
     }
@@ -26,6 +24,9 @@ function displayData(data) {
     if (null == table) {
         return;
     }
+
+    var pageStatus = document.getElementById('status');
+    pageStatus.innerHTML='data';
 
     table.setAttribute('border', '2');
 
