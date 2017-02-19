@@ -11,7 +11,7 @@ function onPageLoad() {
         displayData(json);
     }
 
-    gXmlhttpRequest.open('GET', `https://api.github.com/search/repositories?q=javascript`);
+    gXmlhttpRequest.open('GET', 'https://api.github.com/search/repositories?q=javascript');
     gXmlhttpRequest.send();
 }
 
