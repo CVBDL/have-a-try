@@ -1,0 +1,22 @@
+
+#border{
+    padding: 50px 400px 10px;
+}
+
+form{
+    border: 2px solid green; 
+    float: left;
+}
+
+.row>div{
+    padding: 10px 1px 1px 1px;
+}
+.content>div{
+    width: 320px; 
+    margin: 10px 10px 10px 20px; 
+    float: left;
+}
+
+.panel-body{
+    height: 75px;
+}
