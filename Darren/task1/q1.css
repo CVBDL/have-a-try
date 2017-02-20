@@ -1,0 +1,15 @@
+table,th,td {
+  border : 1px solid green;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+  
+}
+#demo{
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-right:20px;
+	margin-left:20px;
+	cellspacing: 10px;
+}
