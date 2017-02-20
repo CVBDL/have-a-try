@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Have a try</title>
+    <meta charset="utf-8">
+    <style>
+        .table-content {
+            border: thin solid black;
+            padding: 5px;
+            margin: 0px auto;
+        }
+
+        td {
+            border: thin dotted gray;
+            width: 400px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            request = new XMLHttpRequest();
+            request.onreadystatechange = onstatechange;
+            request.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
+            request.send();
+        }
+
+        String.prototype.format = function () {
+            var args = arguments;
+            return this.replace(/\{(\d+)\}/g,
+                function (m, i) {
+                    return args[i];
+                });
+        }
+
+        function onstatechange() {
+            if (request.readyState == 4 && request.status == 200) {
+                var data = request.responseText;
+                var obj = JSON.parse(data);
+                var table = document.getElementById("content");
+                var tr;
+                for (var i = 0; i < 10; i++) {
+                    var name = obj["items"][i]["full_name"];
+                    var des = obj["items"][i]["description"];
+                    if (i % 2 == 0) {
+                        tr = document.createElement("tr");
+                        table.appendChild(tr);
+                    }
+                    var td = document.createElement("td");
+                    td.innerHTML = "<div><h4>{0}</h4><h4>{1}</h4></div>".format(name, des);
+                    tr.appendChild(td);
+                }
+                table.className += "table-content";
+            }
+        }
+    </script>
+</head>
+<body>
+    <table id="content"></table>
+</body>
+</html>

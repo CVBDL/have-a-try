@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Github Repositories</title>
+  <script type="text/javascript" src="GithubRepositories.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #header {
+      height: 50px;
+      text-align: center;
+      font-size: 30px;
+      color:white;
+      background: dimgray;
+    }
+
+    #main {
+      width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    #main .main-left {
+      width: 50%;
+      height: 200px;
+      line-height: 50px;
+      background:lightgray;
+      float: left;
+      text-align: center;
+      /*vertical-align: middle;*/
+    }
+
+    #main .main-right {
+      width: 50%;
+      height: 200px;
+      line-height: 50px;
+      background: lightgray;
+      float: right;
+      text-align: center;
+    }
+
+    #footer {
+      width: 80%;
+      height: 50px;
+      background: gray;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body onload="loadXMLDoc()">
+  <div id="header">Github Repositories</div>
+  <div id="main">
+    <!--<div class="main-left">左列</div>
+    <div class="main-right">右列</div>-->
+  </div>
+  <!--<div id="footer">页脚</div>-->
+</body>
+
+</html>

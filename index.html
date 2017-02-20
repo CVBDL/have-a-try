@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="githubViewer">
+
+  <head>
+    <link data-require="bootstrap-css@4.0.0-alpha.4" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
+    <script data-require="angular.js@1.6.0" data-semver="1.6.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-controller="MainController">
+    <h1>Repositories of JavaScript</h1>
+    <div class="">
+      <div>
+        <div class="col-sm-6" ng-repeat="repo in repos.items | limitTo: count">
+          <div class="repo">
+            <div>
+            {{repo.full_name}}
+          </div>
+            <div>
+             {{repo.description}}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
