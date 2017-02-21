@@ -1,4 +1,4 @@
-# Question 1
+# Quest 1
 
 ## Description
 
