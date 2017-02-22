@@ -1,2 +1,13 @@
 /* Styles go here */
+.Container{
+   border-style: solid;
+  border-width: 2px;
+}
 
+.repo{
+  margin-top = 20px;
+  magin-bottom = 20px;
+  padding = 5px;
+  border-style: solid;
+  border-width: 2px;
+}

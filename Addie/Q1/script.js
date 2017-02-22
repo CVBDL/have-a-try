@@ -8,6 +8,7 @@ var MainController = function($scope, $http) {
   var onRequestComplete = function(response) {
 
     $scope.repos = response.data;
+    $scope.count = 10;
   }
 
   $http.get("https://api.github.com/search/repositories?q=javascript")
