@@ -13,6 +13,8 @@
             myrequest.onreadystatechange = () => {
                 if (myrequest.readyState == 4 && myrequest.status == 200) {
                     $scope.infos = myrequest.response.items.slice(0, 10);
+                    $scope.test = "old";
+                    $scope.$apply();
                     console.log("getSuccessful")
                 }
             }
@@ -22,9 +24,10 @@
     });
     </script>
     <style>
-    table{
-    	border-collapse: collapse;
+    table {
+        border-collapse: collapse;
     }
+    
     td {
         border: 1px solid black;
         border-collapse: collapse;
@@ -51,7 +54,6 @@
         </table>
         <div>
             <button id="click" type="button" ng-click="GetRepo()">Click</button>
-            <div id="mydiv"></div>
         </div>
     </div>
 </body>
