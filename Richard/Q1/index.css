@@ -1,0 +1,23 @@
+/*
+* @Author: PLi5
+* @Date:   2017-02-23 16:48:28
+* @Last Modified by:   Peisong
+* @Last Modified time: 2017-02-23 16:50:02
+*/
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table tr:nth-child(odd) {
+    background-color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: gray;
+}

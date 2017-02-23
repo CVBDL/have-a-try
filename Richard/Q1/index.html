@@ -3,44 +3,8 @@
 
 <head>
     <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
-    <script type="text/javascript">
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope) {
-        //	$scope.infos = [];
-        $scope.GetRepo = () => {
-            var myrequest = new XMLHttpRequest();
-            myrequest.responseType = "json";
-            myrequest.onreadystatechange = () => {
-                if (myrequest.readyState == 4 && myrequest.status == 200) {
-                    $scope.infos = myrequest.response.items.slice(0, 10);
-                    $scope.test = "old";
-                    $scope.$apply();
-                    console.log("getSuccessful")
-                }
-            }
-            myrequest.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
-            myrequest.send();
-        }
-    });
-    </script>
-    <style>
-    table {
-        border-collapse: collapse;
-    }
-    
-    td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    }
-    
-    table tr:nth-child(odd) {
-        background-color: white;
-    }
-    
-    table tr:nth-child(even) {
-        background-color: gray;
-    }
-    </style>
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <script src="index.js"></script>
     <meta charset="utf-8">
 </head>
 
