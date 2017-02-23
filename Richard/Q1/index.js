@@ -2,7 +2,7 @@
  * @Author: Peisong
  * @Date:   2017-02-23 16:48:35
  * @Last Modified by:   Peisong
- * @Last Modified time: 2017-02-23 16:49:57
+ * @Last Modified time: 2017-02-23 17:06:02
  */
 
 'use strict';
@@ -23,4 +23,5 @@ app.controller('myCtrl', function($scope) {
         myrequest.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
         myrequest.send();
     }
+    $scope.GetRepo();
 });
