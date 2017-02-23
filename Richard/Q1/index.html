@@ -13,13 +13,7 @@
             myrequest.onreadystatechange = () => {
                 if (myrequest.readyState == 4 && myrequest.status == 200) {
                     $scope.infos = myrequest.response.items.slice(0, 10);
-                    $scope.infos.forEach((value, index, array) => {
-                        if (value.description == null) {
-                            value.description = "there is no description here";
-                        }
-                    });
-                    //console.log("ok")
-                    // document.getElementById("mydiv").innerHTML = myrequest.responseText;
+                    console.log("getSuccessful")
                 }
             }
             myrequest.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
@@ -27,15 +21,34 @@
         }
     });
     </script>
+    <style>
+    table{
+    	border-collapse: collapse;
+    }
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    
+    table tr:nth-child(odd) {
+        background-color: white;
+    }
+    
+    table tr:nth-child(even) {
+        background-color: gray;
+    }
+    </style>
     <meta charset="utf-8">
 </head>
 
 <body>
     <div ng-app="myApp" ng-controller="myCtrl">
-        <div style="width: 100%;" ng-repeat="info in infos">
-            <div style="width: 50%;display: inline;float: left;">{{info.full_name}}</div>
-            <div style="width: 50%;display: inline;float: left;">{{info.description}}</div>
-        </div>
+        <table>
+            <tr ng-repeat="info in infos">
+                <td>{{info.full_name}}</td>
+                <td>{{info.description}}</td>
+            </tr>
+        </table>
         <div>
             <button id="click" type="button" ng-click="GetRepo()">Click</button>
             <div id="mydiv"></div>
