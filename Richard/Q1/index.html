@@ -2,28 +2,44 @@
 <html lang="en">
 
 <head>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
     <script type="text/javascript">
-    function GetRepo() {
-        var myrequest = new XMLHttpRequest();
-        myrequest.onreadystatechange = () => {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        //	$scope.infos = [];
+        $scope.GetRepo = () => {
+            var myrequest = new XMLHttpRequest();
+            myrequest.responseType = "json";
+            myrequest.onreadystatechange = () => {
+                if (myrequest.readyState == 4 && myrequest.status == 200) {
+                    $scope.infos = myrequest.response.items.slice(0, 10);
+                    $scope.infos.forEach((value, index, array) => {
+                        if (value.description == null) {
+                            value.description = "there is no description here";
+                        }
+                    });
+                    //console.log("ok")
+                    // document.getElementById("mydiv").innerHTML = myrequest.responseText;
+                }
             }
+            myrequest.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
+            myrequest.send();
         }
-        myrequest.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
-        myrequest.send()；
-    }
+    });
     </script>
     <meta charset="utf-8">
 </head>
 
 <body>
-    <div style="width: 100%；">
-        <div style="width: 50%;display: inline;background-color: red;float: left;">1</div>
-        <div style="width: 50%;display: inline;background-color: blue;float: left;">2</div>
-    </div>
-    <div>
-        <button id="click" type="button" onclick="GetRepo()">Click</button>
-        <div></div>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div style="width: 100%;" ng-repeat="info in infos">
+            <div style="width: 50%;display: inline;float: left;">{{info.full_name}}</div>
+            <div style="width: 50%;display: inline;float: left;">{{info.description}}</div>
+        </div>
+        <div>
+            <button id="click" type="button" ng-click="GetRepo()">Click</button>
+            <div id="mydiv"></div>
+        </div>
     </div>
 </body>
 
