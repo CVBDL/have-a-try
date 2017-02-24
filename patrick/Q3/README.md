@@ -40,6 +40,6 @@ Completed [Quest 1](../Q1) and [Quest 2](../Q2).
   first 10 results. Then user input `jquery` and click search button,
   it should show the first 10 results for `jquery`.
 
-  [Search](./search.jpg)
+  ![Search](./search.jpg)
 
 5. Good UI for both PC and mobile.
