@@ -10,14 +10,12 @@
 
 <body>
     <div ng-app="myApp" ng-controller="myCtrl">
-        <table>
-            <tr ng-repeat="info in infos">
-                <td>{{info.full_name}}</td>
-                <td>{{info.description}}</td>
-            </tr>
-        </table>
-        <div>
-            <!--<button id="click" type="button" ng-click="GetRepo()">Click</button>-->
+        <div ng-repeat="info in infos">
+            <div class="cell">
+                <span>{{info.full_name}}</span>
+                <br>
+                <span>{{info.description}}</span>
+            </div>
         </div>
     </div>
 </body>
