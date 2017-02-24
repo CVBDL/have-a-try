@@ -1,0 +1,11 @@
+table{
+    
+    border: 1px solid black;
+    width: 100%;
+    border-spacing: 10px
+  }
+  
+ .repTable th, .repTable td {
+    border: 0.5px solid black;
+  width: 25%;
+ }

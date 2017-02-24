@@ -1,0 +1,17 @@
+/*
+* @Author: PLi5
+* @Date:   2017-02-23 16:48:28
+* @Last Modified by:   Peisong
+* @Last Modified time: 2017-02-24 13:47:48
+*/
+
+.cell {
+    display: inline;
+    width: 48.5%;
+    height: 60px;
+    float: left;
+    border: solid 1px;
+    padding: 3px;
+    margin: 5px
+}
+

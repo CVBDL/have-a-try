@@ -16,21 +16,19 @@
   	margin-bottom: 12px;
 	padding-left: 20px;
 	padding-top: 5px;
-	padding-right:15px;
-	padding-bottom: 15px;
+	padding-right:5px;
+	padding-bottom: 5px;
 	background-color: #dcefff;
 }
-
 .right_content1{
 	display: block;
-	position: absolute;
+	position: relative;
 	margin-left:80px;
 	margin-top:-16px;
-	margin-right:30px;
+	margin-right:10px;
 	color: orange;
-	font-family:  Georgia,sans-serif,"Microsoft YaHei", "微软雅黑","Times New Roman", STXihei;
+	font-family:  Georgia,sans-serif,"Microsoft YaHei", "Î¢ÈíÑÅºÚ","Times New Roman", STXihei;
 	overflow-wrap: break-word;
-
   	word-wrap: break-word;
   	-ms-word-break: break-all;
   	word-break: break-all;
@@ -42,15 +40,14 @@
 }
 .right_content2{
 	display: block;
-	position: absolute;
+	position: relative;
 	margin-left:80px;
 	margin-top:-13px;
-	margin-right:30px;
-	margin-bottom:20px;
+	margin-right:10px;
+	margin-bottom:10px;
 	color:purple;
-	font-family:  Georgia,sans-serif,"Microsoft YaHei", "微软雅黑","Times New Roman", STXihei;
+	font-family:  Georgia,sans-serif,"Microsoft YaHei", "Î¢ÈíÑÅºÚ","Times New Roman", STXihei;
 	overflow-wrap: break-word;
-
   	word-wrap: break-word;
   	-ms-word-break: break-all;
   	word-break: break-all;
@@ -67,7 +64,6 @@
 		position: relative;
 		float:left;
 }
-
 @media only screen and (max-width: 767px) {
 	.search_result{
 		min-width: 200px;
@@ -78,15 +74,17 @@
 		padding-right: 20px;
 	}
 }
-
 .loading{
 	margin-left:22px;
 	font-size:16pt;
-	font-family:  Georgia,sans-serif,"Microsoft YaHei", "微软雅黑","Times New Roman", STXihei;
+	font-family:  Georgia,sans-serif,"Microsoft YaHei", "Î¢ÈíÑÅºÚ","Times New Roman", STXihei;
 }
-
 .loading .hidden{
 	visibility: hidden;
+}
+
+.clear_both{
+	clear:both;
 }
 </style>
 
@@ -97,17 +95,28 @@
 	</div>
   </center>
   <p class="loading">Loading...</p>
-	<div class="search_result">
-		<div class="column_item " ng-repeat="item in items | limitTo:quantity">
+	<div class="search_result" ng-repeat="item in items | limitTo:quantity">
+		<div class="column_item" ng-if="$even">
 			<div class="wrapper">
 				<div class="repo_name">
-					<h5><strong>Name:</strong><span class="right_content1">{{item.full_name}}</span></h5>
+					<h5><strong>Name:</strong><span class="right_content1">{{items[$index].full_name}}</span></h5>
 				</div>
 				<div class="repo_desc">
-					<h6><strong>Description:</strong><span class="right_content2">{{item.description}}</span></h6>
+					<h6><strong>Description:</strong><span class="right_content2">{{items[$index].description}}</span></h6>
 				</div>
 			</div>
 		</div>
+		<div class="column_item"  ng-if="$even">
+			<div class="wrapper">
+				<div class="repo_name">
+					<h5><strong>Name:</strong><span class="right_content1">{{items[$index+1].full_name}}</span></h5>
+				</div>
+				<div class="repo_desc">
+					<h6><strong>Description:</strong><span class="right_content2">{{items[$index+1].description}}</span></h6>
+				</div>
+			</div>
+		</div>
+		<div class="clear_both" ng-if="$even" />
 	</div>
 </div>
 <script type="text/javascript">

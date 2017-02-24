@@ -2,28 +2,21 @@
 <html lang="en">
 
 <head>
-    <script type="text/javascript">
-    function GetRepo() {
-        var myrequest = new XMLHttpRequest();
-        myrequest.onreadystatechange = () => {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            }
-        }
-        myrequest.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
-        myrequest.send()；
-    }
-    </script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <script src="index.js"></script>
     <meta charset="utf-8">
 </head>
 
 <body>
-    <div style="width: 100%；">
-        <div style="width: 50%;display: inline;background-color: red;float: left;">1</div>
-        <div style="width: 50%;display: inline;background-color: blue;float: left;">2</div>
-    </div>
-    <div>
-        <button id="click" type="button" onclick="GetRepo()">Click</button>
-        <div></div>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div ng-repeat="info in infos">
+            <div class="cell">
+                <span>{{info.full_name}}</span>
+                <br>
+                <span>{{info.description}}</span>
+            </div>
+        </div>
     </div>
 </body>
 
