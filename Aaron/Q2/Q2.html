@@ -1,0 +1,59 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Q2.css" media="screen"/>
+  <script type="text/javascript">
+  function loadXMLDoc(){
+    var xmlhttp;
+    if (window.XMLHttpRequest){
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+    }
+    else{
+    // code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function(){
+      if (xmlhttp.readyState==4 && xmlhttp.status==200){
+        var title = new Array();
+        var description = new Array();
+        data = JSON.parse(xmlhttp.responseText)
+        for (var i=0; i<10; i++){
+          title[i] = data.items[i].full_name;
+          description[i] = data.items[i].description;
+          document.getElementById('table').style.display = '';
+          var oTable = document.getElementById("table");
+          var tBodies = oTable.tBodies;
+          var tbody = tBodies[0];
+          if (i%2 == 1){
+            var tr = tbody.insertRow(tbody.rows.length);
+            // this should be work, should...
+            tr.classname = "newtable";
+            var td_1 = tr.insertCell(0);
+            td_1.classname = "newtable";
+            td_1.innerHTML = title[i-1] + "<br>" + description[i-1];
+            var td_2 = tr.insertCell(1);
+            td_1.classname = "newtable";
+            td_2.innerHTML = title[i] + "<br>" + description[i];
+          }
+          // set title background color as gray.
+          document.getElementsByTagName('tr')[0].style.backgroundColor = '#dcdcdc'
+        }
+      }
+    }
+    xmlhttp.open("GET","https://api.github.com/search/repositories?q=javascript",true);
+    xmlhttp.send();
+}
+</script>
+</head>
+<body>
+  <h2>AJAX</h2>
+  <button type="button" onclick="loadXMLDoc()">Request!!!</button>
+  <div id="myDiv">
+    <table class="newtable" bordercolor="green" id="table" align="center" style="display:none;">
+      <tr>
+        <th colspan="2">Top 10 repositories</th>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
