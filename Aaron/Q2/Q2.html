@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="Q2.css" media="screen"/>
   <script type="text/javascript">
     function loadXMLDoc(){
@@ -28,7 +29,7 @@
           td_1.classname = "newtable";
           td_1.innerHTML = data.items[i-1].full_name + "<br>" + data.items[i-1].description;
           var td_2 = tr.insertCell(1);
-          td_1.classname = "newtable";
+          td_2.classname = "newtable";
           td_2.innerHTML = data.items[i].full_name + "<br>" + data.items[i].description;
           }
         }
