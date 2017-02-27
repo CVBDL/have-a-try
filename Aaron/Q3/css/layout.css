@@ -1,0 +1,23 @@
+.row{
+	width: 48%;
+	float: left;
+	border: 1px solid #000;
+	margin:4px;
+	padding: 4px;
+} 
+#mainDiv{
+	width: 100%;
+	display:inline-block;
+}
+#myDiv{
+	text-align: center;
+	border: 1px solid #000;
+	margin:4px
+}
+
+@media screen and (max-width: 768px) {
+	.row, #myDiv, #mainDiv {
+	margin: 4px;
+    width: 97%;
+	}
+}
