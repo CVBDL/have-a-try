@@ -5,9 +5,9 @@
 }
 
 @media screen and (max-width: 768px) {
-	.newtable td
+	.newtable tr td {
 	margin: 5px;
-        width: 97%;
+    width: 97%;
 	}
 	table {
 		border: 2px solid green;
