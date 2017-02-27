@@ -1,0 +1,62 @@
+@charset "utf-8";
+<<<<<<< HEAD
+.newtable tr td
+{
+border: 2px solid green;
+width: 50%;
+}
+
+@media screen and (max-width: 768px){
+	.newtable tr td {
+	    margin: 5px;
+        width: 97%;
+	}
+	table {
+        border: 2px solid green;
+    }
+    table td {
+        display: block;
+        text-align: left;
+        font-size: 14px;
+    }
+    table td:last-child {
+        border: 2px solid green;
+        margin: 5px;
+    }
+    table td:before {
+        /*what means data-label*/
+       /* content: attr(data-label);*/
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+=======
+.newtable tr td {
+	border: 2px solid green;
+}
+
+@media screen and (max-width: 768px) {
+	.newtable td {
+		margin: 5px;
+	}
+	table {
+		border: 2px solid green;
+	}
+	table td {
+		display: block;
+		text-align: left;
+		font-size: 14px;
+	}
+	table td:last-child {
+		border: 2px solid green;
+		margin: 5px;
+	}
+	table td:before {
+		/*what means data-label*/
+		content: attr(data-label);
+		float: left;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+>>>>>>> bb57d439676f753267ee9080834e14508f52604e
+}

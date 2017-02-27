@@ -1,0 +1,19 @@
+
+td { 
+    Word-break: break-all;
+    word-wrap: break-word;
+    width: 400px;
+    height: 100px;
+}
+
+#container{
+    margin: 50px auto 50px auto;
+}
+
+.content{
+    margin: 20px auto 20px auto;
+}
+
+#status{
+    text-align: center;
+} 
