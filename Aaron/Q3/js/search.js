@@ -18,8 +18,11 @@ function clicksearch(){
 		}
 		$("#repo_list").html(htmlstr);
    		$(".row").each(function(i){
-		$(this).html(msg.items[i].full_name+ "<br>" + msg.items[i].description);
+		$(this).html(msg.items[i].full_name + "<br>" + msg.items[i].description);
 		});
-		}
+		},
+		error: function(data, status, e){ 
+     	alert("error"); 
+     	}
 	});
 }
