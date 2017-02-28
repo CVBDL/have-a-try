@@ -27,8 +27,6 @@ random.shuffle(members)
 print('Order:')
 
 for index, member in enumerate(members):
-    print(index + 1, ':', member);
+    print(str.format('{0} : {1}', index + 1, member))
 
-waiting = input()
-waiting = input()
-waiting = input()
+input("Press Enter to continue...")

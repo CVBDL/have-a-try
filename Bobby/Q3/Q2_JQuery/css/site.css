@@ -1,0 +1,32 @@
+
+#status{
+    text-align: center;
+}
+
+.contentTable{
+    margin:0 auto;
+    text-align: center;
+}
+
+.contentBlock{
+    width: 40%;
+    display: inline-block;
+    height: 100px;
+    margin: 1%;
+    vertical-align: bottom
+}
+
+p{
+    vertical-align: center;   
+}
+
+@media screen and (max-width: 768px) {
+    .contentBlock{
+        width: 70%;
+        display: inline-block;   
+        height: 100px;
+        margin: 1%;
+        vertical-align: bottom
+    }
+
+}
