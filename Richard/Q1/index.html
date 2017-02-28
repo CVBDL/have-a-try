@@ -10,7 +10,14 @@
 
 <body>
     <div ng-app="myApp" ng-controller="myCtrl">
-        <div ng-repeat="info in infos">
+        <div ng-hide="isLoadingShow">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        <div ng-repeat="info in infos | limitTo:num">
             <div class="cell">
                 <span>{{info.full_name}}</span>
                 <br>
