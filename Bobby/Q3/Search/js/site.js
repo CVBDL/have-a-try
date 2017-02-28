@@ -12,8 +12,8 @@ function queryData() {
                 return;
             }
             displayData(data);
-        },
-    );
+        }
+    )
 }
 
 function displayData(data) {
