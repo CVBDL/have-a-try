@@ -2,25 +2,20 @@
  * @Author: Peisong
  * @Date:   2017-02-23 16:48:35
  * @Last Modified by:   Peisong
- * @Last Modified time: 2017-02-24 13:47:29
+ * @Last Modified time: 2017-02-28 14:25:37
  */
 
 'use strict';
 var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
+app.controller('myCtrl', function($scope, $http) {
     $scope.infos = [];
+    $scope.num = 10;
+    $scope.isLoadingShow=false;
     $scope.GetRepo = () => {
-        var myrequest = new XMLHttpRequest();
-        myrequest.responseType = "json";
-        myrequest.onreadystatechange = () => {
-            if (myrequest.readyState == 4 && myrequest.status == 200) {
-                $scope.infos = myrequest.response.items.slice(0, 10);
-                $scope.$apply();
-                console.log("getSuccessful")
-            }
-        }
-        myrequest.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
-        myrequest.send();
+        $http.get("https://api.github.com/search/repositories?q=javascript").success((data) => {
+            $scope.isLoadingShow=true;
+            $scope.infos = data.items;
+        });
     }
     $scope.GetRepo();
 });
