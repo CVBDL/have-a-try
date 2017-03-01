@@ -35,16 +35,17 @@ function startQuery(){
 }
 
 function queryDone(){
-    $("#progress").attr("value", 1000);
-    $("#progress").hide();
+    var progressBar = $("#progress");
+    progressBar.attr("value", 1000);
+    progressBar.hide();
     clearInterval(progressTimer);
 }
 
 function displayData(data) {
+    queryDone();
     if (null == data) {
         return;
     }
-    queryDone();
 
     var dataCount = data.items.length;
     var index = 0;
