@@ -1,7 +1,15 @@
 
+body{
+    margin: 0px;
+}
+
 .contentTable{
     margin:0 auto;
     text-align: center;
+}
+
+#searchDiv{
+    margin: 10px;
 }
 
 #progress{
@@ -10,6 +18,10 @@
     height: 3px;
     color: green;
     margin: 0px;
+}
+
+#keyword{
+    width: 40%;
 }
 
 .contentBlock{
