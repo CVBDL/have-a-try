@@ -4,54 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
   <title>Github Repositories</title>
+  <link rel=stylesheet type="text/css" href="style.css" title="cool">
   <script type="text/javascript" src="GithubRepositories.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    #header {
-      height: 50px;
-      text-align: center;
-      font-size: 30px;
-      color:white;
-      background: dimgray;
-    }
-
-    #main {
-      width: 80%;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    #main .main-left {
-      width: 50%;
-      height: 200px;
-      line-height: 50px;
-      background:lightgray;
-      float: left;
-      text-align: center;
-      /*vertical-align: middle;*/
-    }
-
-    #main .main-right {
-      width: 50%;
-      height: 200px;
-      line-height: 50px;
-      background: lightgray;
-      float: right;
-      text-align: center;
-    }
-
-    #footer {
-      width: 80%;
-      height: 50px;
-      background: gray;
-      margin: 0 auto;
-    }
-  </style>
 </head>
 
 <body onload="loadXMLDoc()">
