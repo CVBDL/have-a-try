@@ -24,6 +24,7 @@ function startQuery(){
     var progressBar = $("#progress");
     progressBar.show();
     progressBar.attr("value", 0);
+
     var nPos = 0;
     progressTimer = setInterval(function(){
         nPos += 10;
@@ -36,13 +37,16 @@ function startQuery(){
 
 function queryDone(){
     var progressBar = $("#progress");
+
     progressBar.attr("value", 1000);
     progressBar.hide();
     clearInterval(progressTimer);
 }
 
 function displayData(data) {
+
     queryDone();
+
     if (null == data) {
         return;
     }
@@ -59,10 +63,13 @@ function displayData(data) {
 }
 
 (function () {
+
     $(document).ready(function () {
+
         $("#progress").attr("value", 0);
         $("#progress").hide();
+        $("#searchButton").click(queryData);
+        
     });
-
-    $("#searchButton").click(queryData);
+   
 })();
