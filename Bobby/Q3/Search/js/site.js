@@ -24,11 +24,11 @@ function startQuery(){
     var progressBar = $("#progress");
     progressBar.show();
     progressBar.attr("value", 0);
-    var i = 0;
+    var nPos = 0;
     progressTimer = setInterval(function(){
-        i += 10;
-        progressBar.attr("value", i);
-        if(i >= 900){
+        nPos += 10;
+        progressBar.attr("value", nPos);
+        if(nPos >= 900){
             clearInterval(progressTimer);
         }
     }, 10)
