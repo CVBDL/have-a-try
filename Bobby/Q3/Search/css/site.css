@@ -4,6 +4,14 @@
     text-align: center;
 }
 
+#progress{
+    display: block;
+    width: 100%;
+    height: 3px;
+    color: green;
+    margin: 0px;
+}
+
 .contentBlock{
     width: 40%;
     display: inline-block;
