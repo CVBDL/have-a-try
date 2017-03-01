@@ -1,0 +1,94 @@
+/*.row{
+	width: 48%;
+	float: left;
+	border: 1px solid #000;
+	margin:4px;
+	padding: 4px;
+} 
+#mainDiv{
+	width: 100%;
+	display:inline-block;
+}
+#myDiv{
+	text-align: center;
+	border: 1px solid #000;
+	margin:4px
+}
+
+@media screen and (max-width: 768px) {
+	.row, #myDiv, #mainDiv {
+	margin: 4px;
+    width: 97%;
+	}
+}*/
+
+#mainDiv {
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	display: box;
+	
+	/*flex-basis: 1000px;*/
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+#myDiv {
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	display: box;
+	
+	background: #c7d0d5;
+	box-sizing: border-box;
+	border: 1px solid black;
+    flex-basis: 2000px;
+    justify-content: center; /*字体居中显示*/
+	
+}
+
+#repo_list {
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	display: box;
+	
+
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content:  flex-start;
+}
+
+.row {
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	display: box;
+	
+	box-sizing: border-box;
+	border: 1px solid black;
+	background: #f5f5f5;
+	flex: 0 0 50%;
+	
+}
+
+@media screen and (max-width: 768px) {
+	.row, #myDiv, #mainDiv {
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	display: box;
+	
+	flex: 0 0 100%;
+	}

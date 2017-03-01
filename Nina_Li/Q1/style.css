@@ -1,0 +1,20 @@
+
+ table{
+    
+    border: 2px solid black;
+	align: center;
+	width: 100%;
+	border-spacing: 15px
+
+  }
+  
+ .repositoryTable th, .repositoryTable td {
+    border: 1px solid black;
+	width: 50%;
+ }
+
+ 
+i#ftr{
+	align: center;
+	
+} 

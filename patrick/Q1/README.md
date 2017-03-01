@@ -1,4 +1,4 @@
-# Question 1
+# Quest 1
 
 ## Description
 
@@ -30,3 +30,7 @@ The page layout should have 2 columns, and 2 repositories in each row.
 3. CSS
 4. HTML
 5. Git and Github
+
+## Next Quest
+
+[Quest 2](../Q2)

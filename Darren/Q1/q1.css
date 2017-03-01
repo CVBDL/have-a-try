@@ -1,10 +1,11 @@
 table,th,td {
   border : 1px solid green;
-  border-collapse: collapse;
+  border-collapse: separate;
+  margin:4px;
+  cellspacing: 10px;
 }
 th,td {
-  padding: 5px;
-  
+  cellspacing: 10px;
 }
 #demo{
 	margin-top:20px;

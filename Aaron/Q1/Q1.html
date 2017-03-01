@@ -1,8 +1,9 @@
+<!DOCTYPE HTML>
 <html>
 <head>
+<meta charset="utf-8">
     <script type="text/javascript">
-        function loadXMLDoc()
-        {
+        function loadXMLDoc(){
             var xmlhttp;
             if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -16,24 +17,20 @@
   {
       if (xmlhttp.readyState==4 && xmlhttp.status==200)
       {
-        var title = new Array();
-        var description = new Array();
         data = JSON.parse(xmlhttp.responseText)
+        document.getElementById('table').style.display = '';
+        var oTable = document.getElementById("table");
+        var tBodies = oTable.tBodies;
+        var tbody = tBodies[0];
         for (var i=0; i<10; i++)
         {
-            title[i] = data.items[i].full_name;
-            description[i] = data.items[i].description;
-            document.getElementById('table').style.display = '';
-            var oTable = document.getElementById("table");
-            var tBodies = oTable.tBodies;
-            var tbody = tBodies[0];
             if (i%2 == 1)
             {
                 var tr = tbody.insertRow(tbody.rows.length);
                 var td_1 = tr.insertCell(0);
-                td_1.innerHTML = title[i-1] + "<br>" + description[i-1];
+                td_1.innerHTML = data.items[i].full_name + "<br>" + data.items[i].description;
                 var td_2 = tr.insertCell(1);
-                td_2.innerHTML = title[i] + "<br>" + description[i];
+                td_2.innerHTML = data.items[i-1].full_name + "<br>" + data.items[i-1].description;
             }
         }    
     }
@@ -44,9 +41,8 @@ xmlhttp.send();
 </script>
 </head>
 <body>
-
     <h2>AJAX</h2>
-    <button type="button" onclick="loadXMLDoc()">«Î«Û ˝æ›</button>
+    <button type="button" onclick="loadXMLDoc()">RequireÔºÅ</button>
     <div id="myDiv">
         <table border="1" bordercolor="blue" id="table" align="center" style="display:none;">
             <tr>
@@ -54,6 +50,5 @@ xmlhttp.send();
           </tr>
       </table>
   </div>
-
 </body>
 </html>
