@@ -1,0 +1,42 @@
+
+div.divTable{ 
+    display: table;  
+	border-collapse:separate;
+	border-spacing:30px;
+	background-color:  #F5F5F5;
+	width: 100%;
+}
+
+div.divRow{	
+	display: table-row;
+}
+
+div.divCell{	 
+    display:table-cell;
+    background-color: gray;
+	height: 100px;  
+}
+
+	  
+
+
+@media screen and (max-width: 768px) {
+
+div.divTable{ 
+    width: 100%;
+	background-color:  #F5F5F5;	
+}
+
+div.divCell{
+    width:750px;
+	height: 100px;
+	float: left;
+	background-color: gray;
+	
+}
+
+#cell_1, #cell_3, #cell_5, #cell_7, #cell_9{
+	margin-bottom: 30px;	
+}
+
+}
