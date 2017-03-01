@@ -2,7 +2,10 @@
 
 ## Precondition
 
-Completed [Quest 1](../Q1) and [Quest 2](../Q2).
+Complete:
+
+1. [Quest 1](../Q1)
+1. [Quest 2](../Q2)
 
 ## Description
 
