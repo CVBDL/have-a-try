@@ -2,9 +2,11 @@
 
 function queryData() {
     var argKeyword = $("#keyword").val();
-    if(null == argKeyword){
+    if(null == argKeyword || argKeyword == ""){
         return;
     }
+
+    startQuery();
     
     var queryUrl = "https://api.github.com/search/repositories?q=" + argKeyword;
     $.getJSON(queryUrl,function (data, textStatus, jqXHR) {
@@ -16,10 +18,33 @@ function queryData() {
     )
 }
 
+var progressTimer = null;
+
+function startQuery(){
+    var progressBar = $("#progress");
+    progressBar.show();
+    progressBar.attr("value", 0);
+    var i = 0;
+    progressTimer = setInterval(function(){
+        i += 10;
+        progressBar.attr("value", i);
+        if(i >= 900){
+            clearInterval(progressTimer);
+        }
+    }, 10)
+}
+
+function queryDone(){
+    $("#progress").attr("value", 1000);
+    $("#progress").hide();
+    clearInterval(progressTimer);
+}
+
 function displayData(data) {
     if (null == data) {
         return;
     }
+    queryDone();
 
     var dataCount = data.items.length;
     var index = 0;
@@ -33,5 +58,10 @@ function displayData(data) {
 }
 
 (function () {
+    $(document).ready(function () {
+        $("#progress").attr("value", 0);
+        $("#progress").hide();
+    });
+
     $("#searchButton").click(queryData);
 })();
