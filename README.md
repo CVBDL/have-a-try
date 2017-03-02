@@ -1,4 +1,4 @@
-# Have a Try Edit
+# Have a Try
 
 ## Quests
 
