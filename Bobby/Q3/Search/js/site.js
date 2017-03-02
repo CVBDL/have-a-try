@@ -4,7 +4,6 @@
 $(document).ready(function () {
 
     $("#progress").attr("value", 0);
-    $("#progress").hide();
     $("#searchButton").click(queryData);
 
 });
@@ -34,9 +33,8 @@ function queryData() {
 function startQuery(setter){
 
     var progressBar = $("#progress");
-    progressBar.show();
     progressBar.attr("value", 0);
-
+    progressBar.removeClass("progressDone").addClass('progress');
     var nPos = 0;
     setter = setInterval(function(){
 
@@ -51,9 +49,8 @@ function startQuery(setter){
 
 function queryDone(setter){
     var progressBar = $("#progress");
-
+    progressBar.removeClass("progress").addClass('progressDone');
     progressBar.attr("value", 1000);
-    progressBar.hide();
     clearInterval(setter);
 }
 
