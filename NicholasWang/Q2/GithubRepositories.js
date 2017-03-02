@@ -11,10 +11,12 @@ function loadXMLDoc() {
   xmlhttp.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
   // xmlhttp.setRequestHeader('Content-Type', 'text/xml');
   xmlhttp.send();
+  console.log("xmlhttp.send()");
 }
 
 function onResponse() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      console.log("response successfully!");
       var content = xmlhttp.responseText;
       var formatedContent = JSON.parse(content);
       // alert(formatedContent);
