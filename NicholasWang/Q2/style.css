@@ -46,21 +46,23 @@
 
 @media screen and (max-width: 768px) {
   #main .main-left {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     height: 200px;
     line-height: 50px;
     background:lightgray;
-    float: left;
+    float: none;
     text-align: center;
     /*vertical-align: middle;*/
   }
 
   #main .main-right {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     height: 200px;
     line-height: 50px;
     background: lightgray;
-    float: left;
+    float: none;
     text-align: center;
   }
 }

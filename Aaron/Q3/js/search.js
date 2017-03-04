@@ -14,7 +14,7 @@ function clicksearch(){
 	   	$("#myDiv").html("<h2>Top 10 repositories!</h2>");
 	   	var htmlstr=""
 		for(var i=0;i<10;i++){
-		htmlstr+='<div class = "row" id="id'+i+'"></div>'
+		htmlstr+='<div class = "row" id="'+i+'"></div>'
 		}
 		$("#repo_list").html(htmlstr);
    		$(".row").each(function(i){
