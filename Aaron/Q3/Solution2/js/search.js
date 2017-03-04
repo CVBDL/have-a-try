@@ -19,7 +19,7 @@ function clicksearch(){
 	   	$("#myDiv").html("<h2>Top 10 repositories!</h2>");
 	   	var htmlstr=""
 		for(var i=0;i<10;i++){
-		htmlstr+='<div class="row"><div class="col s12 m7"><div class="small card"><div class="card-image"><img src="./img/'+i+'.jpg"><span class="card-title" id="title'+i+'">abc</span></div><div class="card-content" id="content'+i+'"><p>qwe</p></div><div class="card-action"><a id="link'+i+'" href="#">Link To</a></div></div></div></div>'
+		htmlstr+='<div class="row"><div class="col s12 m7"><div class="small card"><div class="card-image"><img src="./img/'+i+'.jpg"><span class="card-title" id="title'+i+'"></span></div><div class="card-content" id="content'+i+'"><p></p></div><div class="card-action"><a id="link'+i+'" href="#">Link To</a></div></div></div></div>'
 		}
 		$("#repo_list").html(htmlstr);
  		$(".row").each(function(i){
