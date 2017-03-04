@@ -1,0 +1,72 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: normal 100% Helvetica, Arial, sans-serif;
+}
+
+.bodyCenter{
+	margin: auto;
+	text-align: center;
+	width: 90%;
+	overflow: hidden;
+}
+
+header{
+	font-size: 2em;
+	background: lightgrey;
+	margin-top: 10px;
+}
+
+#resText{
+	text-align: left;
+	overflow: hidden;
+	width: 100%;
+}
+
+#resText .row{
+	display: block;
+}
+
+#resText .left{
+	background: lightgray;
+	margin: 1% 1%;
+	padding: 1% 4%;
+	width: 40%;
+	height: 200px;
+	float: left;
+}
+#resText .right{
+	background: lightgray;
+	margin: 1% 1%;
+	padding: 1% 4%;
+	width: 40%;
+	height: 200px;
+	float: right;
+}
+
+@media screen and (max-width: 768px) {
+	#resText .left {
+		width: 100%;
+	    height: 200px;
+		margin: 1% 0%;
+		padding: 1% 5%;
+		width: 90%;
+	    background:lightgray;
+	    float: left;
+	    /*vertical-align: middle;*/
+	}
+	
+	#resText .right {
+	    width: 100%;
+	    height: 200px;
+		margin: 1% 0%;
+		padding: 1% 5%;
+		width: 90%;
+	    background: lightgray;
+	    float: left;
+	}
+}
+
