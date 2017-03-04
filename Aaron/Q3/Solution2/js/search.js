@@ -6,10 +6,15 @@ $(document).ready(function(){
 	});
 });
 function clicksearch(){
+	$("#myDiv").empty();
+	$("#repo_list").empty();
 	$.ajax({
 		type: "GET",
         url: "https://api.github.com/search/repositories?q="+$("#searchbox").val(),
 		dataType:'json',
+		beforeSend:function(XMLHttpRequest){
+         	$("#loading").html("<img src='img/loading.gif' />"); 
+         }, 
 		success: function(msg){
 	   	$("#myDiv").html("<h2>Top 10 repositories!</h2>");
 	   	var htmlstr=""
@@ -22,9 +27,12 @@ function clicksearch(){
 		$("#content"+i).text(msg.items[i].description);
 		$("#link"+i).attr("href",msg.items[i].html_url); 
 		});
-//		},
-//		error: function(data, status, e){ 
-//   	alert("error"); 
-   	}
+		},
+		complete:function(XMLHttpRequest,textStatus){ 
+             $("#loading").empty(); 
+        }, 
+		error: function(data, status, e){ 
+     	alert("error"); 
+   		},
 	});
 }
