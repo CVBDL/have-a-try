@@ -8,18 +8,20 @@
 		<title></title>
 	</head>
 	<body>
+		<div id="parent">
 		<form name="form" id="myForm">
 			<input type="search" placeholder="Keywords" id="searchbox" results="10"/>
 			<input type="submit" name="searchbtn" value="Search" onclick="clicksearch()"/>
 		</form>
 		<br/>
-		<center>
+		<!--<center>-->
 			<div id="loading"></div>
-		</center>
+		<!--</center>-->
 		<div id="wrapper">
 		<div id="mainDiv">
 		<div id="myDiv"></div>
 		<div id="repo_list"></div>
+		</div>
 		</div>
 		</div>
 		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
