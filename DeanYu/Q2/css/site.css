@@ -1,0 +1,21 @@
+﻿#container {
+    text-align: center;
+    margin: 0px auto;
+}
+
+#container div {
+        height: auto;
+        margin: 2px auto;
+        border: 1px  gray;
+        display: inline-block;
+    }
+
+.cell {
+    width: 40%;
+}
+
+@media screen and (max-width: 768px) {
+    .cell {
+        width: 80%;
+    }
+}
