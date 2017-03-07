@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" id="checkMain" onclick="checkAll(this.id)"/>Main checkbox<br />
+		&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="checkG1"/>Checkbox 1<br />
+		&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="checkG1"/>Checkbox 2<br />
+		&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="checkG1"/>Checkbox 3<br />
+		&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="checkG1"/>Checkbox 4<br />
+		&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name="checkG1"/>Checkbox 5<br />
+		
+		<script>
+			function checkAll(){
+			//var checkMain=document.getElementsByName("checkMain");
+				var checkG1=document.getElementsByName("checkG1");
+				if (document.getElementById("checkMain").checked){
+					for (var i=0; i<checkG1.length; i++){
+						checkG1[i].checked=true;
+						}
+				}
+				else{
+					for (var i=0; i<checkG1.length; i++){
+					checkG1[i].checked=false;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

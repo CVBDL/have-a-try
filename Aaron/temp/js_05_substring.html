@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="stringinput" onload="pageload()"/>
+		<script>
+			var str1="1234567890";
+			document.getElementById("stringinput").value=str1;
+			function pageload(){
+			var str2=document.getElementById("stringinput").value.substring(1);
+			var str3=document.getElementById("stringinput").value.split("");
+			var str4=str2+str3[0];
+			document.getElementById("stringinput").value=str4;
+			}
+			setInterval("pageload()",300);
+		</script>
+	</body>
+</html>

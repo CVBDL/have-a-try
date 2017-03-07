@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" name="checkG1" value="1" />Value 1
+		<input type="checkbox" name="checkG1" value="2" />Value 2
+		<input type="checkbox" name="checkG1" value="3" />Value 3
+		<input type="checkbox" name="checkG1" value="4" />Value 4
+		<input type="checkbox" name="checkG1" value="5" />Value 5
+		<input type="text" id="sumvalue" />
+		<input type="button" value="Sum" onclick="getsum()" />
+		<script>
+			function getsum(){
+				var checkG1=document.getElementsByName("checkG1");
+				var sum=0;
+				for (var i=0; i<checkG1.length; i++){
+					if (checkG1[i].checked){
+						sum += Number(checkG1[i].value);
+					}
+				}
+				document.getElementById("sumvalue").value=sum;
+				if (sum==0){
+					alert ("请至少选择一个复选框");
+				}
+			}
+		</script>
+	</body>
+</html>
