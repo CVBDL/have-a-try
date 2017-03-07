@@ -1,0 +1,70 @@
+﻿.center {
+    margin: 0px auto;
+    text-align: center;
+}
+
+.searchBox {
+    /*border: none;*/
+    padding: 0px;
+    display: inline-block;
+    border: solid;
+    border-width: 2px;
+    border-color: gray;
+    border-radius: 5px;
+    min-width: 300px;
+    height: 39px;
+    margin: 0px 20px;
+}
+
+.searchBox-icon {
+    margin: 0px;
+    float: left;
+    width: 39px;
+    height: 39px;
+    background-image: url(../img/search.png);
+}
+
+.searchBox-input {
+    margin: 0px 2px;
+    padding: 0px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: larger;
+    color: gray;
+}
+
+.btn-default {
+    white-space: nowrap;
+    vertical-align: inherit;
+    cursor: pointer;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    font-size: 14px;
+    display: inline-block;
+    padding: 6px 12px;
+    height: 39px;
+}
+
+#container {
+    text-align: center;
+    margin: 0px auto;
+}
+
+    #container div {
+        height: auto;
+        margin: 2px auto;
+        border: solid 1px gray;
+        display: inline-block;
+    }
+
+.cell {
+    width: 40%;
+}
+
+@media screen and (max-width: 768px) {
+    .cell {
+        width: 80%;
+    }
+}
