@@ -46,6 +46,19 @@ header{
 	float: right;
 }
 
+.userQuery{
+	text-align: left;
+	margin-top: 10px;
+}
+
+.userQuery .queryButton{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.userQuery .queryText{
+}
+
 @media screen and (max-width: 768px) {
 	#resText .left {
 		width: 100%;
@@ -54,7 +67,6 @@ header{
 		width: 90%;
 	    background:lightgray;
 	    float: left;
-	    /*vertical-align: middle;*/
 	}
 	
 	#resText .right {
