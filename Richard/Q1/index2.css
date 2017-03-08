@@ -2,9 +2,8 @@
 * @Author: PLi5
 * @Date:   2017-02-23 16:48:28
 * @Last Modified by:   Peisong
-* @Last Modified time: 2017-03-02 16:53:17
+* @Last Modified time: 2017-03-08 16:25:58
 */
-
 
 .cell {
     display: inline;
@@ -23,6 +22,10 @@
 .spinner {
     margin: 100px auto 0;
     width: 150px;
+    text-align: center;
+}
+
+.searchBox {
     text-align: center;
 }
 
