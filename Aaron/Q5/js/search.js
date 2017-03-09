@@ -5,7 +5,8 @@ $(document).ready(function() {
 		ev.preventDefault();
 	});
 });
-
+var allMsg="";
+var curNum=9;
 function clicksearch() {
 	$("#myDiv").empty();
 	$("#repo_list").empty();
@@ -21,6 +22,7 @@ function clicksearch() {
 			$("#loading").empty();
 		},
 		success: function(msg) {
+			allMsg = msg;
 			if(msg.total_count < 10) {
 				var sum = msg.total_count;
 			} else {
@@ -42,9 +44,9 @@ function clicksearch() {
 				$("#link" + i).attr("href", msg.items[i].html_url);
 			});
 			if(msg.total_count > 10) {
-				console.log(msg.total_count);
 				$("#more").html("<input type='button' id='morebtn' value='Show More' class='waves-effect waves-light btn' onclick='showmore()'/>");
 			}
+			return allMsg;
 		},
 		error: function(data, status, e) {
 			alert("error");
@@ -53,5 +55,21 @@ function clicksearch() {
 }
 
 function showmore() {
-	console.log("more is coming");
+	var exthtml="";
+	for (var j=0; j<2; j++){
+		var ran=parseInt(10*Math.random());
+		curNum += 1;
+		exthtml+='<div class="row"><div class="col s12 m7"><div class="small card"><div class="card-image"><img src="./img/' + ran + '.jpg"><span class="card-title" id="title' + curNum + '"></span></div><div class="card-content" id="content' + curNum + '"><p></p></div><div class="card-action"><a id="link' + curNum + '" href="#">Link To</a></div></div></div></div>';
+	if (curNum+1>=allMsg.total_count){
+		$("#more").empty();
+		break;
+	}
+	}
+	$("#repo_list").append(exthtml);
+	for (var x=0; x<2; x++){
+		var test=curNum-x;
+		$("#title" + test).text(allMsg.items[test].full_name);
+		$("#content" + test).text(allMsg.items[test].description);
+		$("#link" + test).attr("href", allMsg.items[test].html_url);
+	}
 }
