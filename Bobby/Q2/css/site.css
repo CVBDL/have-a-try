@@ -1,44 +1,40 @@
-
-#status{
+#status {
     text-align: center;
 }
 
-.contentTable{
-    margin:0 auto;
+.contentTable {
+    margin: 0 auto;
     text-align: center;
 }
 
-.contentBlock{
+.contentBlock {
     width: 40%;
     display: inline-block;
     height: 100px;
-    margin: 1%;
+    margin: 2px;
     vertical-align: bottom
 }
 
-p{
-    vertical-align: center;   
+p {
+    vertical-align: center;
 }
 
 @media screen and (max-device-width: 768px) {
-    .contentBlock{
+    .contentBlock {
         width: 70%;
-        display: inline-block;   
+        display: inline-block;
         height: 100px;
-        margin: 1%;
+        margin: 2px;
         vertical-align: bottom
     }
-
 }
 
 @media screen and (max-width: 768px) {
-    .contentBlock{
+    .contentBlock {
         width: 70%;
-        display: inline-block;   
+        display: inline-block;
         height: 100px;
-        margin: 1%;
+        margin: 2px;
         vertical-align: bottom
     }
-
 }
-
