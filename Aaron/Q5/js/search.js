@@ -13,7 +13,7 @@ function clicksearch() {
 	$("#more").empty();
 	$.ajax({
 		type: "GET",
-		url: "https://api.github.com/search/repositories?q=" + $("#searchbox").val() + "?per_page=100",
+		url: "https://api.github.com/search/repositories?q=" + $("#searchbox").val() + "&page=1&per_page=100",
 		dataType: 'json',
 		beforeSend: function(XMLHttpRequest) {
 			$("#loading").html("<img src='img/loading.gif' />");
