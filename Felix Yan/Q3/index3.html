@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GitHub Repositories Search</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common3.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+	<script type="text/javascript" src="js/main3.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="Github Repositories">
+	<meta charset="utf-8">
+</head>
+<body>
+<div>
+  <center>
+	<div>
+		<h3>GitHub Repositories Search Page</h3>
+		<br>
+	</div>
+	<div class="container">
+				<input class="search_input" id="inputSuccess" type="text" placeholder="javascript"></input> 
+				<button type="submit" class="btn btn-info btn-md" onclick="doSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+	</div>
+  </center>
+	<div  class="container">
+		<div class="row searchResult">
+		</div>
+
+		<div class="show_items_count">
+			<button type="button" class="btn btn-outline-primary" onclick="updateItemsShownCount(event, 5)">5</button>
+			<button type="button" class="btn btn-outline-primary btn_highlight" onclick="updateItemsShownCount(event, 10)">10</button>
+			<button type="button" class="btn btn-outline-primary" onclick="updateItemsShownCount(event, 20)">20</button>
+			<button type="button" class="btn btn-outline-primary" onclick="updateItemsShownCount(event, 30)">30</button>
+		</div>
+	</div>
+</div>
+</body>
+</html>
