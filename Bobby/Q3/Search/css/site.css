@@ -76,13 +76,3 @@ body {
         vertical-align: bottom
     }
 }
-
-@media screen and (max-device-width: 768px) {
-    .contentBlock {
-        width: 70%;
-        display: inline-block;
-        height: 100px;
-        margin: 1%;
-        vertical-align: bottom
-    }
-}
