@@ -1,50 +1,65 @@
-
-body{
+body {
     margin: 0px;
 }
 
-.contentTable{
-    margin:0 auto;
+.contentTable {
+    margin: 0 auto;
     text-align: center;
 }
 
-#searchDiv{
+#searchDiv {
     margin: 10px;
 }
 
 .progress {
     display: block;
     width: 100%;
-    border: none;  
+    border: none;
     background-color: white;
     color: green;
     height: 3px;
     margin: 0px;
 }
 
-.progress::-moz-progress-bar { background:green; }
-.progress::-webkit-progress-bar { background: white; }
-.progress::-webkit-progress-value  { background: green; }
+.progress::-moz-progress-bar {
+    background: green;
+}
+
+.progress::-webkit-progress-bar {
+    background: white;
+}
+
+.progress::-webkit-progress-value {
+    background: green;
+}
 
 .progressDone {
     display: block;
     width: 100%;
-    border: none;  
+    border: none;
     background-color: white;
     color: white;
     height: 3px;
     margin: 0px;
 }
 
-.progressDone::-moz-progress-bar { background:white; }
-.progressDone::-webkit-progress-bar { background: white; }
-.progressDone::-webkit-progress-value  { background: white; }
+.progressDone::-moz-progress-bar {
+    background: white;
+}
 
-#keyword{
+.progressDone::-webkit-progress-bar {
+    background: white;
+}
+
+.progressDone::-webkit-progress-value {
+    background: white;
+}
+
+#keyword {
     width: 40%;
 }
 
-.contentBlock{
+.contentBlock {
     width: 40%;
     display: inline-block;
     height: 100px;
@@ -53,23 +68,21 @@ body{
 }
 
 @media screen and (max-width: 768px) {
-    .contentBlock{
+    .contentBlock {
         width: 70%;
-        display: inline-block;   
+        display: inline-block;
         height: 100px;
         margin: 1%;
         vertical-align: bottom
     }
-
 }
 
 @media screen and (max-device-width: 768px) {
-    .contentBlock{
+    .contentBlock {
         width: 70%;
-        display: inline-block;   
+        display: inline-block;
         height: 100px;
         margin: 1%;
         vertical-align: bottom
     }
-
 }
