@@ -1,0 +1,30 @@
+
+.demo tr td{
+	border : 1px solid green;
+	border-collapse: separate;
+	margin:4px;	
+	width: 50%;
+}
+
+
+.d_content{
+	text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+	.demo tr td {
+	margin: 1%;
+    width: 97%;
+	}
+	table {
+		border: 2px solid green;
+		display: inline-block;
+		align:center;
+	}
+	table td {
+		display: block;
+		text-align: left;
+		font-size: 14px;
+	}
+	
+}
