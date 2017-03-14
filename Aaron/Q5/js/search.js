@@ -17,10 +17,10 @@ function clicksearch() {
     url: "https://api.github.com/search/repositories?q=" + $("#searchbox").val() + "&page=1&per_page=100",
     dataType: 'json',
     beforeSend: function(XMLHttpRequest) {
-      $("#loading").html("<img src='img/loading.gif' />");
+			$("#loading").show();
     },
     complete: function(XMLHttpRequest, textStatus) {
-      $("#loading").empty();
+      $("#loading").hide();
     },
     success: function(msg) {
       allMsg = msg;
@@ -29,9 +29,11 @@ function clicksearch() {
       } else {
         sum = 10;
       }
-      if(sum != 0) {
-        $("#myDiv").html('<h2>Top ' + sum + ' repositories!</h2>');
-      } else {
+      if(sum != 0 && sum < 10) {
+        $("#myDiv").html('<h2>Totally ' + sum + ' repositories found!</h2>');
+      } else if (sum >= 10){
+      	$("#myDiv").html('<h2>Top 10 repositories!</h2>');
+      } else{
         $("#myDiv").html("<h2>No results found!</h2>");
       }
       var htmlstr = ""
