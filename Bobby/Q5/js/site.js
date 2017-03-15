@@ -1,35 +1,45 @@
 'use strict'
 
 
+
+var dataItems = null;
 $(document).ready(function () {
+
   $("#progress").attr("value", 0);
   $("#searchButton").click(queryData);
+  $("#showMoreBtn").click(showMoreResult);
 
 });
 
 function queryData() {
-  var argKeyword = $("#keyword").val();
-  var progressInterval = null;
-  startQuery(progressInterval);
 
-  var queryUrl = "https://api.github.com/search/repositories?q=" + argKeyword;
+  let argKeyword = $("#keyword").val();
+  if (null == argKeyword || argKeyword == "") {
+    return;
+  }
+
+  let progressSetter = null;
+  startQuery(progressSetter);
+
+  let queryUrl = "https://api.github.com/search/repositories?q=" + argKeyword;
   $.getJSON(queryUrl, function (data, textStatus, jqXHR) {
-    if ("success" != textStatus) {
+    if ('success' != textStatus) {
       return;
     }
-
-    queryDone(progressInterval);
+    queryDone(progressSetter);
     displayData(data);
-  })
+  }
+  )
 }
 
 
-function startQuery(progressInterval) {
-  var progressBar = $("#progress");
+function startQuery(setter) {
+
+  let progressBar = $("#progress");
   progressBar.attr("value", 0);
   progressBar.removeClass("progressDone").addClass('progress');
-  var nPos = 0;
-  progressInterval = setInterval(function () {
+  let nPos = 0;
+  setter = setInterval(function () {
 
     nPos += 10;
     progressBar.attr("value", nPos);
@@ -41,18 +51,20 @@ function startQuery(progressInterval) {
 }
 
 function queryDone(setter) {
-  var progressBar = $("#progress");
+  let progressBar = $("#progress");
   progressBar.removeClass("progress").addClass('progressDone');
   progressBar.attr("value", 1000);
   clearInterval(setter);
 }
 
 function displayData(data) {
+
   if (null == data) {
     return;
   }
-
-  var dataCount = data.items.length, index = 0;
+  dataItems = data.items;
+  let dataCount = data.items.length;
+  let index = 0;
 
   $('#tab').children().each(function () {
 
@@ -61,8 +73,17 @@ function displayData(data) {
     if (index >= dataCount) {
       return;
     }
-
   });
 }
+
+function showMoreResult() {
+  let currentCount = $('#tab').children().length;
+  let itemCount = dataItems.length;
+
+  if (itemCount > currentCount) {
+    
+  }
+}
+
 
 
