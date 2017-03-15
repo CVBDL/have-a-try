@@ -5,8 +5,7 @@ $(document).ready(function() {
     ev.preventDefault();
   });
 });
-var allMsg = "";
-var curNum = 9;
+var allMsg = "", curNum = 9;
 
 function clicksearch() {
   $("#myDiv").empty();
@@ -49,7 +48,6 @@ function clicksearch() {
       if(msg.total_count > 10) {
         $("#more").html("<input type='button' id='morebtn' value='Show More' class='waves-effect waves-light btn' onclick='showmore()'/>");
       }
-      return allMsg;
     },
     error: function(data, status, e) {
       alert("error");
