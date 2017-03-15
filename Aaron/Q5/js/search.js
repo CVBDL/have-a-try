@@ -8,6 +8,7 @@ $(document).ready(function() {
 var allMsg = "", curNum = 9;
 
 function clicksearch() {
+	curNum = 9;
   $("#myDiv").empty();
   $("#repo_list").empty();
   $("#more").empty();
@@ -61,16 +62,19 @@ function showmore() {
     var ran = parseInt(10 * Math.random());
     curNum += 1;
     exthtml += '<div class="row"><div class="col s12 m7"><div class="small card"><div class="card-image"><img src="./img/' + ran + '.jpg"><span class="card-title" id="title' + curNum + '"></span></div><div class="card-content" id="content' + curNum + '"><p></p></div><div class="card-action"><a id="link' + curNum + '" href="#">Link To</a></div></div></div></div>';
-    if(curNum + 1 >= allMsg.total_count) {
+    if(curNum + 1 == allMsg.total_count) {
       $("#more").empty();
       break;
     }
   }
   $("#repo_list").append(exthtml);
-  for(var x = 0; x < 2; x++) {
+  for(var x = 1; x >= 0; x--) {
     var test = curNum - x;
     $("#title" + test).text(allMsg.items[test].full_name);
     $("#content" + test).text(allMsg.items[test].description);
     $("#link" + test).attr("href", allMsg.items[test].html_url);
+    if (test + 1 == allMsg.total_count) {
+    	break;
+    }
   }
 }
