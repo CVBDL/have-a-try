@@ -56,6 +56,7 @@ function displayData(data) {
 
   $('#tab').children().each(function () {
 
+    $(this).html("");
     $(this).html('<p>' + data.items[index]['full_name'] + '<br />' + data.items[index]['description'] + '</p>').css('border', 'solid 2px #000000');
     index++;
     if (index >= dataCount) {
