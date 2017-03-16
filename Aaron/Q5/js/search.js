@@ -17,10 +17,10 @@ function clicksearch() {
     url: "https://api.github.com/search/repositories?q=" + $("#searchbox").val() + "&page=1&per_page=100",
     dataType: 'json',
     beforeSend: function(XMLHttpRequest) {
-			$("#loading").show();
+			$("#loading").html("<img src='img/loading.gif'/>");
     },
     complete: function(XMLHttpRequest, textStatus) {
-      $("#loading").hide();
+      $("#loading").empty();
     },
     success: function(msg) {
       allMsg = msg;
