@@ -51,7 +51,11 @@ function clicksearch() {
       }
     },
     error: function(data, status, e) {
-      alert("error");
+      if ($("#searchbox").val() == "") {
+        alert ("Please input some key words.")
+      } else {
+        alert("Some error occurs.");
+      }
     },
   });
 }
@@ -61,8 +65,9 @@ function showmore() {
   for(var j = 0; j < 2; j++) {
     var ran = parseInt(10 * Math.random());
     curNum += 1;
+    var displayNum = curNum + 1;
     exthtml += '<div class="row"><div class="col s12 m7"><div class="small card"><div class="card-image"><img src="./img/' + ran + '.jpg"><span class="card-title" id="title' + curNum + '"></span></div><div class="card-content" id="content' + curNum + '"><p></p></div><div class="card-action"><a id="link' + curNum + '" href="#">Link To</a></div></div></div></div>';
-    if(curNum + 1 == allMsg.total_count) {
+    if(displayNum == allMsg.total_count) {
       $("#more").empty();
       break;
     }
@@ -77,4 +82,10 @@ function showmore() {
     	break;
     }
   }
+  if (displayNum != allMsg.total_count) {
+    $("h2").html("Top " + displayNum + " repositories!");  
+  } else {
+    $("h2").html("Totally " + displayNum + " repositories found!");
+  }
+  
 }
