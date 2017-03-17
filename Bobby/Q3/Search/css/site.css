@@ -49,7 +49,7 @@ body{
     margin: 1%;
     vertical-align: bottom;
     height: 100px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 

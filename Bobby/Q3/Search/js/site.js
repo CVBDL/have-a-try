@@ -1,20 +1,26 @@
 'use strict'
 
-
 $(document).ready(function () {
-  $("#progress").attr("value", 0);
-  $("#searchButton").click(queryData);
-
+  $('#progress').attr('value', 0);
+  $('#searchButton').click(queryData);
+  $('#keyword').keypress(function (event) {
+    if (13 == event.keyCode) {
+        queryData();
+    }
+  });
 });
 
 function queryData() {
-  var argKeyword = $("#keyword").val();
+  var keyWord = $('#keyword').val();
+  if (!keyWord || keyWord.length == 0) {
+    return ;
+  }
   var progressInterval = null;
-  startQuery(progressInterval);
 
-  var queryUrl = "https://api.github.com/search/repositories?q=" + argKeyword;
+  startQuery(progressInterval);  
+  var queryUrl = 'https://api.github.com/search/repositories?q=' + keyWord;
   $.getJSON(queryUrl, function (data, textStatus, jqXHR) {
-    if ("success" != textStatus) {
+    if ('success' != textStatus) {
       return;
     }
 
@@ -24,27 +30,24 @@ function queryData() {
 }
 
 
-function startQuery(progressInterval) {
-  var progressBar = $("#progress");
-  progressBar.attr("value", 0);
-  progressBar.removeClass("progressDone").addClass('progress');
-  var nPos = 0;
-  progressInterval = setInterval(function () {
+function startQuery(interval) {
+  var progressBar = $('#progress');
+  progressBar.removeClass('progressDone').addClass('progress').attr('value', 0);
 
+  var nPos = 0;
+  interval = setInterval(function () {
     nPos += 10;
-    progressBar.attr("value", nPos);
+    progressBar.attr('value', nPos);
     if (nPos >= 900) {
-      clearInterval(setter);
+      clearInterval(interval);
     }
 
   }, 10)
 }
 
-function queryDone(setter) {
-  var progressBar = $("#progress");
-  progressBar.removeClass("progress").addClass('progressDone');
-  progressBar.attr("value", 1000);
-  clearInterval(setter);
+function queryDone(interval) {
+  $('#progress').removeClass('progress').addClass('progressDone').attr('value', 1000);
+  clearInterval(interval);
 }
 
 function displayData(data) {

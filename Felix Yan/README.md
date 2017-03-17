@@ -1,11 +1,12 @@
-# This is just a test
+# Training Projects
 
-## Part 1
+## All Projects
 
-* hello
-* hello2
+* Q1
+* Q2
+* Q3
 
-## Part 2
+## Author Information
 
-* how are you?
-
+* Felix, developer and UX design
+* Focus on UX design and UI technology what includs UI implemention in all platforms, graphics render tech both on 2D and 3D and graphics editor. 
