@@ -8,7 +8,7 @@ $(document).ready(function() {
 var allMsg = "", curNum = 9;
 
 function clicksearch() {
-	curNum = 9;
+  curNum = 9;
   $("#myDiv").empty();
   $("#repo_list").empty();
   $("#more").empty();
@@ -17,7 +17,7 @@ function clicksearch() {
     url: "https://api.github.com/search/repositories?q=" + $("#searchbox").val() + "&page=1&per_page=100",
     dataType: 'json',
     beforeSend: function(XMLHttpRequest) {
-			$("#loading").html("<img src='img/loading.gif'/>");
+      $("#loading").html("<img src='img/loading.gif'/>");
     },
     complete: function(XMLHttpRequest, textStatus) {
       $("#loading").empty();
@@ -32,7 +32,7 @@ function clicksearch() {
       if(sum != 0 && sum < 10) {
         $("#myDiv").html('<h2>Totally ' + sum + ' repositories found!</h2>');
       } else if (sum >= 10){
-      	$("#myDiv").html('<h2>Top 10 repositories!</h2>');
+        $("#myDiv").html('<h2>Top 10 repositories!</h2>');
       } else{
         $("#myDiv").html("<h2>No results found!</h2>");
       }
@@ -79,7 +79,7 @@ function showmore() {
     $("#content" + test).text(allMsg.items[test].description);
     $("#link" + test).attr("href", allMsg.items[test].html_url);
     if (test + 1 == allMsg.total_count) {
-    	break;
+      break;
     }
   }
   if (displayNum != allMsg.total_count) {
@@ -87,5 +87,5 @@ function showmore() {
   } else {
     $("h2").html("Totally " + displayNum + " repositories found!");
   }
-  
+
 }
