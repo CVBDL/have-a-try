@@ -13,7 +13,7 @@ $(document).ready(function () {
 		}
        
 		var url = "https://api.github.com/search/repositories?q=" + searchValue;
-		alert(url);
+		
 		$.get(url, function (data) {
 			for (var i = 0; i < 10; i++) {
 				$('.Container').append('<div class="repoContainer"></div>');
