@@ -5,7 +5,7 @@ $(document).ready(function () {
   $('#searchButton').click(queryData);
   $('#keyword').keypress(function (event) {
     if (13 == event.keyCode) {
-        queryData();
+      queryData();
     }
   });
 });
@@ -13,11 +13,11 @@ $(document).ready(function () {
 function queryData() {
   var keyWord = $('#keyword').val();
   if (!keyWord || keyWord.length == 0) {
-    return ;
+    return;
   }
   var progressInterval = null;
 
-  startQuery(progressInterval);  
+  startQuery(progressInterval);
   var queryUrl = 'https://api.github.com/search/repositories?q=' + keyWord;
   $.getJSON(queryUrl, function (data, textStatus, jqXHR) {
     if ('success' != textStatus) {
@@ -59,7 +59,6 @@ function displayData(data) {
 
   $('#tab').children().each(function () {
 
-    $(this).html("");
     $(this).html('<p>' + data.items[index]['full_name'] + '<br />' + data.items[index]['description'] + '</p>').css('border', 'solid 2px #000000');
     index++;
     if (index >= dataCount) {
