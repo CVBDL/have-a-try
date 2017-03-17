@@ -3,13 +3,22 @@
 $(document).ready(function () {
   $('#progress').attr('value', 0);
   $('#searchButton').click(queryData);
+  $('#keyword').keypress(function (event) {
+    if (13 == event.keyCode) {
+        queryData();
+    }
+  });
 });
 
 function queryData() {
+  var keyWord = $('#keyword').val();
+  if (!keyWord || keyWord.length == 0) {
+    return ;
+  }
   var progressInterval = null;
-  startQuery(progressInterval);
 
-  var queryUrl = 'https://api.github.com/search/repositories?q=' + $('#keyword').val();
+  startQuery(progressInterval);  
+  var queryUrl = 'https://api.github.com/search/repositories?q=' + keyWord;
   $.getJSON(queryUrl, function (data, textStatus, jqXHR) {
     if ('success' != textStatus) {
       return;
