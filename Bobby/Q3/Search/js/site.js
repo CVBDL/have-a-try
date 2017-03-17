@@ -1,10 +1,8 @@
 'use strict'
 
-
 $(document).ready(function () {
   $("#progress").attr("value", 0);
   $("#searchButton").click(queryData);
-
 });
 
 function queryData() {
@@ -26,11 +24,10 @@ function queryData() {
 
 function startQuery(progressInterval) {
   var progressBar = $("#progress");
-  progressBar.attr("value", 0);
-  progressBar.removeClass("progressDone").addClass('progress');
+  progressBar.removeClass("progressDone").addClass("progress").attr("value", 0);
+
   var nPos = 0;
   progressInterval = setInterval(function () {
-
     nPos += 10;
     progressBar.attr("value", nPos);
     if (nPos >= 900) {
@@ -41,9 +38,7 @@ function startQuery(progressInterval) {
 }
 
 function queryDone(setter) {
-  var progressBar = $("#progress");
-  progressBar.removeClass("progress").addClass('progressDone');
-  progressBar.attr("value", 1000);
+  $("#progress").removeClass("progress").addClass("progressDone").attr("value", 1000);
   clearInterval(setter);
 }
 
