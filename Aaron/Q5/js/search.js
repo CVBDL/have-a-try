@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 $(document).ready(function() {
   $("#myForm").on("submit", function(ev) {
@@ -7,7 +7,7 @@ $(document).ready(function() {
 });
 var allMsg = "", curNum = 9;
 
-function clicksearch() {
+$("#searchbtn").click(function() {
   curNum = 9;
   $("#myDiv").empty();
   $("#repo_list").empty();
@@ -46,9 +46,9 @@ function clicksearch() {
         $("#content" + i).text(msg.items[i].description);
         $("#link" + i).attr("href", msg.items[i].html_url);
       });
-      if(msg.total_count > 10) {
-        $("#more").html("<input type='button' id='morebtn' value='Show More' class='waves-effect waves-light btn' onclick='showmore()'/>");
-      }
+      	if(msg.total_count > 10) {
+        $("#more").html("<input type='button' id='morebtn' value='Show More' class='waves-effect waves-light btn'/>");
+      	}
     },
     error: function(data, status, e) {
       if ($("#searchbox").val() == "") {
@@ -58,9 +58,8 @@ function clicksearch() {
       }
     },
   });
-}
-
-function showmore() {
+});
+$("#more").on("click","#morebtn",function(){
   var exthtml = "";
   for(var j = 0; j < 2; j++) {
     var ran = parseInt(10 * Math.random());
@@ -88,4 +87,4 @@ function showmore() {
     $("h2").html("Totally " + displayNum + " repositories found!");
   }
 
-}
+});
