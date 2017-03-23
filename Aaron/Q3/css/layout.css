@@ -60,10 +60,12 @@
 
 
 @media screen and (max-width: 768px) {
-    .row:nth-child(2n),.row:nth-child(2n+1), #myDiv, #mainDiv {
+  .row:nth-child(2n), .row:nth-child(2n+1), #myDiv, #mainDiv {
     flex: 0 0 100%;
-}
-.row:nth-child(2n+1){
+  }
+
+  .row:nth-child(2n+1) {
     background: #FFFFFF;
+  }
 }
 

@@ -7,81 +7,85 @@ $(document).ready(function() {
 });
 
 var allMsg = "",
-  curNum = 9,
+  // curNum = 9,
   repoIndex = 0,
   curMaxNum = 0,
   startIndex = 0,
-  endIndex = 0;
+  endIndex = 0,
+  curPg = 1,
+  htmlstr = "";
 
-$("#searchbtn").click(function() {
-  curNum = 9;
+$("#myForm").on("click", "#searchbtn", function(){
+  // curNum = 9;
   $("#myDiv").empty();
   $("#repo_list").empty();
   $("#more").empty();
-  htmlrequest(1,15);
+  curPg = 1;
+  htmlrequest(curPg,15);
 });
 
 $("#more").on("click", "#morebtn", function() {
   var exthtml = insertHTML(2);
   $("#repo_list").append(exthtml);
   endIndex = curMaxNum + 2;
-  curMaxNum = showResult(curMaxNum, endIndex);
+  showResult(curMaxNum, endIndex);
 
   if(repoIndex != allMsg.total_count) {
     $("h2").html("Top " + repoIndex + " repositories!");
   } else {
     $("h2").html("Totally " + repoIndex + " repositories found!");
   }
-
-//if (curMaxNum%12 == 0){
-//  htmlrequest(2,15);
-//}
 });
+
+function view(allMsg) {
+  if(allMsg.total_count != 0 && allMsg.total_count < 10) {
+    curMaxNum = allMsg.total_count;
+    $("#myDiv").html('<h2>Totally ' + curMaxNum + ' repositories found!</h2>');
+  } else if (allMsg.total_count >= 10){
+    curMaxNum = 10;
+    $("#myDiv").html('<h2>Top 10 repositories!</h2>');
+  } else {
+    $("#myDiv").html("<h2>No results found!</h2>");
+  }
+
+  insertHTML(curMaxNum);
+  $("#repo_list").html(htmlstr);
+  showResult(startIndex, curMaxNum);
+}
 
 function htmlrequest(p,n) {
   $.ajax({
     type: "GET",
     url: "https://api.github.com/search/repositories?q=" + $("#searchbox").val() + "&page=" + p + "&per_page=" + n,
     dataType: 'json',
-    beforeSend: function(XMLHttpRequest) {
+    beforeSend: function() {
       $("#loading").html("<img src='img/loading.gif'/>");
     },
     success: function(msg) {
       allMsg = msg;
-      if(msg.total_count < 10) {
-        curMaxNum = msg.total_count;
-      } else {
-        curMaxNum = 10;
-      }
-      if(curMaxNum != 0 && curMaxNum < 10) {
-        $("#myDiv").html('<h2>Totally ' + curMaxNum + ' repositories found!</h2>');
-      } else if(curMaxNum >= 10) {
-        $("#myDiv").html('<h2>Top 10 repositories!</h2>');
-      } else {
-        $("#myDiv").html("<h2>No results found!</h2>");
-      }
-      var htmlstr = insertHTML(curMaxNum);
-      $("#repo_list").html(htmlstr);
-      curMaxNum = showResult(startIndex, curMaxNum);
     },
-    complete: function(XMLHttpRequest, textStatus) {
+    complete: function() {
       $("#loading").empty();
+      view(allMsg);
     },
-    error: function(data, status, e) {
+    error: function() {
       if($("#searchbox").val() == "") {
         alert("Please input some key words.")
       } else {
         alert("Some error occurs.");
       }
-    },
+    }
   });
 }
 
 function insertHTML(times) {
-  var htmlstr = "";
+  htmlstr = "";
   for(var i = 0; i < times; i++) {
     var ran = parseInt(10 * Math.random());
-    htmlstr += '<div class="row"><div class="col s12 m7"><div class="small card"><div class="card-image"><img src="./img/' + ran + '.jpg"><span class="card-title" id="title' + repoIndex + '"></span></div><div class="card-content" id="content' + repoIndex + '"><p></p></div><div class="card-action"><a id="link' + repoIndex + '" href="#">Link To</a></div></div></div></div>'
+    htmlstr += '<div class="row"><div class="col s12 m7"><div class="small card"><div class="card-image">' +
+      '<img src="./img/' + ran + '.jpg"><span class="card-title" id="title' + repoIndex + '"></span></div>' +
+      '<div class="card-content" id="content' + repoIndex + '"><p></p></div>' +
+      '<div class="card-action"><a id="link' + repoIndex + '" href="#">Link To</a></div></div></div></div>';
     repoIndex += 1;
     if(repoIndex == allMsg.total_count) {
       $("#more").empty();
@@ -91,15 +95,17 @@ function insertHTML(times) {
 }
 
 function showResult(st, ed) {
-  for(var i = st; i < ed; i++) {
-    //	$(".row div:gt(startIndex)").each(function(startIndex) {
+  for (var i = st; i < ed; i++) {
     $("#title" + i).text(allMsg.items[i].full_name);
     $("#content" + i).text(allMsg.items[i].description);
     $("#link" + i).attr("href", allMsg.items[i].html_url);
+    curMaxNum = i + 1;
+    if (curMaxNum % 15 == 0){
+      curPg += 1;
+      htmlrequest(curPg,15);
+    }
   }
-  if(allMsg.total_count > 10) {
+  if (allMsg.total_count > 10) {
     $("#more").html("<input type='button' id='morebtn' value='Show More' class='waves-effect waves-light btn'/>");
   }
-  //	console.log(addRepo);
-  return ed;
 }
