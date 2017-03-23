@@ -6,68 +6,110 @@
 * Brace: Right in new line.
 
 ## HTML Tags
-### 1. <html></html>
+```javascript
+    <html>
+    </html>
+```
 Root element of html document.
-### 1. <head></head>
+```javascript
+    <head>
+    </head>
+```
 Container of all head elements.
-#### 1. <meta>
+```javascript
+    <meta>
+```
 Information of data using by browser.
-#### 1. <title></title>
+```javascript
+    <title>
+    </title>
+```
 Title of document, which is necessary.
-#### 1. <link>
+```javascript
+    <link>
+```
 Link external resources like css.
-
-### 1. <body></body>
+```javascript
+    <body>
+    </body>
+```
 Body of html document, contains all content like text, hyperlink, picture, table and list etc.
-### 1. <div></div>
+```javascript
+    <div>
+    </div>
+```
 Division and section of html document.
-### 1. <script></script>
+```javascript
+    <script>
+    </script>
+```
 Include script file.
 
 ## CSS Properties
-### 1. margin
+### margin
 Adjust margin(outer distance) of top, right, down and left.
-### 1. padding
+### padding
 Adjust padding(inner distance) of top, right, down and left.
-### 1. text-align
+### text-align
 Aligning method of text.
-### 1. font-size
+### font-size
 Font size, can use relative value like em.
-### 1. color
+### color
 Color.
-### 1. background
+### background
 All background properties.
-### 1. width
+### width
 Width of element.
-### 1. height
+### height
 Height of element.
-### 1. overflow
+### overflow
 Content display behavior when it overflows its parent element.
-### 1. word-wrap:
+### word-wrap:
 Word wrap method when sentence is too long to be in one line.
-### 1. line-height
+### line-height
 Line height of element.
-### 1. float
+### float
 Element floating method.
-### 1. background-color
+### background-color
 Backgroud color.
-### 1. text-transform
+### text-transform
 Transform text to uppercase or lowercase.
-### 1. box-shadow
+### box-shadow
 Style of box shadow.
 
 ## JavaScript/JQuery features
-### 1. xmlhttp.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
-### 1. document.getElementById("main").appendChild(divLeft)
-### 1. document.createElement("div")
-### 1. .className
-### 1. .innerHTML
-### 1. JSON.parse()
-### 1. !$("#main").has("div").length
-### 1. $("#main").append()
-### 1. $("#btnSearch").click(function () {}
-### 1. console.log()
+```javascript
+    xmlhttp.open("GET", "https://api.github.com/search/repositories?q=javascript", true);
+```
+```javascript
+    document.getElementById("main").appendChild(divLeft);
+```
+```javascript
+    document.createElement("div");
+```
+```javascript
+    .className
+```
+```javascript
+    .innerHTML
+```
+```javascript
+    JSON.parse()
+```
+```javascript
+    !$("#main").has("div").length
+```
+```javascript
+    $("#main").append()
+```
+```javascript
+    $("#btnSearch").click(function () {}
+```
+```javascript
+    console.log()
+```
 
 ## Note
-
+N/A
 ## Question
+N/A
