@@ -5,6 +5,13 @@ var displayIndex = 0;
 $(document).ready(function () {
     $("#btnQuery").click(onBtnQuery);
     $("#btnShowMore").click(onBtnShowMore);
+    $("#txtQueryString").keypress(function (eventObj) {
+        var myEvent = window.event;
+        var keyCode = myEvent.keyCode;
+        if (keyCode == 13) {
+            onBtnQuery();
+        }
+    });
 });
 
 function ajaxCallback(data) {
@@ -55,7 +62,7 @@ function refreshData() {
         alert("there is no data to display.");
     }
 
-    $("#row").empty();
+    $("#cellRow").empty();
 
     displayIndex = 0;
     while (displayIndex < queryResults["items"].length && displayIndex < resultCount) {
@@ -69,8 +76,8 @@ function appendData() {
     if (displayIndex < queryResults["items"].length) {
         var name = queryResults["items"][displayIndex]["full_name"];
         var des = queryResults["items"][displayIndex]["description"];
-        var content = "<div class='col-sm-6 col-xs-12'><h4>{0}</h4><h4>{1}</h4></div>".format(name, des);
-        $("#row").append(content);
+        var content = "<div class='col-sm-6 col-xs-12 box-cell'><h4>{0}</h4><h4>{1}</h4></div>".format(name, des);
+        $("#cellRow").append(content);
         displayIndex++;
     }
 }
