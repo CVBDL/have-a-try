@@ -7,7 +7,6 @@ $(document).ready(function() {
 });
 
 var allMsg = "",
-  // curNum = 9,
   repoIndex = 0,
   curMaxNum = 0,
   startIndex = 0,
@@ -16,44 +15,14 @@ var allMsg = "",
   htmlstr = "";
 
 $("#myForm").on("click", "#searchbtn", function(){
-  // curNum = 9;
   $("#myDiv").empty();
   $("#repo_list").empty();
   $("#more").empty();
   curPg = 1;
-  htmlrequest(curPg,15);
+  htmlrequest(curPg,15,1);
 });
 
-$("#more").on("click", "#morebtn", function() {
-  var exthtml = insertHTML(2);
-  $("#repo_list").append(exthtml);
-  endIndex = curMaxNum + 2;
-  showResult(curMaxNum, endIndex);
-
-  if(repoIndex != allMsg.total_count) {
-    $("h2").html("Top " + repoIndex + " repositories!");
-  } else {
-    $("h2").html("Totally " + repoIndex + " repositories found!");
-  }
-});
-
-function view(allMsg) {
-  if(allMsg.total_count != 0 && allMsg.total_count < 10) {
-    curMaxNum = allMsg.total_count;
-    $("#myDiv").html('<h2>Totally ' + curMaxNum + ' repositories found!</h2>');
-  } else if (allMsg.total_count >= 10){
-    curMaxNum = 10;
-    $("#myDiv").html('<h2>Top 10 repositories!</h2>');
-  } else {
-    $("#myDiv").html("<h2>No results found!</h2>");
-  }
-
-  insertHTML(curMaxNum);
-  $("#repo_list").html(htmlstr);
-  showResult(startIndex, curMaxNum);
-}
-
-function htmlrequest(p,n) {
+function htmlrequest(p,n,initial) {
   $.ajax({
     type: "GET",
     url: "https://api.github.com/search/repositories?q=" + $("#searchbox").val() + "&page=" + p + "&per_page=" + n,
@@ -66,7 +35,7 @@ function htmlrequest(p,n) {
     },
     complete: function() {
       $("#loading").empty();
-      view(allMsg);
+      view(initial,allMsg);
     },
     error: function() {
       if($("#searchbox").val() == "") {
@@ -76,6 +45,27 @@ function htmlrequest(p,n) {
       }
     }
   });
+}
+
+function view(initial,allMsg) {
+  if(allMsg.total_count != 0 && allMsg.total_count < 10) {
+    curMaxNum = allMsg.total_count;
+    $("#myDiv").html('<h2>Totally ' + curMaxNum + ' repositories found!</h2>');
+  } else if (allMsg.total_count >= 10){
+    curMaxNum = 10;
+    $("#myDiv").html('<h2>Top 10 repositories!</h2>');
+  } else {
+    $("#myDiv").html("<h2>No results found!</h2>");
+  }
+  if (initial == 1) {
+    insertHTML(curMaxNum);
+    $("#repo_list").html(htmlstr);
+    showResult(startIndex, curMaxNum);
+  }else{
+    // insertHTML(2);
+    // $("#repo_list").html(htmlstr);
+    // showResult(startIndex, curMaxNum);
+  }
 }
 
 function insertHTML(times) {
@@ -94,15 +84,29 @@ function insertHTML(times) {
   return htmlstr;
 }
 
+$("#more").on("click", "#morebtn", function() {
+  var exthtml = insertHTML(2);
+  $("#repo_list").append(exthtml);
+  endIndex = curMaxNum + 2;
+  showResult(curMaxNum, endIndex);
+
+  if(repoIndex != allMsg.total_count) {
+    $("h2").html("Top " + repoIndex + " repositories!");
+  } else {
+    $("h2").html("Totally " + repoIndex + " repositories found!");
+  }
+});
+
 function showResult(st, ed) {
   for (var i = st; i < ed; i++) {
-    $("#title" + i).text(allMsg.items[i].full_name);
-    $("#content" + i).text(allMsg.items[i].description);
-    $("#link" + i).attr("href", allMsg.items[i].html_url);
+    var j = i % 15;
+    $("#title" + i).text(allMsg.items[j].full_name);
+    $("#content" + i).text(allMsg.items[j].description);
+    $("#link" + i).attr("href", allMsg.items[j].html_url);
     curMaxNum = i + 1;
     if (curMaxNum % 15 == 0){
       curPg += 1;
-      htmlrequest(curPg,15);
+      htmlrequest(curPg,15,0);
     }
   }
   if (allMsg.total_count > 10) {
