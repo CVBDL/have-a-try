@@ -22,6 +22,7 @@
     width: 39px;
     height: 39px;
     background-image: url(../img/search.png);
+    background-position:left 
 }
 
 .searchBox-input {

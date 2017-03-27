@@ -1,0 +1,44 @@
+﻿header {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.center {
+    margin: 0px auto;
+    text-align: center;
+}
+
+.searchBox {
+    padding: 0px;
+    display: inline-block;
+    border: solid;
+    border-width: 2px;
+    border-color: gray;
+    border-radius: 5px;
+    min-width: 300px;
+    height: 39px;
+    margin: 0px 20px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.searchBox-input {
+    padding: 0px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: larger;
+    color: gray;
+}
+
+#container {
+    text-align: center;
+    margin: 0px auto;
+}
+
+#btnShowMore {
+    border-radius: 20px;
+    width:150px;
+    outline: none;
+    display: none;
+}
