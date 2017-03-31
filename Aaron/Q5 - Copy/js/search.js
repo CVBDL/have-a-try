@@ -13,7 +13,9 @@ var allMsg = "",
   endIndex = 0,
   curPg = 1,
   htmlstr = "",
-  data_lf = 0;
+  data_lf = 0,
+  temp = "",
+  curIndex = 0;
 
 $("#myForm").on("click", "#searchbtn", function(){
   $("#myDiv").empty();
@@ -22,6 +24,7 @@ $("#myForm").on("click", "#searchbtn", function(){
   repoIndex = 0;
   curMaxNum = 0;
   curPg = 1;
+  curIndex = 0;
   htmlrequest(curPg,15,1);
 });
 
@@ -30,18 +33,23 @@ function htmlrequest(p,n,initial) {
     type: "GET",
     url: "https://api.github.com/search/repositories?q=" + $("#searchbox").val() + "&page=" + p + "&per_page=" + n,
     dataType: 'json',
-    async: false,
+    async: true,
     beforeSend: function() {
       if (initial == 1) {
         $("#loading").html("<img src='img/loading.gif'/>");
       }
     },
     success: function(msg) {
-      allMsg = msg;
+      temp = msg;
+      if (initial == 1){
+        allMsg = temp;
+      }
     },
     complete: function() {
       $("#loading").empty();
-      view(initial,allMsg);
+      if (initial == 1) {
+        view(initial, allMsg);
+      }
     },
     error: function() {
       if($("#searchbox").val() == "") {
@@ -116,13 +124,15 @@ function showResult(st, ed) {
       break;
     }
     if (curMaxNum % 15 == 0){
-       if (i % 2 == 0){
-         data_lf = 0;
-       } else {
-         data_lf = 1;
-       }
+      allMsg = temp;
+    }
+    curIndex += 1;
+    if (curIndex % 10 == 0){
       curPg += 1;
       htmlrequest(curPg,15,0);
+    }
+    if (curIndex % 15 == 0){
+      curIndex = 0;
     }
   }
 }
