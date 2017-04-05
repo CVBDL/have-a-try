@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="layout.css"/>
+</head>
+<body>
+  <form action="###">
+    <div>
+      <fieldset id="fset1">
+        <legend><b>个人信息</b></legend>
+        <b>帐号：</b><br>
+        <input type="text" placeholder="请填写帐号" id="uname" required/><br>
+        <b>密码：</b><br>
+        <input type="password" placeholder="请填写密码" id="pwd" required/><br>
+        <b>重复密码：</b><br>
+        <input type="password" placeholder="请填写密码" id="repwd" required/><br>
+        <b>邮箱地址：</b><br>
+        <input type="email" placeholder="www.csdn.com" id="mail" required/><br>
+      </fieldset>
+      <fieldset id="fset2">
+        <legend><b>其他信息</b></legend>
+        <b>个人网址：</b><br>
+        <input type="url" placeholder="http://www.example.com" id="url"/><br>
+        <b>年龄：</b><br>
+        <input type="number" placeholder="填写年龄" id="age" max="120"/><br>
+        <b>月薪：</b><br>
+        <label for="salary"></label><input type="range" min="0" max="50000" id="salary" value="10000"/>
+        <span id="salary-num">10000</span> <br>
+        <b>描述：</b><br>
+        <textarea rows="5" placeholder="这是详细描述" id="comments"></textarea><br>
+      </fieldset>
+    </div>
+    <input type="submit" id="commit" name="提交"/>
+  </form>
+  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+  <script src="commit.js"></script>
+</body>
+</html>
