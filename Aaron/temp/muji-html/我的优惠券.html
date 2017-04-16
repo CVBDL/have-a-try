@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      	<title>VIP SYSTEM</title>
+      	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+      	<!-- 引入 Bootstrap -->
+      	<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+        <link href="icons/iconfont.css" rel="stylesheet">
+ 		<script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>       
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript">
+			var myScroll;
+			function loaded () {
+			myScroll = new IScroll('#wrapper', { mouseWheel: true });
+			}
+			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			$(function(){
+				$(".icon-shengji").click(function(){
+					$("#layer-up").show();	
+				});
+				$(".quan-off").click(function(){
+					$("#layer_quan").show();	
+				});
+				$(".close_r").click(function(){
+					$(".layer_box").hide();	
+				});
+
+			});
+		</script>
+    </head>
+    <body onload="loaded()">
+    	<div id="layer-up" class="layer_box" style="display:none">
+            <div class="lay_success">
+            	<div class="lay-s-til">
+                	会员升级
+                	<a href="#" class="iconfont icon-close close_r"></a>
+                </div>
+                <div class="lay-s-con">
+                	<p><span>-7500分</span>升级为金卡会员</p>
+                    <a href="#">确定</a>
+                </div>
+            </div>
+            <div class="glasslayer"></div>
+		</div>
+        <div id="layer_quan" class="layer_box" >
+            <div class="lay_quan">
+            	<div class="lay-s-til">
+                	折扣券
+                	<a href="#" class="iconfont icon-close close_r"></a>
+                </div>
+                <div class="lay-quan-con">
+                	<p class="off"><span><font>10%</font>折扣</span>有效期限三个月</p>
+                    <p>
+                    	<img src="images/tm-pic.png" alt=""/> 
+                        <span class="tc">123456789</span>
+                    </p>
+                </div>
+            </div>
+            <div class="glasslayer"></div>
+		</div>
+        <header><a href="index.html" class="iconfont icon-zuozuo"></a>我的优惠券</header>
+        <div class="user-box">
+            <div class="container">
+                <span class="user-pic"><img src="images/zh.jpg" alt="" /></span>
+                <span class="user-name">会员昵称</span>
+                <div class="point-bar"><span style="width:20%;"></span><i>7500/85%</i></div>
+                <a href="#" class="user-vip">金卡会员</a>
+                <a href="javascript:void(0)" class="iconfont icon-shengji ico-current"></a>
+            </div>  
+        </div>
+        <div id="wrapper" class="point-wrapper">
+            <div id="scroller" class="container quan-box">
+            	<ul>
+                    <li>
+                        <div class="my-quan quan-off">
+                            <img src="images/card2.png" alt=""/>
+                            <ul>
+                                <li>
+                                    <p class="my-quan-much">10%<font>折扣</font></p>
+                                    <p class="my-quan-info">使用期限三个月</p>
+                                </li>
+                            </ul>
+                        </div>	
+                    </li>
+                	<li>
+                        <div class="my-quan quan-guoqi">
+                            <img src="images/card3.png" alt=""/>
+                            <ul>
+                                <li>
+                                    <p class="my-quan-much">10%<font>折扣</font></p>
+                                    <p class="my-quan-info">使用期限三个月</p>
+                                </li>
+                            </ul>
+                        </div>
+                	</li>
+                	<li>	
+                        <div class="my-quan quan-zuofei">
+                            <img src="images/card4.png" alt=""/>
+                            <ul>
+                                <li>
+                                    <p class="my-quan-much">15%<font>折扣</font></p>
+                                    <p class="my-quan-info">使用期限一个月</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>	
+            </div>
+        </div>
+    </body>
+</html>

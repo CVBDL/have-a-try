@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+      	<title>VIP SYSTEM</title>
+      	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+      	<!-- 引入 Bootstrap -->
+      	<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+        <link href="icons/iconfont.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/swiper.min.css">
+ 		<script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>       
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>        
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript">
+			var myScroll;
+			function loaded () {
+			myScroll = new IScroll('#wrapper', { mouseWheel: true });
+			}
+			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+			$(function(){
+				$(".icon-shengji").click(function(){
+					$("#layer_box").show();	
+				});
+				$(".close_r").click(function(){
+					$("#layer_box").hide();	
+				});
+			});
+		</script>   
+    </head>
+    <body onload="loaded()">
+    <header><a href="index.html" class="iconfont icon-zuozuo"></a>商品评价</header>
+    <div class="prdt-box">
+        <div class="container">
+            <span class="prdt-pic"><img src="images/eg01.jpg" alt=""/></span>
+            <span class="prdt-name">产品名称</span>
+            <span class="prdt-name">¥ 218.00</span>
+            <span class="prdt-lel-bg">
+                <i class="prdt-lel" style="width:50%;"></i>
+            </span>
+        </div>
+    </div>
+    <div id="wrapper" class="point-wrapper">
+        <div id="scroller">
+            <ul>
+                <li>
+                    <div class="remark-list">
+                    	<ul>
+                        	<li class="r-user-info">
+                                <span class="r-user-pic"><img src="images/zh.jpg" alt="" /></span>
+                                <span>会员姓名<font>（金卡会员）</font></span>
+                            </li>
+                            <li class="remark-info">
+                            	<p>评价内容</p>
+                                <span>
+                           	    	<span class="r-pic"><img src="images/eg01.jpg" alt=""/></span>
+                                    <span class="r-pic"><img src="images/eg01.jpg" alt=""/></span>
+                                    <span class="r-pic"><img src="images/eg01.jpg" alt=""/></span>
+                                    <span class="r-pic"><img src="images/eg01.jpg" alt=""/></span> 
+                                </span>
+                                <label class="r-time">2016-01-01</label>
+                            </li>
+                        </ul>               
+                    </div>
+                </li>
+                <li>
+                    <div class="remark-list">
+                    	<ul>
+                        	<li class="r-user-info">
+                                <span class="r-user-pic"><img src="images/zh.jpg" alt="" /></span>
+                                <span>会员姓名<font>（金卡会员）</font></span>
+                            </li>
+                            <li class="remark-info">
+                            	<p>评价内容</p>
+                                <span class="r-time">2016-01-01</span>
+                            </li>
+                        </ul>               
+                    </div>
+                </li>
+                <li>
+                    <div class="remark-list">
+                    	<ul>
+                        	<li class="r-user-info">
+                                <span class="r-user-pic"><img src="images/zh.jpg" alt="" /></span>
+                                <span>会员姓名<font>（金卡会员）</font></span>
+                            </li>
+                            <li class="remark-info">
+                            	<p>评价内容</p>
+                                <span class="r-time">2016-01-01</span>
+                            </li>
+                        </ul>               
+                    </div>
+                </li>
+                <li>
+                    <div class="remark-list">
+                    	<ul>
+                        	<li class="r-user-info">
+                                <span class="r-user-pic"><img src="images/zh.jpg" alt="" /></span>
+                                <span>会员姓名<font>（金卡会员）</font></span>
+                            </li>
+                            <li class="remark-info">
+                            	<p>评价内容</p>
+                                <span>
+                           	    	<span class="r-pic"><img src="images/eg01.jpg" alt=""/></span>
+                                    <span class="r-pic"><img src="images/eg01.jpg" alt=""/></span>
+                                    <span class="r-pic"><img src="images/eg01.jpg" alt=""/></span>
+                                    <span class="r-pic"><img src="images/eg01.jpg" alt=""/></span> 
+                                </span>
+                                <label class="r-time">2016-01-01</label>
+                            </li>
+                        </ul>               
+                    </div>
+                </li>
+                <li>
+                    <div class="remark-list">
+                    	<ul>
+                        	<li class="r-user-info">
+                                <span class="r-user-pic"><img src="images/zh.jpg" alt="" /></span>
+                                <span>会员姓名<font>（金卡会员）</font></span>
+                            </li>
+                            <li class="remark-info">
+                            	<p>评价内容</p>
+                                <span class="r-time">2016-01-01</span>
+                            </li>
+                        </ul>               
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+   	</body>
+</html>

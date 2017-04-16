@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+      	<title>VIP SYSTEM</title>
+      	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+      	<!-- 引入 Bootstrap -->
+      	<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+        <link href="icons/iconfont.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/swiper.min.css">
+ 		<script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>       
+        <script src="js/bootstrap.min.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+			$(function(){
+				$(".icon-shengji").click(function(){
+					$("#layer_box").show();	
+				});
+				$(".close_r").click(function(){
+					$("#layer_box").hide();	
+				});
+			});
+		</script>        
+    </head>
+    <body>
+    <div id="layer_box" style="display:none">
+        <div class="lay_success">
+            <div class="lay-s-til">
+                会员升级
+                <a href="#" class="iconfont icon-close close_r"></a>
+            </div>
+            <div class="lay-s-con">
+                <p><span>-7500分</span>升级为金卡会员</p>
+                <a href="#">确定</a>
+            </div>
+        </div>
+        <div class="glasslayer"></div>
+    </div>
+    <div class="my-top">
+    	<div class="container">
+            <span class="my-pic"><img src="images/zh.jpg" alt="" /></span>
+            <span class="my-name">会员昵称</span>
+            <span class="my-vip"><font class="fl">金卡会员</font><a href="#" class="iconfont icon-shengji ico-current"></a></span>
+            <a href="#" class="iconfont icon-erweima"></a>
+        </div>  
+    </div>
+    <div class="my-info">
+    	<a href="#">我的积分<br /><font>230</font> <span>分</span></a>
+        <a href="#">我的余额<br /><font>500</font> <span>元</span></a>
+        <a href="#">我的优惠券<br /><font>3</font> <span>张</span></a>
+    </div>
+    <div class="box">
+        <table class="flink">
+            <tr>
+                <td class="bor-r bor-b"><a href="会员中心.html"><i class="iconfont icon-huiyuan"></i>会员中心</a></td>
+                <td class="bor-r bor-b"><a href="我的优惠券.html"><i class="iconfont icon-yhq"><em>3</em></i>优惠券</a></td>
+                <td class="bor-b"><a href="积分兑换.html"><i class="iconfont icon-hongbao"></i>积分兑换</a></td>
+            </tr>
+            <tr>
+                <td class="bor-r bor-b"><a href="商品评价-未.html"><i class="iconfont icon-pingjia"></i>购物评价</a></td>
+                <td class="bor-r bor-b"><a href="商品top榜.html"><i class="iconfont icon-bang"></i>商品TOP榜</a></td>
+                <td class="bor-b"><a href="#"><i class="iconfont icon-rili"></i>促销日历</a></td>
+            </tr>
+            <tr>
+                <td class="bor-r"><a href="店铺导航.html"><i class="iconfont icon-weizhi"></i>店铺导航</a></td>
+                <td class="bor-r"><a href="积分记录.html"><i class="iconfont icon-jilu"><em>1</em></i>积分记录</a></td>
+                <td><a href="通知.html"><i class="iconfont icon-msg"><em>2</em></i>通 知</a></td>
+            </tr>
+        </table>
+    </div>
+   	</body>
+</html>
