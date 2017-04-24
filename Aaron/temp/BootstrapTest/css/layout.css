@@ -1,0 +1,38 @@
+#header{
+  position: relative;
+  background: darkred;
+  padding: 15px 0;
+}
+.img-circle{
+  border: solid #FFFFFF;
+}
+#member{
+  position: absolute;
+  float: left;
+  margin-left: -30px;
+  top: 50%;
+  transform: translate(0, 50%);
+  color: #FFFFFF;
+}
+#myname{
+  font-size: 18px;
+}
+#scancode{
+  float: right;
+}
+#my-info{
+  padding: 15px 0;
+  text-align: center;
+  background-color: rgb(248,248,248);
+}
+.info-text{
+  color: rgb(127,0,25);
+}
+.number{
+  color: rgb(127,0,25);
+  font-size: 18px;
+}
+.unit{
+  color: rgb(127,0,25);
+  font-size: 12px;
+}
