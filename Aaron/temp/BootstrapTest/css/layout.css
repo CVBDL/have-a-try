@@ -1,7 +1,11 @@
 #header{
   position: relative;
   background: darkred;
-  padding: 15px 0;
+  padding: 15px;
+}
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
 }
 .img-circle{
   border: solid #FFFFFF;
@@ -16,6 +20,7 @@
 }
 #myname{
   font-size: 18px;
+  display: block;
 }
 #scancode{
   float: right;
@@ -35,4 +40,39 @@
 .unit{
   color: rgb(127,0,25);
   font-size: 12px;
+}
+tr td a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: #7f0019;
+  font-size: 15px;
+  text-decoration: none;
+}
+a:active{
+  text-decoration:none;
+  color:white;
+}
+.tlink tr td i {
+  display: block;
+  font-size: 36px;
+  color: #959595;
+  position: relative;
+  margin-top: 5vw;
+  line-height: 1.5;
+}
+
+tr td{
+  text-align: center;
+  border-top: 1px solid #dcdcdc;
+  width: 33.3333%;
+  height: 33.3333%;
+}
+.bord-r{
+  border-right: 1px solid #dcdcdc;
+}
+.tlink{
+  width: 100%;
+  height: 100%;
 }
