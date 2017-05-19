@@ -12,7 +12,7 @@
 
         },
         dataTable_fun: function () {
-
+	if (document.getElementById('dataTables-example'))
             $('#dataTables-example').dataTable();
 
         },
