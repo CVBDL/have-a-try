@@ -14,9 +14,8 @@ body {
     -webkit-border-radius:0px;
 }
 .content-wrapper {
-    margin-top: 40px;
-    min-height:800px;
-    padding-bottom:90px;
+    min-height: auto;
+    padding-bottom: auto;
 }
 .header-line {
     font-weight:900;
@@ -195,6 +194,9 @@ height: 60px;
     background-color:transparent;
 }
 
+.row {
+    margin-top: 40px;
+}
 /* =============================================================
    FOOTER SECTION STYLES
  ============================================================ */

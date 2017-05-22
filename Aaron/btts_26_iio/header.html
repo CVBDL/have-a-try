@@ -17,80 +17,115 @@
   <link href="assets/css/style.css" rel="stylesheet"/>
   <!-- GOOGLE FONT -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-
 </head>
 <body>
-<div class="navbar navbar-inverse set-radius-zero">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">
-        <img src="assets/img/logo.png"/>
-      </a>
-    </div>
-
-    <div class="right-div">
-      <a href="#" class="btn btn-danger pull-right">LOG ME OUT</a>
+  <div class="navbar navbar-inverse set-radius-zero">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo.png"/>
+        </a>
+      </div>
+      <div class="right-div">
+        <a href="#" class="btn btn-danger pull-right">LOG ME OUT</a>
+      </div>
     </div>
   </div>
-</div>
-<!-- LOGO HEADER END-->
-<section class="menu-section">
-  <div class="container">
-    <div class="row ">
-      <div class="col-md-12">
-        <div class="navbar-collapse collapse ">
-          <ul id="menu-top" class="nav navbar-nav navbar-right">
-            <li><a href="index.html" class="menu-top-active">DASHBOARD</a></li>
+  <!-- LOGO HEADER END-->
+  <section class="menu-section">
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-12">
+          <div class="navbar-collapse collapse ">
+            <ul id="menu-top" class="nav navbar-nav navbar-right">
+              <li><a href="index.html" class="menu-top-active">DASHBOARD</a></li>
 
-            <li><a href="form.html">FORMS</a></li>
-            <li>
-              <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">UI ELEMENTS <i
-                      class="fa fa-angle-down"></i></a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="ui.html">UI ELEMENTS</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>
-              </ul>
-            </li>
-            <li><a href="tab.html">TABS & PANELS</a></li>
-            <li><a href="table.html">TABLES</a></li>
-            <li><a href="blank.html">BLANK PAGE</a></li>
-
-          </ul>
+              <li><a href="form.html">FORMS</a></li>
+              <li>
+                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">UI ELEMENTS <i
+                  class="fa fa-angle-down"></i></a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="ui.html">UI ELEMENTS</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">EXAMPLE LINK</a></li>
+                  </ul>
+              </li>
+              <li><a href="tab.html">TABS & PANELS</a></li>
+              <li><a href="table.html">TABLES</a></li>
+              <li><a href="table.html">BLANK PAGE</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-
+    </div>
+  </section>
+  <div class="content-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <div class="alert alert-info back-widget-set text-center">
+            <i class="fa fa-desktop fa-5x"></i>
+            <h3>20 PCs</h3>
+            For Desktop Testing
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <div class="alert alert-success back-widget-set text-center">
+            <i class="fa fa-mobile fa-5x"></i>
+            <h3>30 Mobiles</h3>
+            For Mobile Testing
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <div class="alert alert-warning back-widget-set text-center">
+            <i class="fa fa-cloud fa-5x"></i>
+            <h3>60 VMs</h3>
+            For Testing
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6">
+          <div class="alert alert-danger back-widget-set text-center">
+            <i class="fa fa-apple fa-5x"></i>
+            <h3>3 Mac books </h3>
+            For Automation Testing
+          </div>
+        </div>
+        <div class="row pad-botm">
+        <div class="col-md-12">
+          <h4 class="header-line">ADMIN DASHBOARD</h4>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
-</section>
-<!-- MENU SECTION END-->
-<div ng-app="">
-<div id="pc_id" ng-include="'./pc.html'"></div>
-</div>
-<!-- CONTENT-WRAPPER SECTION END-->
-<section class="footer-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        &copy; 2014 Yourdomain.com | More Templates <a href="http://www.cssmoban.com/" target="_blank"
-                                                       title="模板之家">模板之家</a> - Collect from <a
-              href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></div>
-
-    </div>
+  <!-- MENU SECTION END-->
+  <div ng-app="myapp">
+    <!-- <div id="pc_id" ng-include="'./pc.html'"></div> -->
+    <h1>AngularJS Home Page (Ui-router Demonstration)</h1>
+    <div data-ui-view=""></div>
   </div>
-</section>
-<!-- FOOTER SECTION END-->
-<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-<!-- CORE JQUERY  -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- BOOTSTRAP SCRIPTS  -->
-<script src="assets/js/bootstrap.js"></script>
-<!-- CUSTOM SCRIPTS  -->
-<script src="assets/js/custom.js"></script>
-<script src="assets/js/angular.min.js"></script>
-</body>
+  <!-- CONTENT-WRAPPER SECTION END-->
+  <section class="footer-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          &copy; 2017 RockWell.com | Aaron Wang</div>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- CUSTOM SCRIPTS  -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/angular-ui-router.min.js"></script>
+  </body>
 </html>
