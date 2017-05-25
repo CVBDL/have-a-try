@@ -42,20 +42,11 @@ var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap']);
         //   ];
         // }
 
-        myApp.controller('CarouselDemoCtrl', function($scope){
-            $scope.myInterval = 3000;
-            var slides = $scope.slides = [];
-            slides.push({image:'./assets/img/1.jpg'});
-            slides.push({image:'./assets/img/2.jpg'});
-        });
+        // myApp.controller('CarouselDemoCtrl', function($scope){
+        //     $scope.myInterval = 3000;
+        //     var slides = $scope.slides = [];
+        //     slides.push({image:'./assets/img/1.jpg'});
+        //     slides.push({image:'./assets/img/2.jpg'});
+        // });
 
-      //   myApp.controller('CarouselDemoCtrl', function ($scope) {
-      //     $scope.myInterval = 5000;
-      //     $scope.noWrapSlides = false;
-      //     $scope.active = 0;
-      //     var slides = $scope.slides = [];
-      //     slides.push({image:'./assets/img/1.jpg'});
-      //     slides.push({image:'./assets/img/2.jpg'});
-      //     var currIndex = 0;
-      // });
 });
