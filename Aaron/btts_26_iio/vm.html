@@ -3,6 +3,17 @@
     <table st-table="rowCollection" class="table table-striped">
       <thead>
       <tr>
+        <th>
+        <label for="items">items by page</label>
+          <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched" name="items" id="items" type="number" ng-model="itemsByPage">
+        </th>
+        <th></th>
+        <th></th>
+        <th colspan="4">
+          <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+        </th>
+      </tr>
+      <tr>
         <th>Host Name</th>
         <th>IP Address</th>
         <th>Operation System</th>
@@ -27,5 +38,13 @@
         </td>
       </tr>
       </tbody>
+      <tfoot>
+      <tr>
+        <!--<td colspan="5" class="text-center">-->
+          <!--<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="2"></div>-->
+        <!--</td>-->
+        <td class="text-center" st-pagination="" st-items-by-page="5" colspan="7">
+      </tr>
+      </tfoot>
     </table>
 </div>

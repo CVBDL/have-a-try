@@ -35,17 +35,25 @@ var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap']);
                {image: 'assets/img/3.jpg'}
                );
     });
-    // DataTable
+
     myApp.controller('basicsCtrl', ['$scope', function ($scope) {
         $scope.rowCollection = [
             {host_name: 'FTVP_CI_Slv', ip_address: '10.224.110.123', op_system: 'Windows 10 x64 Ent', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
             {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
             {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.125', op_system: 'Windows 2012 x64 Ent', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'}
-        ]
+        ];
         $scope.removeRow = function removeRow(row) {
             var index = $scope.rowCollection.indexOf(row);
             if (index !== -1) {
                 $scope.rowCollection.splice(index, 1);
             }
-        }
+        };
     }]);
+
