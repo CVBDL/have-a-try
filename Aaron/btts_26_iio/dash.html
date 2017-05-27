@@ -36,69 +36,17 @@
           </div>
         </a>
       </div>
-    </div>
-  </div>
-
-  <div ui-view="">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-12">
-
-          <div ng-controller="CarouselDemoCtrl" id="slides_control">
-            <div>
-              <carousel interval="myInterval">
-                <slide ng-repeat="slide in slides" active="slide.active">
-                  <img ng-src="{{slide.image}}">
-                  <div class="carousel-caption">
-                  </div>
-                </slide>
-              </carousel>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12">
-          <div class="panel panel-primary ">
-            <div class="panel-heading">
-              Recent Chat History
-            </div>
-            <div class="panel-body chat-widget-main">
-              <div class="chat-widget-left">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor.
+      <div ui-view="">
+        <div class="row">
+          <div class="col-md-8 col-sm-8 col-xs-12">
+            <div ng-controller="CarouselDemoCtrl" id="slides_control">
+              <div>
+                <carousel interval="myInterval">
+                  <slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="{{slide.image}}">
+                  </slide>
+                </carousel>
               </div>
-              <div class="chat-widget-name-left">
-                <img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
-                <h4> Amanna Seiar</h4>
-                <h5>Time 2:00 pm at 25th july</h5>
-              </div>
-              <hr/>
-              <div class="chat-widget-right">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.
-              </div>
-              <div class="chat-widget-name-right">
-                <img class="media-object img-circle img-right-chat" src="assets/img/user2.png" />
-                <h4> Amanna Seiar</h4>
-                <h5>Time 2:00 pm at 25th july</h5>
-              </div>
-              <hr/>
-              <div class="chat-widget-left">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.
-              </div>
-              <div class="chat-widget-name-left">
-                <img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
-                <h4> Amanna Seiar</h4>
-                <h5>Time 2:00 pm at 25th july</h5>
-              </div>
-              <hr/>
-              <div class="chat-widget-right">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.
-              </div>
-              <div class="chat-widget-name-right">
-                <img class="media-object img-circle img-right-chat" src="assets/img/user2.png" />
-                <h4> Amanna Seiar</h4>
-                <h5>Time 2:00 pm at 25th july</h5>
-              </div>
-              <hr/>
             </div>
           </div>
         </div>

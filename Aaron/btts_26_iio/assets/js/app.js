@@ -1,53 +1,51 @@
 var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap']);
-        myApp.config(function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.when("", "/dash");
-            
-            $stateProvider
-		        .state("dash", {
-		            url: "/dash",
-		            templateUrl: "dash.html"
-		        })
-		        .state("dash.pc", {
-		            url:"/pc",
-		            templateUrl: "pc.html"
-		        })
-		        .state("dash.mobile", {
-		            url:"/mobile",
-		            templateUrl: "mobile.html"
-		        })
-		        .state("dash.vm", {
-		            url:"/vm",
-		            templateUrl: "vm.html"
-		        })
-		        .state("dash.mac", {
-		            url:"/mac",
-		            templateUrl: "mac.html"
-		        });
-        
-        // angular.module('app', ['ui.bootstrap']);
-        // function CarouselDemoCtrl($scope){
-        //   $scope.myInterval = 3000;
-        //   $scope.slides = [
-        //     {
-        //       image: './assets/img/1.jpg'
-        //     },
-        //     {
-        //       image: 'assets/img/1.jpg'
-        //     },
-        //     {
-        //       image: 'assets/img/1.jpg'
-        //     },
-        //     {
-        //       image: 'assets/img/1.jpg'
-        //     }
-        //   ];
-        // }
+    // UI-Router
+    myApp.config(function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.when("", "/dash");
 
-           myApp.controller('CarouselDemoCtrl', function($scope){
-               $scope.myInterval = 3000;
-               var slides = $scope.slides = [];
-               slides.push({image:'./assets/img/1.jpg'});
-               slides.push({image:'./assets/img/2.jpg'});
-           });
-
-});
+        $stateProvider
+            .state("dash", {
+                url: "/dash",
+                templateUrl: "dash.html"
+            })
+            .state("dash.pc", {
+                url:"/pc",
+                templateUrl: "pc.html"
+            })
+            .state("dash.mobile", {
+                url:"/mobile",
+                templateUrl: "mobile.html"
+            })
+            .state("dash.vm", {
+                url:"/vm",
+                templateUrl: "vm.html"
+            })
+            .state("dash.mac", {
+                url:"/mac",
+                templateUrl: "mac.html"
+            });
+    });
+    // Slide Show
+    myApp.controller('CarouselDemoCtrl', function ($scope) {
+       $scope.myInterval = 5000;
+       var slides = $scope.slides = [];
+           slides.push(
+               {image: 'assets/img/1.jpg'},
+               {image: 'assets/img/2.jpg'},
+               {image: 'assets/img/3.jpg'}
+               );
+    });
+    // DataTable
+    myApp.controller('basicsCtrl', ['$scope', function ($scope) {
+        $scope.rowCollection = [
+            {host_name: 'FTVP_CI_Slv', ip_address: '10.224.110.123', op_system: 'Windows 10 x64 Ent', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.125', op_system: 'Windows 2012 x64 Ent', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'}
+        ]
+        $scope.removeRow = function removeRow(row) {
+            var index = $scope.rowCollection.indexOf(row);
+            if (index !== -1) {
+                $scope.rowCollection.splice(index, 1);
+            }
+        }
+    }]);

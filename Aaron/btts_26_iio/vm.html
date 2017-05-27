@@ -1,5 +1,31 @@
-﻿<div>
-    <div>
-        <h1>Page 3</h1>
-    </div>
+﻿<div class="content-wrapper" ng-controller="basicsCtrl">
+  <h3>VMs details information</h3>
+    <table st-table="rowCollection" class="table table-striped">
+      <thead>
+      <tr>
+        <th>Host Name</th>
+        <th>IP Address</th>
+        <th>Operation System</th>
+        <th>Owner</th>
+        <th>Production</th>
+        <th>Notes</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="row in rowCollection">
+        <td>{{row.host_name}}</td>
+        <td>{{row.ip_address}}</td>
+        <td>{{row.op_system}}</td>
+        <td><a ng-href="mailto:{{row.email}}">{{row.owner}}</a></td>
+        <td>{{row.production}}</td>
+        <td>{{row.notes}}</td>
+        <td>
+          <button type="button" ng-click="removeRow(row)" class="btn btn-sm btn-danger">
+            <i class="glyphicon glyphicon-remove-circle"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
 </div>
