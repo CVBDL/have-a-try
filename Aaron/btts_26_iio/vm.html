@@ -9,17 +9,82 @@
         </th>
         <th></th>
         <th></th>
-        <th colspan="4">
+        <th colspan="3">
           <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
+        </th>
+        <th>
+          <!--<button class="btn btn-success btn-sm" data-toggle="modal" data-target="#matchRuleDialog">-->
+            <!--<span class="glyphicon glyphicon-plus pull-left"></span> <span-->
+                  <!--id="tv-iui-openCreateModal">创建</span>-->
+          <!--</button>-->
+          <div id="createButton">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#newDeviceDialog">
+              <span id="tv-iui-createTemplate" name_i18n="tv_iui_i18n">New</span>
+            </button>
+          </div>
+          <div class="modal fade" id="newDeviceDialog"
+               data-backdrop="static" data-keyboard="false" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="add-new-device">Add New Device</h4>
+                </div>
+                <div class="modal-body">
+                  <form class="form-horizontal" id="templateForm" novalidate>
+                    <div class="form-group">
+                      <label class="control-label col-xs-3 col-sm-3" for="new-host-name">
+                        <span id="new-host-name-label">Host Name</span> <span class="required">*</span>
+                      </label>
+                      <div class="col-xs-7 col-sm-7">
+                        <input type="text" class="form-control" id="new-host-name" required>
+                      </div>
+                      <label class="control-label col-xs-3 col-sm-3" for="new-ip-address">
+                        <span id="new-ip-address-label">IP Address</span> <span class="required">*</span>
+                      </label>
+                      <div class="col-xs-7 col-sm-7">
+                        <input type="text" class="form-control" id="new-ip-address" required>
+                      </div>
+                      <label class="control-label col-xs-3 col-sm-3" for="new-operation-system">
+                        <span id="new-operation-system-label">Operation System</span> <span class="required">*</span>
+                      </label>
+                      <div class="col-xs-7 col-sm-7">
+                        <input type="text" class="form-control" id="new-operation-system" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-xs-3 col-sm-3" for="new-owner">
+                        <span id="new-owner-label">Owner</span> <span class="required">*</span>
+                      </label>
+                      <div class="col-xs-7 col-sm-7">
+                        <select class="form-control" id="new-owner" ng-model="owner"
+                                ng-options="c.owner for c in rowCollection">
+                        </select>
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary"
+                          id="tv-iui-template-save">确定</button>
+                  <button class="btn btn-default" data-dismiss="modal"
+                          id="tv-iui-template-cancle">取消</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </th>
       </tr>
       <tr>
-        <th>Host Name</th>
-        <th>IP Address</th>
-        <th>Operation System</th>
-        <th>Owner</th>
-        <th>Production</th>
-        <th>Notes</th>
+        <th st-sort="host_name">Host Name</th>
+        <th st-sort="ip_address">IP Address</th>
+        <th st-sort="op_system">Operation System</th>
+        <th st-sort="owner">Owner</th>
+        <th st-sort="production">Production</th>
+        <th st-sort="notes">Notes</th>
         <th></th>
       </tr>
       </thead>
@@ -32,9 +97,24 @@
         <td>{{row.production}}</td>
         <td>{{row.notes}}</td>
         <td>
-          <button type="button" ng-click="removeRow(row)" class="btn btn-sm btn-danger">
+          <button type="button" class="btn btn-sm btn-danger" ng-click="removeRow(row)">
             <i class="glyphicon glyphicon-remove-circle"></i>
           </button>
+          <!--<div class="modal fade" id="confirmDialog"-->
+               <!--data-backdrop="static" data-keyboard="false" aria-hidden="true">-->
+            <!--<div class="modal-dialog" style="width: 30%;">-->
+              <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                  <!--<h6 id="confirm-title">删除</h6>-->
+                <!--</div>-->
+                <!--<h4 id="confirm-content">确认删除此设备，删除不可恢复。</h4>-->
+                <!--<button type="submit" class="btn btn-primary"  ng-click="removeRow(row)"-->
+                        <!--id="tv-iui-template-save">确定</button>-->
+                <!--<button class="btn btn-default" data-dismiss="modal"-->
+                        <!--id="tv-iui-template-cancel">取消</button>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
         </td>
       </tr>
       </tbody>
