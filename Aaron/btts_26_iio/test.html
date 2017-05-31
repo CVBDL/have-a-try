@@ -1,72 +1,46 @@
-<!DOCTYPE html>
-<html ng-app="ModalDemo">
+<html>
 <head>
-  <title></title>
-  <script src="assets/js/jquery-3.1.1.min.js"></script>
-  <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/angular.min.js"></script>
-
-  <script src="assets/js/angular-ui-router.min.js"></script>
-  <!--<script src="lib/angular/in/angular-locale_zh-cn.js"></script>-->
+<title>Angular JS Includes</title>
+<style>
+table, th , td {
+ border: 1px solid grey;
+ border-collapse: collapse;
+ padding: 5px;
+}
+table tr:nth-child(odd) {
+ background-color: #f2f2f2;
+}
+table tr:nth-child(even) {
+ background-color: #ffffff;
+}
+</style>
 </head>
 <body>
-<div ng-controller="ModalDemoCtrl">
-  <script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-header">
-      <h>I'm a modal!</h>
-    </div>
-    <div class="modal-body">
-      <ul>
-        <li ng-repeat="item in items">
-          <a ng-click="selected.item = item">{{ item }}</a>
-        </li>
-      </ul>
-      Selected: <b>{{ selected.item }}</b>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-primary" ng-click="ok()">OK</button>
-      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-    </div>
-  </script>
-  <button class="btn" ng-click="open()">Open me!</button>
+<h2>AngularJS Sample Application</h2>
+<div ng-app="123" ng-controller="studentController">
+<table>
+  <tr>
+   <th>Name</th>
+   <th>Roll No</th>
+  <th>Percentage</th>
+  </tr>
+  <tr ng-repeat="student in students">
+   <td>{{ student.Name }}</td>
+   <td>{{ student.RollNo }}</td>
+  <td>{{ student.Percentage }}</td>
+  </tr>
+</table>
 </div>
+<script src="assets/js/angular.min.js"></script>
 <script>
-    var ModalDemo = angular.module('ModalDemo', ['ui.bootstrap']);
-    var ModalDemoCtrl = function ($scope, $modal, $log) {
-        $scope.items = ['item', 'item', 'item'];
-        $scope.open = function () {
-            var modalInstance = $modal.open({
-                templateUrl: 'myModalContent.html',
-                controller: ModalInstanceCtrl,
-                resolve: {
-                    items: function () {
-                        return $scope.items;
-                    }
-                }
-            });
-            modalInstance.opened.then(function(){//模态窗口打开之后执行的函数
-                console.log('modal is opened');
-            });
-            modalInstance.result.then(function (result) {
-                console.log(result);
-            }, function (reason) {
-                console.log(reason);//点击空白区域，总会输出backdrop click，点击取消，则会暑促cancel
-                $log.info('Modal dismissed at: ' + new Date());
-            });
-        };
-    };
-    var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-        $scope.items = items;
-        $scope.selected = {
-            item: $scope.items[]
-        };
-        $scope.ok = function () {
-            $modalInstance.close($scope.selected);
-        };
-        $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
-        };
-    };
+ var myApp = angular.module("123", []);
+myApp.controller('studentController',function ($scope,$http) {
+var url="data.txt";
+  $http.get(url).success( function(response) {
+              $scope.students = response;
+  });
+})
 </script>
+
 </body>
 </html>

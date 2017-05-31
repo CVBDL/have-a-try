@@ -1,0 +1,12 @@
+[
+    { host_name: 'FTVP_CI_Slv', ip_address: '10.224.110.123', op_system: 'Windows 10 x64 Ent', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client1', ip_address: '10.224.110.124', op_system: 'Windows 7 x86 Pro', owner: 'Peggy', email: 'pma@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client2', ip_address: '10.224.110.125', op_system: 'Windows 8 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client3', ip_address: '10.224.110.126', op_system: 'Windows 2012 x64 Pro', owner: 'Aaron', email: 'awang14@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client4', ip_address: '10.224.110.127', op_system: 'Windows 2016 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client5', ip_address: '10.224.110.128', op_system: 'Windows 2008 x64 Pro', owner: 'Joy', email: 'jlv@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client6', ip_address: '10.224.110.129', op_system: 'Windows 8.1 x64 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client7', ip_address: '10.224.110.130', op_system: 'Windows 7 x64 Pro', owner: 'Mingxia Zhang', email: 'mingxiazhang@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client8', ip_address: '10.224.110.131', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' },
+    { host_name: 'FTVP_CI_Client9', ip_address: '10.224.110.132', op_system: 'Windows 2012 x64 Ent', owner: 'Aaron', email: 'awang14@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing' }
+  ]
