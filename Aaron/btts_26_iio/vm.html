@@ -59,8 +59,8 @@
                         <span id="new-owner-label">Owner</span> <span class="required">*</span>
                       </label>
                       <div class="col-xs-7 col-sm-7">
-                        <select class="form-control" id="new-owner" ng-model="owner"
-                                ng-options="c.owner for c in rowCollection">
+                        <select class="form-control" id="new-owner" ng-model="defaultuser"
+                                ng-options="owner for owner in activities">
                         </select>
                       </div>
 
@@ -69,9 +69,9 @@
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary"
-                          id="tv-iui-template-save">确定</button>
+                          id="tv-iui-template-save">OK</button>
                   <button class="btn btn-default" data-dismiss="modal"
-                          id="tv-iui-template-cancle">取消</button>
+                          id="tv-iui-template-cancle">Cancel</button>
                 </div>
               </div>
             </div>

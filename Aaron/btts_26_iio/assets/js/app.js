@@ -36,19 +36,60 @@ var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap', 'smart-table']
                );
     });
 
+
+
+    // angular.module('common', []).filter('unique', function () {  
+    //     return function (collection, keyname) {  
+    //         console.info(collection);  
+    //         console.info(keyname);  
+    //         var output = [],  
+    //             keys = [];  
+    //         angular.forEach(collection, function (item) {  
+    //             var key = item[keyname];  
+    //             if (keys.indexOf(key) === -1) {  
+    //                 keys.push(key);  
+    //                 output.push(item);  
+    //             }  
+    //         });  
+    //         return output;  
+    //     }  
+    // });  
+
     myApp.controller('basicsCtrl', ['$scope', function ($scope) {
         $scope.rowCollection = [
-            {host_name: 'FTVP_CI_Slv', ip_address: '10.224.110.123', op_system: 'Windows 10 x64 Ent', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
-            {host_name: 'FTVP_CI_Client', ip_address: '10.224.110.125', op_system: 'Windows 2012 x64 Ent', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'}
+            {host_name: 'FTVP_CI_Slv', ip_address: '10.224.110.123', op_system: 'Windows 10 x64 Ent', owner:'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client1', ip_address: '10.224.110.124', op_system: 'Windows 10 x86 Pro', owner: 'Peggy', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client2', ip_address: '10.224.110.125', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client3', ip_address: '10.224.110.126', op_system: 'Windows 10 x86 Pro', owner: 'Aaron', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client4', ip_address: '10.224.110.127', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client5', ip_address: '10.224.110.128', op_system: 'Windows 10 x86 Pro', owner: 'Joy', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client6', ip_address: '10.224.110.129', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client7', ip_address: '10.224.110.130', op_system: 'Windows 10 x86 Pro', owner: 'Mingxia Zhang', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client8', ip_address: '10.224.110.131', op_system: 'Windows 10 x86 Pro', owner: 'Star', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'},
+            {host_name: 'FTVP_CI_Client9', ip_address: '10.224.110.132', op_system: 'Windows 2012 x64 Ent', owner: 'Aaron', email: 'ssun@ra.rockwell.com', production: 'FTView + FTVP 10.0 bld 123', notes: 'For CI testing'}
         ];
+        
+        // Add Owner List
+        var owner_list=[];
+        for (var i = 0; i < $scope.rowCollection.length; i++){
+            owner_list[i] = $scope.rowCollection[i].owner;
+        }
+
+        function unique(arr) {
+            var result = [], hash = {};
+            for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+                if (!hash[elem]) {
+                    result.push(elem);
+                    hash[elem] = true;
+                }
+            }
+            return result;
+        }
+        var arr = unique(owner_list);
+        $scope.activities = arr;
+        $scope.defaultuser = 'Star';
+
+        // Remove Row
         $scope.removeRow = function removeRow(row) {
             var index = $scope.rowCollection.indexOf(row);
             if (index !== -1) {
