@@ -228,9 +228,17 @@ height: 60px;
     content: '\25BC';
 }
 
+table {
+    border: 1px solid #ddd;
+}
+
+.dialog-input {
+    margin: 3px;
+}
+
 /* =============================================================
    MODAL DIALOG
  ============================================================ */
-#modal-dialog {
-    width: 65%;
+.modal-dialog {
+    width: 55%;
 }
