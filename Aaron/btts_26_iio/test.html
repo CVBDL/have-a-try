@@ -25,9 +25,9 @@ table tr:nth-child(even) {
   <th>Percentage</th>
   </tr>
   <tr ng-repeat="student in students">
-   <td>{{ student.Name }}</td>
-   <td>{{ student.RollNo }}</td>
-  <td>{{ student.Percentage }}</td>
+   <td>{{ student.host_name }}</td>
+   <td>{{ student.op_system }}</td>
+  <td>{{ student.owner }}</td>
   </tr>
 </table>
 </div>
@@ -35,7 +35,7 @@ table tr:nth-child(even) {
 <script>
  var myApp = angular.module("123", []);
 myApp.controller('studentController',function ($scope,$http) {
-var url="data.txt";
+var url="assets/js/vm.json";
   $http.get(url).success( function(response) {
               $scope.students = response;
   });
