@@ -32,57 +32,63 @@
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">
                         <span>&times;</span>
-                    </button>
+                      </button>
                       <h4 class="modal-title" id="add-new-device">Add New Device</h4>
                     </div>
                     <div class="modal-body">
                       <form class="form-horizontal" id="templateForm" novalidate>
                         <div class="form-group">
                           <label class="control-label col-xs-3 col-sm-3" for="new-host-name">
-                        <span id="new-host-name-label">Host Name</span> <span class="required">*</span>
-                    </label>
+                            <span id="new-host-name-label">Host Name</span> <span class="required">*</span>
+                          </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-host-name" required>
+                            <input type="text" class="form-control dialog-input" id="new-host-name" ng-model="newVM.host_name" required>
                           </div>
                           <label class="control-label col-xs-3 col-sm-3" for="new-ip-address">
-                        <span id="new-ip-address-label">IP Address</span> <span class="required">*</span>
-                    </label>
+                            <span id="new-ip-address-label">IP Address</span> <span class="required">*</span>
+                          </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-ip-address" required>
+                            <input type="text" class="form-control dialog-input" id="new-ip-address" ng-model="newVM.ip_address" required>
                           </div>
                           <label class="control-label col-xs-3 col-sm-3" for="new-operation-system">
-                        <span id="new-operation-system-label">Operation System</span> <span class="required">*</span>
-                    </label>
+                            <span id="new-operation-system-label">Operation System</span> <span class="required">*</span>
+                          </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-operation-system" required>
+                            <input type="text" class="form-control dialog-input" id="new-operation-system" ng-model="newVM.op_system" required>
                           </div>
                           <!-- </div> -->
                           <!-- <div class="form-group"> -->
                           <label class="control-label col-xs-3 col-sm-3" for="new-owner">
-                        <span id="new-owner-label">Owner</span> <span class="required">*</span>
-                    </label>
+                            <span id="new-owner-label">Owner</span> <span class="required">*</span>
+                          </label>
                           <div class="col-xs-7 col-sm-7">
-                            <select class="form-control dialog-input" id="new-owner" ng-model="defaultuser" ng-options="owner for owner in activities">
+                            <select class="form-control dialog-input" id="new-owner" ng-model="newVM.owner" ng-options="owner for owner in activities">
                               <option value="" selected hidden></option>
                             </select>
                           </div>
-                          <label class="control-label col-xs-3 col-sm-3" for="new-production">
-                        <span id="new-production-label">Production</span> <span class="required">*</span>
-                    </label>
+                          <label class="control-label col-xs-3 col-sm-3" for="new-email">
+                            <span id="new-email-label">Email</span> <span class="required">*</span>
+                          </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-production" required>
+                            <input type="text" class="form-control dialog-input" id="new-email" ng-model="newVM.email" required>
+                          </div>
+                          <label class="control-label col-xs-3 col-sm-3" for="new-production">
+                            <span id="new-production-label">Production</span> <span class="required">*</span>
+                          </label>
+                          <div class="col-xs-7 col-sm-7">
+                            <input type="text" class="form-control dialog-input" id="new-production" ng-model="newVM.production" required>
                           </div>
                           <label class="control-label col-xs-3 col-sm-3" for="new-notes">
-                        <span id="new-notes-label">Notes&nbsp&nbsp&nbsp</span>
-                    </label>
+                            <span id="new-notes-label">Notes&nbsp&nbsp&nbsp</span>
+                          </label>
                           <div class="col-xs-7 col-sm-7">
-                            <textarea rows="3" class="form-control dialog-input" id="new-notes" />
+                            <textarea rows="3" class="form-control dialog-input" id="new-notes" ng-model="newVM.notes" />
                           </div>
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary" id="tv-iui-template-save">OK</button>
+                      <button type="submit" class="btn btn-primary" id="tv-iui-template-save" ng-click="addVM()">OK</button>
                       <button class="btn btn-default" data-dismiss="modal" id="tv-iui-template-cancle">Cancel</button>
                     </div>
                   </div>
@@ -111,7 +117,7 @@
             <td>{{row.production}}</td>
             <td>{{row.notes}}</td>
             <td>
-            <button type="button" class="btn btn-sm btn-danger" ng-click="removeRow(row)">
+              <button type="button" class="btn btn-sm btn-danger" ng-click="removeRow(row)">
               <i class="glyphicon glyphicon-remove-circle"></i>
             </button>
               <!-- <div class="modal fade" id="confirmDialog"
@@ -122,7 +128,7 @@
               <h6 id="confirm-title">删除</h6>
               </div>
               <h4 id="confirm-content">确认删除此设备，删除不可恢复。</h4>
-              <button type="submit" class="btn btn-primary" ng-click="removeRow(row)" 
+              <button type="submit" class="btn btn-primary" ng-click="removeRow(row)"
               id="tv-iui-template-save">确定</button>
               <button class="btn btn-default" data-dismiss="modal" id="tv-iui-template-cancel">取消</button>
               </div>

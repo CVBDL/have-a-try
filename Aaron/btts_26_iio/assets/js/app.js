@@ -45,11 +45,36 @@ myApp.controller('basicsCtrl', function($scope, $http) {
 
     $scope.itemsByPage = 5;
 
-    $http.get(url).success(function(response) {
-        $scope.row123 = response;
-        $scope.rowCollection = response;
-        $scope.abc = url;
-        console.log(11, $scope.rowCollection);
+//  $http.get(url).success(function(response) {
+//      $scope.row123 = response;
+//      $scope.rowCollection = response;
+//      $scope.abc = url;
+//      console.log(11, $scope.rowCollection);
+//
+//      // Add Owner List
+//      var owner_list = [];
+//      for (var i = 0; i < $scope.rowCollection.length; i++) {
+//          owner_list[i] = $scope.rowCollection[i].owner;
+//      }
+//
+//      function unique(arr) {
+//          var result = []
+//            , hash = {};
+//          for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+//              if (!hash[elem]) {
+//                  result.push(elem);
+//                  hash[elem] = true;
+//              }
+//          }
+//          return result;
+//      }
+//      var arr = unique(owner_list);
+//      $scope.activities = arr;
+//  });
+
+    $http.get('assets/data/vm.json').success(function(response){
+      $scope.row123 = response;
+      $scope.rowCollection = response;
 
         // Add Owner List
         var owner_list = [];
@@ -70,8 +95,27 @@ myApp.controller('basicsCtrl', function($scope, $http) {
         }
         var arr = unique(owner_list);
         $scope.activities = arr;
+    }).error(function(){
+        alert("an unexpected error ocurred!");
     });
 
+     $scope.addVM = function(){
+        var newVM = {
+                      host_name: $scope.newVM.host_name,
+                      ip_address: $scope.newVM.ip_address,
+                      op_system: $scope.newVM.op_system,
+                      owner: $scope.newVM.owner,
+                      email: $scope.newVM.email,
+                      production: $scope.newVM.production,
+                      notes: $scope.newVM.notes
+                    };
+
+        $http.post('http://127.0.0.1:8020/Aaron/btts_26_iio/assets/data/vm.json', newVM).success(function(){
+            $scope.msg = 'Data saved';
+        }).error(function(data) {
+            alert("failure message:" + JSON.stringify({data:data}));
+        });
+    }
 });
 
 myApp.directive('stRatio', function() {
