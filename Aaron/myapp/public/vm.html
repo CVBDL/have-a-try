@@ -23,7 +23,7 @@
               <!--</button>-->
               <div id="createButton">
                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#newDeviceDialog">
-                      <span id="tv-iui-createTemplate" name_i18n="tv_iui_i18n">New</span>
+                      <span id="tv-iui-createTemplate" name_i18n="tv_iui_i18n" ng-click="new()">New</span>
                   </button>
               </div>
               <div class="modal fade" id="newDeviceDialog" data-backdrop="static" data-keyboard="false" aria-hidden="true">
@@ -42,19 +42,19 @@
                             <span id="new-host-name-label">Host Name</span> <span class="required">*</span>
                           </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-host-name" ng-model="newVM.host_name" name="hostname" required>
+                            <input type="text" class="form-control dialog-input" id="new-host-name" ng-model="host_name" name="hostname" required>
                           </div>
                           <label class="control-label col-xs-3 col-sm-3" for="new-ip-address">
                             <span id="new-ip-address-label">IP Address</span> <span class="required">*</span>
                           </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-ip-address" ng-model="newVM.ip_address" name="ipaddress" required>
+                            <input type="text" class="form-control dialog-input" id="new-ip-address" ng-model="ip_address" name="ipaddress" required>
                           </div>
                           <label class="control-label col-xs-3 col-sm-3" for="new-operation-system">
                             <span id="new-operation-system-label">Operation System</span> <span class="required">*</span>
                           </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-operation-system" ng-model="newVM.op_system" required>
+                            <input type="text" class="form-control dialog-input" id="new-operation-system" ng-model="op_system" required>
                           </div>
                           <!-- </div> -->
                           <!-- <div class="form-group"> -->
@@ -62,7 +62,7 @@
                             <span id="new-owner-label">Owner</span> <span class="required">*</span>
                           </label>
                           <div class="col-xs-7 col-sm-7">
-                            <select class="form-control dialog-input" id="new-owner" ng-model="newVM.owner" ng-options="owner for owner in activities">
+                            <select class="form-control dialog-input" id="new-owner" ng-model="owner" ng-options="owner for owner in activities">
                               <option value="" selected hidden></option>
                             </select>
                           </div>
@@ -70,26 +70,26 @@
                             <span id="new-email-label">Email</span> <span class="required">*</span>
                           </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-email" ng-model="newVM.email" required>
+                            <input type="text" class="form-control dialog-input" id="new-email" ng-model="email" required>
                           </div>
                           <label class="control-label col-xs-3 col-sm-3" for="new-production">
                             <span id="new-production-label">Production</span> <span class="required">*</span>
                           </label>
                           <div class="col-xs-7 col-sm-7">
-                            <input type="text" class="form-control dialog-input" id="new-production" ng-model="newVM.production" required>
+                            <input type="text" class="form-control dialog-input" id="new-production" ng-model="production" required>
                           </div>
                           <label class="control-label col-xs-3 col-sm-3" for="new-notes">
                             <span id="new-notes-label">Notes&nbsp&nbsp&nbsp</span>
                           </label>
                           <div class="col-xs-7 col-sm-7">
-                            <textarea rows="3" class="form-control dialog-input" id="new-notes" ng-model="newVM.notes" />
+                            <textarea rows="3" class="form-control dialog-input" id="new-notes" ng-model="notes" />
                           </div>
                         </div>
                       
                     </div>
                     <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary" id="tv-iui-template-save" ng-click="addVM()">OK</button>
-                      <button class="btn btn-default" data-dismiss="modal" id="tv-iui-template-cancle">Cancel</button>
+                      <button type="submit" class="btn btn-primary" id="tv-iui-template-save">OK</button>
+                      <button class="btn btn-default" data-dismiss="modal" id="tv-iui-template-cancle" ng-click="cancel()">Cancel</button>
                     </div>
                     </form>
                   </div>

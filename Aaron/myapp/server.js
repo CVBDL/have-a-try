@@ -16,49 +16,23 @@ app.get('/process_get', function (req, res) {
   var fs = require('fs');
   var os = require('os');
 
-  var fReadName = 'public/assets/data/vm.txt';  
-  var fWriteName = 'public/assets/data/vm.json';  
+  var fReadName = 'public/assets/data/vm.txt';   
   var fRead = fs.createReadStream(fReadName);  
-  var fWrite = fs.createWriteStream(fWriteName);
   var objReadline = readline.createInterface({  
     input: fRead,
     });
-
-  //fWrite.write('[' + os.EOL);
-  objReadline.on('line', (line)=>{   
-    var tmp = line + ',';  
-    fWrite.write(tmp + os.EOL); 
+  var tmp = "";
+  objReadline.on('line', (line)=>{
+    tmp += line + ',';
   });
 
-  // objReadline.on('myevent', function(arg) {
-    
-  // });
-  
   objReadline.on('close', ()=>{
-    // objReadline.emit('myevent', 'test');
-    // fWrite.write(']' + os.EOL);
-    var data=fs.readFileSync("public/assets/data/vm.json","utf-8");
-    var newdata=data.substring(0,data.length-3);
-    console.log(newdata); 
-    fs.writeFile("public/assets/data/vm.json",newdata,function(err){
-      if(err) {
-          return console.log(err);
-      } else {
-      console.log("The file was saved!");
-      }
-    });
-    fs.writeFile("public/assets/data/vm.json",'['+newdata+']',function(err){
-      if(err) {
-          return console.log(err);
-      } else {
-      console.log("The file was saved!");
-      }
-    });
+    var data=tmp.substring(0,tmp.length-1);
+    var newdata = '[' + data + ']';
     console.log('readline close...');  
+    res.end(newdata);
   });
-  //var response = JSON.parse(fs.readFileSync('public/assets/data/vm.json'));
-  //console.log(response);
-  //res.end(JSON.stringify(response));
+  
 })
  
 app.post('/process_post', urlencodedParser, function (req, res) {
@@ -80,7 +54,7 @@ app.post('/process_post', urlencodedParser, function (req, res) {
 
     var outputFilename = 'public/assets/data/vm.txt';
 
-    fs.appendFile(outputFilename, JSON.stringify(myData), function(err) {
+    fs.appendFile(outputFilename, '\n' + JSON.stringify(myData), function(err) {
         if(err) {
           console.log(err);
         } else {
