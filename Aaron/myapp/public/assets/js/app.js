@@ -88,7 +88,7 @@ myApp.controller('basicsCtrl', function($scope, $http) {
         }).error(function(data) {
             alert("failure message:" + JSON.stringify({data:data}));
         });
-        $scope.rowCollection.push({
+        $scope.row123.push({
                       host_name: $scope.host_name,
                       ip_address: $scope.ip_address,
                       op_system: $scope.op_system,
@@ -125,6 +125,17 @@ myApp.controller('basicsCtrl', function($scope, $http) {
         $scope.email = "";
         $scope.production = "";
         $scope.notes = "";
+    }
+});
+
+myApp.controller('memberControl', function($scope) {
+  $scope.members = [];
+    $scope.addItem = function () {
+      $scope.members.push({text:$scope.member});
+      $scope.member = '';
+    }
+    $scope.delete = function (index, members) {
+        members.splice(index, 1);
     }
 });
 
