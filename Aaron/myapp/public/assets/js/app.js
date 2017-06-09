@@ -34,7 +34,6 @@ myApp.controller('CarouselDemoCtrl', function($scope) {
 });
 
 myApp.controller('basicsCtrl', function($scope, $http) {
-    var url = "assets/data/vm.json";
     // Remove Row
     $scope.removeRow = function removeRow(row) {
         var index = $scope.rowCollection.indexOf(row);
@@ -45,19 +44,28 @@ myApp.controller('basicsCtrl', function($scope, $http) {
 
     $scope.itemsByPage = 5;
 
-    $http.get('http://localhost:8282/process_get').success(function(response){
+    $http.get('http://localhost:8282/vm_get').success(function(response){
       $scope.row123 = response;
       $scope.rowCollection = response;
+      $scope.totalVM = response.length;
+      console.log($scope.totalVM);
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
 
-        // Add Owner List
+    $http.get('http://localhost:8282/member_get').success(function(response){
+      //   $scope.member_all = response;
+      $scope.members = response;
+      console.log(response);
+      // Add Owner List
         var owner_list = [];
-        for (var i = 0; i < $scope.rowCollection.length; i++) {
-            owner_list[i] = $scope.rowCollection[i].owner;
+        for (var i = 0; i < $scope.members.length; i++) {
+            owner_list[i] = $scope.members[i].text;
         }
 
         function unique(arr) {
             var result = []
-              , hash = {};
+              hash = {};
             for (var i = 0, elem; (elem = arr[i]) != null; i++) {
                 if (!hash[elem]) {
                     result.push(elem);
@@ -68,10 +76,9 @@ myApp.controller('basicsCtrl', function($scope, $http) {
         }
         var arr = unique(owner_list);
         $scope.activities = arr;
-    }).error(function(){
-        alert("an unexpected error ocurred!");
-    });
-
+      }).error(function(){
+         alert("an unexpected error ocurred!");
+      });
      $scope.addVM = function(){
         var newVM = {
                       host_name: $scope.host_name,
@@ -83,11 +90,18 @@ myApp.controller('basicsCtrl', function($scope, $http) {
                       notes: $scope.notes
                     };
 
-        $http.post('http://localhost:8282/process_post', newVM).success(function(){
+        $http.post('http://localhost:8282/vm_post', newVM).success(function(){
             $scope.msg = 'Data saved';
         }).error(function(data) {
             alert("failure message:" + JSON.stringify({data:data}));
         });
+
+        $http.get('http://localhost:8282/vm_get').success(function(response){
+              $scope.totalVM = response.length;
+              console.log($scope.totalVM);
+            }).error(function(){
+                alert("an unexpected error ocurred!");
+            });
         $scope.row123.push({
                       host_name: $scope.host_name,
                       ip_address: $scope.ip_address,
@@ -128,9 +142,26 @@ myApp.controller('basicsCtrl', function($scope, $http) {
     }
 });
 
-myApp.controller('memberControl', function($scope) {
-  $scope.members = [];
+myApp.controller('memberControl', function($scope, $http) {
+  
+  $http.get('http://localhost:8282/member_get').success(function(response){
+    //   $scope.member_all = response;
+    $scope.members = response;
+
+    }).error(function(){
+       alert("an unexpected error ocurred!");
+    });
+
+  // $scope.members = [];
     $scope.addItem = function () {
+      var newMem = {
+                      text: $scope.member
+                    };
+      $http.post('http://localhost:8282/member_post', newMem).success(function(){
+            $scope.msg = 'Data saved';
+        }).error(function(data) {
+            alert("failure message:" + JSON.stringify({data:data}));
+        });
       $scope.members.push({text:$scope.member});
       $scope.member = '';
     }

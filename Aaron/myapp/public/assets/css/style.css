@@ -242,3 +242,13 @@ table {
 .modal-dialog {
     width: 55%;
 }
+
+dd{
+    position: relative;
+    margin: 3px;
+}
+
+#memdel {
+    position: absolute;
+    right: 0;
+}

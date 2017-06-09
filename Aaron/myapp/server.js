@@ -11,7 +11,7 @@ app.get('/index.html', function (req, res) {
    res.sendFile( __dirname + "/" + "index.html" );
 })
 
-app.get('/process_get', function (req, res) {
+app.get('/vm_get', function (req, res) {
   var readline = require('readline'); 
   var fs = require('fs');
   var os = require('os');
@@ -30,12 +30,56 @@ app.get('/process_get', function (req, res) {
     var data=tmp.substring(0,tmp.length-1);
     var newdata = '[' + data + ']';
     console.log('readline close...');  
+    //console.log(newdata); 
     res.end(newdata);
   });
   
 })
  
-app.post('/process_post', urlencodedParser, function (req, res) {
+app.get('/member_get', function (req, res) {
+  var readline = require('readline'); 
+  var fs = require('fs');
+  var uReadMem = 'public/assets/data/user.txt';   
+  var uRead = fs.createReadStream(uReadMem);  
+  var memReadline = readline.createInterface({  
+     input: uRead,
+     });
+  var tmp = "";
+  memReadline.on('line', (line)=>{
+    tmp += line + ',';
+  });
+
+  memReadline.on('close', ()=>{
+    var data=tmp.substring(0,tmp.length-1);
+    var newdata = '[' + data + ']';
+    console.log(newdata);  
+    res.end(newdata);
+  }); 
+})
+
+app.post('/member_post', urlencodedParser, function (req, res) {
+   // Output JSON
+   var response = {
+       "text":req.body.text
+   };
+   console.log(response);
+   var fs = require('fs');
+
+    var myData = response;
+
+    var outputFilename = 'public/assets/data/user.txt';
+
+    fs.appendFile(outputFilename, '\n' + JSON.stringify(myData), function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("JSON saved to " + outputFilename);
+        }
+    });
+   res.end(JSON.stringify(response));
+})
+
+app.post('/vm_post', urlencodedParser, function (req, res) {
    // Output JSON
    var response = {
        "host_name":req.body.host_name,
@@ -46,7 +90,7 @@ app.post('/process_post', urlencodedParser, function (req, res) {
        "production": req.body.production,
        "notes": req.body.notes
    };
-   console.log(response);
+   //console.log(response);
 
    var fs = require('fs');
 
