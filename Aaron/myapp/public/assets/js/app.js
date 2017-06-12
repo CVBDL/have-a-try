@@ -1,8 +1,5 @@
 var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap', 'smart-table']);
 
-var vmlist = "";
-var memlist = [];
-
 // UI-Router
 myApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when("", "/dash");
@@ -40,28 +37,21 @@ myApp.controller('CarouselDemoCtrl', function($scope) {
 myApp.controller('basicsCtrl', function($scope, $http) {
     // Remove Row
     $scope.removeRow = function removeRow(row) {
-        var index = $scope.rowCollection.indexOf(row);
+        var index = $scope.row123.indexOf(row);
         if (index !== -1) {
-            $scope.rowCollection.splice(index, 1);
+            $scope.row123.splice(index, 1);
         }
-        // $http.post('http://localhost:8282/vm_post', index).success(function(response){
-          // $scope.row123 = response;
-          // $scope.rowCollection = response;
-          // $scope.totalVM = response.length;
-          // console.log($scope.totalVM);
-        // }).error(function(){
-        //     alert("an unexpected error ocurred!");
-        // });
+           $http.post('http://localhost:8282/vm_del', JSON.stringify($scope.row123)).success(function(response){
+           }).error(function(){
+               alert("an unexpected error ocurred!");
+           });
     };
 
     $scope.itemsByPage = 5;
 
     $http.get('http://localhost:8282/vm_get').success(function(response){
-      vmlist = response;
       $scope.row123 = response;
       $scope.rowCollection = response;
-      //$scope.totalVM = response.length;
-      console.log($scope.totalVM);
     }).error(function(){
         alert("an unexpected error ocurred!");
     });
@@ -154,7 +144,7 @@ myApp.controller('basicsCtrl', function($scope, $http) {
 });
 
 myApp.controller('memberControl', function($scope, $http) {
-  
+
   $http.get('http://localhost:8282/member_get').success(function(response){
 
     $scope.members = response;
@@ -163,7 +153,6 @@ myApp.controller('memberControl', function($scope, $http) {
        alert("an unexpected error ocurred!");
     });
 
-  // $scope.members = [];
     $scope.addItem = function () {
       var newMem = {
                       text: $scope.member
@@ -195,4 +184,325 @@ myApp.directive('stRatio', function() {
 
         }
     };
+});
+
+myApp.controller('pcCtrl', function($scope, $http) {
+    // Remove Row
+    $scope.removeRow = function removeRow(row) {
+        var index = $scope.rowpc.indexOf(row);
+        if (index !== -1) {
+            $scope.rowpc.splice(index, 1);
+        }
+           $http.post('http://localhost:8282/pc_del', JSON.stringify($scope.rowpc)).success(function(response){
+           }).error(function(){
+               alert("an unexpected error ocurred!");
+           });
+    };
+
+    $scope.itemsByPage = 5;
+
+    $http.get('http://localhost:8282/pc_get').success(function(response){
+      $scope.rowpc = response;
+      $scope.rowCollection = response;
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
+
+    $http.get('http://localhost:8282/member_get').success(function(response){
+      $scope.members = response;
+      // Add Owner List
+        var owner_list = [];
+        for (var i = 0; i < $scope.members.length; i++) {
+            owner_list[i] = $scope.members[i].text;
+        }
+
+        function unique(arr) {
+            var result = []
+              hash = {};
+            for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+                if (!hash[elem]) {
+                    result.push(elem);
+                    hash[elem] = true;
+                }
+            }
+            return result;
+        }
+        var arr = unique(owner_list);
+        $scope.activities = arr;
+      }).error(function(){
+         alert("an unexpected error ocurred!");
+      });
+     $scope.addPC = function(){
+        var newPC = {
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    };
+
+        $http.post('http://localhost:8282/pc_post', newPC).success(function(){
+            $scope.msg = 'Data saved';
+        }).error(function(data) {
+            alert("failure message:" + JSON.stringify({data:data}));
+        });
+
+        $http.get('http://localhost:8282/pc_get').success(function(response){
+            }).error(function(){
+                alert("an unexpected error ocurred!");
+            });
+        $scope.rowpc.push({
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    });
+        $scope.host_name = "";
+        $scope.ip_address = "";
+        $scope.op_system = "";
+        $scope.owner = "";
+        $scope.email = "";
+        $scope.production = "";
+        $scope.notes = "";
+        $("#newDeviceDialog").modal('hide');
+    }
+
+    $scope.cancel = function(){
+        var newPC = {
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    };
+
+        $scope.host_name = "";
+        $scope.ip_address = "";
+        $scope.op_system = "";
+        $scope.owner = "";
+        $scope.email = "";
+        $scope.production = "";
+        $scope.notes = "";
+    }
+});
+
+myApp.controller('mobileCtrl', function($scope, $http) {
+    // Remove Row
+    $scope.removeRow = function removeRow(row) {
+        var index = $scope.rowmobile.indexOf(row);
+        if (index !== -1) {
+            $scope.rowmobile.splice(index, 1);
+        }
+           $http.post('http://localhost:8282/mobile_del', JSON.stringify($scope.rowmobile)).success(function(response){
+           }).error(function(){
+               alert("an unexpected error ocurred!");
+           });
+    };
+
+    $scope.itemsByPage = 5;
+
+    $http.get('http://localhost:8282/mobile_get').success(function(response){
+      $scope.rowmobile = response;
+      $scope.rowCollection = response;
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
+
+    $http.get('http://localhost:8282/member_get').success(function(response){
+      $scope.members = response;
+      // Add Owner List
+        var owner_list = [];
+        for (var i = 0; i < $scope.members.length; i++) {
+            owner_list[i] = $scope.members[i].text;
+        }
+
+        function unique(arr) {
+            var result = []
+              hash = {};
+            for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+                if (!hash[elem]) {
+                    result.push(elem);
+                    hash[elem] = true;
+                }
+            }
+            return result;
+        }
+        var arr = unique(owner_list);
+        $scope.activities = arr;
+      }).error(function(){
+         alert("an unexpected error ocurred!");
+      });
+     $scope.addMobile = function(){
+        var newMobile = {
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    };
+
+        $http.post('http://localhost:8282/mobile_post', newMobile).success(function(){
+            $scope.msg = 'Data saved';
+        }).error(function(data) {
+            alert("failure message:" + JSON.stringify({data:data}));
+        });
+
+        $http.get('http://localhost:8282/mobile_get').success(function(response){
+            }).error(function(){
+                alert("an unexpected error ocurred!");
+            });
+        $scope.rowmobile.push({
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    });
+        $scope.host_name = "";
+        $scope.ip_address = "";
+        $scope.op_system = "";
+        $scope.owner = "";
+        $scope.email = "";
+        $scope.production = "";
+        $scope.notes = "";
+        $("#newDeviceDialog").modal('hide');
+    }
+
+    $scope.cancel = function(){
+        var newMobile = {
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    };
+
+        $scope.host_name = "";
+        $scope.ip_address = "";
+        $scope.op_system = "";
+        $scope.owner = "";
+        $scope.email = "";
+        $scope.production = "";
+        $scope.notes = "";
+    }
+});
+
+myApp.controller('macCtrl', function($scope, $http) {
+    // Remove Row
+    $scope.removeRow = function removeRow(row) {
+        var index = $scope.rowmac.indexOf(row);
+        if (index !== -1) {
+            $scope.rowmac.splice(index, 1);
+        }
+           $http.post('http://localhost:8282/mac_del', JSON.stringify($scope.rowmac)).success(function(response){
+           }).error(function(){
+               alert("an unexpected error ocurred!");
+           });
+    };
+
+    $scope.itemsByPage = 5;
+
+    $http.get('http://localhost:8282/mac_get').success(function(response){
+      $scope.rowmac = response;
+      $scope.rowCollection = response;
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
+
+    $http.get('http://localhost:8282/member_get').success(function(response){
+      $scope.members = response;
+      // Add Owner List
+        var owner_list = [];
+        for (var i = 0; i < $scope.members.length; i++) {
+            owner_list[i] = $scope.members[i].text;
+        }
+
+        function unique(arr) {
+            var result = []
+              hash = {};
+            for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+                if (!hash[elem]) {
+                    result.push(elem);
+                    hash[elem] = true;
+                }
+            }
+            return result;
+        }
+        var arr = unique(owner_list);
+        $scope.activities = arr;
+      }).error(function(){
+         alert("an unexpected error ocurred!");
+      });
+     $scope.addMac = function(){
+        var newMac = {
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    };
+
+        $http.post('http://localhost:8282/mac_post', newMac).success(function(){
+            $scope.msg = 'Data saved';
+        }).error(function(data) {
+            alert("failure message:" + JSON.stringify({data:data}));
+        });
+
+        $http.get('http://localhost:8282/mac_get').success(function(response){
+            }).error(function(){
+                alert("an unexpected error ocurred!");
+            });
+        $scope.rowmac.push({
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    });
+        $scope.host_name = "";
+        $scope.ip_address = "";
+        $scope.op_system = "";
+        $scope.owner = "";
+        $scope.email = "";
+        $scope.production = "";
+        $scope.notes = "";
+        $("#newDeviceDialog").modal('hide');
+    }
+
+    $scope.cancel = function(){
+        var newMac = {
+                      host_name: $scope.host_name,
+                      ip_address: $scope.ip_address,
+                      op_system: $scope.op_system,
+                      owner: $scope.owner,
+                      email: $scope.email,
+                      production: $scope.production,
+                      notes: $scope.notes
+                    };
+
+        $scope.host_name = "";
+        $scope.ip_address = "";
+        $scope.op_system = "";
+        $scope.owner = "";
+        $scope.email = "";
+        $scope.production = "";
+        $scope.notes = "";
+    }
 });
