@@ -46,7 +46,10 @@ app.get('/member_get', function (req, res) {
      });
   var tmp = "";
   memReadline.on('line', (line)=>{
-    tmp += line + ',';
+    if(line=="")
+      console.log("blank line");
+    else
+      tmp += line + ',';
   });
 
   memReadline.on('close', ()=>{
@@ -77,6 +80,24 @@ app.post('/member_post', urlencodedParser, function (req, res) {
         }
     });
    res.end(JSON.stringify(response));
+})
+
+app.post('/member_del', urlencodedParser, function (req, res) {
+  var response = req.body;
+  console.log(response);
+  var fs = require('fs');
+
+  fs.writeFileSync('public/assets/data/user.txt',"");
+  for (var i = 0; i < response.length; i++) {
+    fs.appendFile('public/assets/data/user.txt', '\n' + JSON.stringify(response[i]), function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("JSON saved Successed");
+        }
+    })
+}
+res.end(JSON.stringify(response));
 })
 
 app.post('/vm_post', urlencodedParser, function (req, res) {

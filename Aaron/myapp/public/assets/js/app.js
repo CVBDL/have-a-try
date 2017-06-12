@@ -1,4 +1,8 @@
 var myApp = angular.module("myApp", ['ui.router', 'ui.bootstrap', 'smart-table']);
+
+var vmlist = "";
+var memlist = [];
+
 // UI-Router
 myApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when("", "/dash");
@@ -40,23 +44,30 @@ myApp.controller('basicsCtrl', function($scope, $http) {
         if (index !== -1) {
             $scope.rowCollection.splice(index, 1);
         }
+        // $http.post('http://localhost:8282/vm_post', index).success(function(response){
+          // $scope.row123 = response;
+          // $scope.rowCollection = response;
+          // $scope.totalVM = response.length;
+          // console.log($scope.totalVM);
+        // }).error(function(){
+        //     alert("an unexpected error ocurred!");
+        // });
     };
 
     $scope.itemsByPage = 5;
 
     $http.get('http://localhost:8282/vm_get').success(function(response){
+      vmlist = response;
       $scope.row123 = response;
       $scope.rowCollection = response;
-      $scope.totalVM = response.length;
+      //$scope.totalVM = response.length;
       console.log($scope.totalVM);
     }).error(function(){
         alert("an unexpected error ocurred!");
     });
 
     $http.get('http://localhost:8282/member_get').success(function(response){
-      //   $scope.member_all = response;
       $scope.members = response;
-      console.log(response);
       // Add Owner List
         var owner_list = [];
         for (var i = 0; i < $scope.members.length; i++) {
@@ -145,7 +156,7 @@ myApp.controller('basicsCtrl', function($scope, $http) {
 myApp.controller('memberControl', function($scope, $http) {
   
   $http.get('http://localhost:8282/member_get').success(function(response){
-    //   $scope.member_all = response;
+
     $scope.members = response;
 
     }).error(function(){
@@ -167,6 +178,11 @@ myApp.controller('memberControl', function($scope, $http) {
     }
     $scope.delete = function (index, members) {
         members.splice(index, 1);
+        console.log(JSON.stringify(members));
+        $http.post('http://localhost:8282/member_del', JSON.stringify(members)).success(function(response){
+        }).error(function(){
+            alert("an unexpected error ocurred!");
+        });
     }
 });
 
