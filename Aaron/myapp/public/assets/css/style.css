@@ -6,7 +6,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     line-height:28px;
-   
+
 }
 .set-radius-zero {
     border-radius:0px;
@@ -34,7 +34,7 @@ body {
  ============================================================ */
 
 .right-div {
-    float: right; 
+    float: right;
     padding: 20px;
 }
 #menu-top a {
@@ -62,7 +62,7 @@ border-color: rgba(155, 153, 153, 0.23);
 .navbar {
     min-height: 90px;
     margin-bottom: 0px;
-   
+
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     border-color:transparent;
@@ -165,7 +165,7 @@ height: 60px;
 .chat-widget-name-left h4 {
     font-weight:normal;
     font-size:11px;
-    
+
 }
 .chat-widget-name-left h5 {
     font-weight:normal;
@@ -251,4 +251,21 @@ dd{
 #memdel {
     position: absolute;
     right: 0;
+}
+
+#todolist{
+  padding: 20px;
+}
+#content{
+    width: auto;
+    border-radius:4px;
+}
+ul{
+    list-style: none;
+    padding: 20px;
+    margin: 0 0 20px 0;
+}
+.done-true{
+    text-decoration: line-through;
+    color: #ccc;
 }

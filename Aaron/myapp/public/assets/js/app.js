@@ -19,6 +19,9 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
     }).state("dash.mac", {
         url: "/mac",
         templateUrl: "mac.html"
+    }).state("dash.task", {
+        url: "/task",
+        templateUrl: "task.html"
     });
 });
 
@@ -528,6 +531,51 @@ myApp.controller('macCtrl', function($scope, $http, $rootScope) {
         $scope.notes = "";
     }
 });
+
+myApp.controller('todoListCtrl', ['$scope', function($scope){
+
+        $scope.todos = [
+            {text:'Create new test cases and implement automation script.',done:true,showing:true,warning:''},
+            {text:'Run BAT test on latest build.',done:false,showing:true,warning:''},
+            {text:'Debug automation scripts on CI system.',done:false,showing:true,warning:''}
+        ];
+        $scope.changeFlag = function(index){
+            if(!$scope.todos[index].done){
+                $scope.todos.forEach(function(ele,i){
+                    if(i != index) ele.showing = true;
+                });
+                $scope.todos[index].showing = !$scope.todos[index].showing;
+            }
+        }
+        $scope.remaining = function(){
+            var count = 0;
+            $scope.todos.forEach(function(ele){
+                count += ele.done ? 0 : 1;
+            });
+            return count;
+        }
+        $scope.addTodo = function(){
+            $scope.todos.push(
+                {text:$scope.todoText,
+                  done:false,
+                  showing:true,
+                  warning:''}
+            );
+            $scope.todoText = '';
+        }
+        $scope.archive = function(){
+            $scope.todos = $scope.todos.filter(function(ele){
+                return !ele.done;
+            });
+        }
+        $scope.tooltipWarning = function(index){
+            if($scope.todos[index].done){
+                $scope.todos[index].warning = "Done task couldn't be modified.";
+            }else{
+                $scope.todos[index].warning = "";
+            }
+        }
+    }]);
 
 myApp.directive('stRatio', function() {
     return {

@@ -1,8 +1,116 @@
-﻿<div ng-app="app" ng-controller="parentCtr">
-    <div ng-controller="childCtr1">name :
-        <input ng-model="name" type="text" ng-change="change(name);" />
-    </div>
-    <div ng-controller="childCtr2">Ctr1 name:
-        <input ng-model="ctr1Name" />
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="todo">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.1.1/css/bootstrap.css">
+    <style>
+        #content{
+            width: 400px;
+            margin: 5px auto;
+            background-color:#f5f5f5;
+            border: 1px solid #eee;
+            border-radius:4px;
+            padding: 15px;
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0 0 10px 0;
+        }
+        .done-true{
+            text-decoration: line-through;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <h2>任务列表</h2>
+    <div ng-controller="todoListCtrl">
+        <span>任务总数 {{todos.length}}:还有:{{remaining()}} 未完成</span>&nbsp;&nbsp;[<a href="" ng-click="archive()">完成</a>]
+        <ul>
+            <li ng-repeat="todo in todos" class="row">
+                <div class="col-sm-2">
+                <!-- 这里的ng-disabled是为了和下面输入框对应,
+                    如果任务处于输入状态不能点击多选框完成任务
+                -->
+                    <input type="checkbox" ng-model='todo.done' ng-disabled="!todo.showing">
+                </div>
+                <div class="col-sm-8">
+                <!-- 这里用了一个比较取巧的操作, 使用ng-show判断
+                    到底是输入框显示，还是span显示
+                -->
+                    <input class="form-control" ng-show="!todo.showing" ng-model="todo.text" ng-blur="changeFlag($index)">
+                    <span ng-show="todo.showing" class="done-{{todo.done}}" ng-click="changeFlag($index)" ng-mouseover="tooltipWarning($index)" data-toggle="tooltip" data-placement="right" title="{{todo.warning}}">{{todo.text}}</span>
+                </div>
+            </li>
+        </ul>
+
+        <form ng-submit="addTodo()" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-9">
+                    <input type="text" ng-model='todoText' placeholder="填入新任务" class="form-control">
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-primary">添加</button>
+                    </div>
+            </div>
+        </form>
     </div>
 </div>
+</body>
+<script src="http://apps.bdimg.com/libs/angular.js/1.2.9/angular.min.js"></script>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script>
+    var todo = angular.module('todo', []);
+    todo.controller('todoListCtrl', ['$scope', function($scope){
+
+        $scope.todos = [
+            {text:'切割图片',done:true,showing:true,warning:''},
+            {text:'编写页面代码',done:false,showing:true,warning:''},
+            {text:'编写js代码',done:false,showing:true,warning:''}
+        ];
+        $scope.changeFlag = function(index){
+            //如果任务没有完成才能进行修改
+            if(!$scope.todos[index].done){
+                //遍历数组中所有对象,
+                //将非当前点击的对象的showing属性设置为true
+                //也就是全部都显示的是span状态
+                $scope.todos.forEach(function(ele,i){
+                    if(i != index) ele.showing = true;
+                });
+                //取反之后重新赋值
+                $scope.todos[index].showing = !$scope.todos[index].showing;
+            }
+
+        }
+        $scope.remaining = function(){
+            var count = 0;
+            $scope.todos.forEach(function(ele){
+                count += ele.done ? 0 : 1;
+            });
+            return count;
+        }
+        $scope.addTodo = function(){
+            $scope.todos.push(
+                {text:$scope.todoText,done:false,showing:true,warning:''}
+            );
+            $scope.todoText = '';
+        }
+        $scope.archive = function(){
+            $scope.todos = $scope.todos.filter(function(ele){
+                return !ele.done;
+            });
+        }
+        $scope.tooltipWarning = function(index){
+            if($scope.todos[index].done){
+                $scope.todos[index].warning = "已经完成的任务不能修改";
+            }else{
+                $scope.todos[index].warning = "";
+            }
+        }
+    }]);
+</script>
+</html>
