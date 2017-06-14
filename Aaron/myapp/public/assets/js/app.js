@@ -21,6 +21,34 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "mac.html"
     });
 });
+
+myApp.controller('myCtrl',function($scope, $http, $rootScope){
+    $http.get('http://localhost:8282/pc_get').success(function(response){
+      $rootScope.pcnum = response.length;
+      console.log($rootScope.pcnum);
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
+    $http.get('http://localhost:8282/mobile_get').success(function(response){
+      $rootScope.mobilenum = response.length;
+      console.log($rootScope.mobilenum);
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
+    $http.get('http://localhost:8282/vm_get').success(function(response){
+      $rootScope.vmnum = response.length;
+      console.log($rootScope.vmnum);
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
+    $http.get('http://localhost:8282/mac_get').success(function(response){
+      $rootScope.macnum = response.length;
+      console.log($rootScope.macnum);
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
+});
+
 // Slide Show
 myApp.controller('CarouselDemoCtrl', function($scope) {
     $scope.myInterval = 5000;
@@ -34,7 +62,7 @@ myApp.controller('CarouselDemoCtrl', function($scope) {
     });
 });
 
-myApp.controller('basicsCtrl', function($scope, $http) {
+myApp.controller('basicsCtrl', function($scope, $http, $rootScope) {
     // Remove Row
     $scope.removeRow = function removeRow(row) {
         var index = $scope.row123.indexOf(row);
@@ -42,6 +70,7 @@ myApp.controller('basicsCtrl', function($scope, $http) {
             $scope.row123.splice(index, 1);
         }
            $http.post('http://localhost:8282/vm_del', JSON.stringify($scope.row123)).success(function(response){
+            $rootScope.vmnum -= 1;
            }).error(function(){
                alert("an unexpected error ocurred!");
            });
@@ -92,14 +121,12 @@ myApp.controller('basicsCtrl', function($scope, $http) {
                     };
 
         $http.post('http://localhost:8282/vm_post', newVM).success(function(){
-            $scope.msg = 'Data saved';
         }).error(function(data) {
             alert("failure message:" + JSON.stringify({data:data}));
         });
 
         $http.get('http://localhost:8282/vm_get').success(function(response){
-              $scope.totalVM = response.length;
-              console.log($scope.totalVM);
+              $rootScope.vmnum = response.length;
             }).error(function(){
                 alert("an unexpected error ocurred!");
             });
@@ -175,18 +202,7 @@ myApp.controller('memberControl', function($scope, $http) {
     }
 });
 
-myApp.directive('stRatio', function() {
-    return {
-        link: function(scope, element, attr) {
-            var ratio = +(attr.stRatio);
-
-            element.css('width', ratio + '%');
-
-        }
-    };
-});
-
-myApp.controller('pcCtrl', function($scope, $http) {
+myApp.controller('pcCtrl', function($scope, $http, $rootScope) {
     // Remove Row
     $scope.removeRow = function removeRow(row) {
         var index = $scope.rowpc.indexOf(row);
@@ -194,6 +210,7 @@ myApp.controller('pcCtrl', function($scope, $http) {
             $scope.rowpc.splice(index, 1);
         }
            $http.post('http://localhost:8282/pc_del', JSON.stringify($scope.rowpc)).success(function(response){
+            $rootScope.pcnum -= 1;
            }).error(function(){
                alert("an unexpected error ocurred!");
            });
@@ -250,6 +267,7 @@ myApp.controller('pcCtrl', function($scope, $http) {
         });
 
         $http.get('http://localhost:8282/pc_get').success(function(response){
+          $rootScope.pcnum = response.length;
             }).error(function(){
                 alert("an unexpected error ocurred!");
             });
@@ -293,7 +311,7 @@ myApp.controller('pcCtrl', function($scope, $http) {
     }
 });
 
-myApp.controller('mobileCtrl', function($scope, $http) {
+myApp.controller('mobileCtrl', function($scope, $http, $rootScope) {
     // Remove Row
     $scope.removeRow = function removeRow(row) {
         var index = $scope.rowmobile.indexOf(row);
@@ -301,6 +319,7 @@ myApp.controller('mobileCtrl', function($scope, $http) {
             $scope.rowmobile.splice(index, 1);
         }
            $http.post('http://localhost:8282/mobile_del', JSON.stringify($scope.rowmobile)).success(function(response){
+            $rootScope.mobilenum -= 1;
            }).error(function(){
                alert("an unexpected error ocurred!");
            });
@@ -357,6 +376,7 @@ myApp.controller('mobileCtrl', function($scope, $http) {
         });
 
         $http.get('http://localhost:8282/mobile_get').success(function(response){
+          $rootScope.mobilenum = response.length;
             }).error(function(){
                 alert("an unexpected error ocurred!");
             });
@@ -400,7 +420,7 @@ myApp.controller('mobileCtrl', function($scope, $http) {
     }
 });
 
-myApp.controller('macCtrl', function($scope, $http) {
+myApp.controller('macCtrl', function($scope, $http, $rootScope) {
     // Remove Row
     $scope.removeRow = function removeRow(row) {
         var index = $scope.rowmac.indexOf(row);
@@ -408,6 +428,7 @@ myApp.controller('macCtrl', function($scope, $http) {
             $scope.rowmac.splice(index, 1);
         }
            $http.post('http://localhost:8282/mac_del', JSON.stringify($scope.rowmac)).success(function(response){
+            $rootScope.macnum -= 1;
            }).error(function(){
                alert("an unexpected error ocurred!");
            });
@@ -464,6 +485,7 @@ myApp.controller('macCtrl', function($scope, $http) {
         });
 
         $http.get('http://localhost:8282/mac_get').success(function(response){
+          $rootScope.macnum = response.length;
             }).error(function(){
                 alert("an unexpected error ocurred!");
             });
@@ -505,4 +527,15 @@ myApp.controller('macCtrl', function($scope, $http) {
         $scope.production = "";
         $scope.notes = "";
     }
+});
+
+myApp.directive('stRatio', function() {
+    return {
+        link: function(scope, element, attr) {
+            var ratio = +(attr.stRatio);
+
+            element.css('width', ratio + '%');
+
+        }
+    };
 });

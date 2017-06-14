@@ -1,3 +1,3 @@
 
-{"host_name":"FTVP CI Server","ip_address":"10.224.105.17","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean","notes":"As View and VP server for CI Testing."}
-{"host_name":"FTVP CI Client","ip_address":"10.224.105.24","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing."}
+{"host_name":"FTVP CI Server","ip_address":"10.224.105.17","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean","notes":"As View and VP server for CI Testing.","$$hashKey":"object:21"}
+{"host_name":"FTVP CI Client","ip_address":"10.224.105.24","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:22"}
