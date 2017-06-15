@@ -4,7 +4,7 @@
         <h4>TodoList</h4>
     </div>
     <div ng-controller="todoListCtrl" id="todolist">
-        <span>All Tasks:{{todos.length}}&nbsp;&nbsp;&nbsp;&nbsp;Remain:{{remaining()}} Todo</span>&nbsp;&nbsp;[<a href="" ng-click="archive()">Finish</a>]
+        <h4><span>All Tasks:{{todos.length}}&nbsp;&nbsp;&nbsp;&nbsp;Remain:{{remaining()}} Todo</span>&nbsp;&nbsp;[<a href="" ng-click="archive()">Finish</a>]</h4>
         <ul>
             <li ng-repeat="todo in todos" class="row">
                 <div class="col-sm-1">
@@ -18,19 +18,19 @@
         </ul>
         <h4>Done Tasks</h4>
             <ul>
-                  <li ng-repeat="todo in todos | filter:{'done': true}">
+                <li ng-repeat="done in dones | filter:{'done': true}">
                     <div class="col-sm-1">
                       <span class="fa fa-check"></span>
                     </div>
-                    <div class="col-sm-8">
-                      {{todo.text}}
+                    <div class="col-sm-11">
+                      {{done.text}}
                     </div>
                 </li>
             </ul>
         <form ng-submit="addTodo()" class="form-horizontal">
             <div class="form-group">
                 <div class="col-sm-9">
-                    <input type="text" ng-model='todoText' placeholder="Input Task Description" class="form-control">
+                    <input type="text" ng-model='todoText' placeholder="Input Task Description" class="form-control" required="">
                 </div>
                 <div class="col-sm-2">
                     <button class="btn btn-primary">Add Task</button>

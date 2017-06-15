@@ -28,25 +28,21 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 myApp.controller('myCtrl',function($scope, $http, $rootScope){
     $http.get('http://localhost:8282/pc_get').success(function(response){
       $rootScope.pcnum = response.length;
-      console.log($rootScope.pcnum);
     }).error(function(){
         alert("an unexpected error ocurred!");
     });
     $http.get('http://localhost:8282/mobile_get').success(function(response){
       $rootScope.mobilenum = response.length;
-      console.log($rootScope.mobilenum);
     }).error(function(){
         alert("an unexpected error ocurred!");
     });
     $http.get('http://localhost:8282/vm_get').success(function(response){
       $rootScope.vmnum = response.length;
-      console.log($rootScope.vmnum);
     }).error(function(){
         alert("an unexpected error ocurred!");
     });
     $http.get('http://localhost:8282/mac_get').success(function(response){
       $rootScope.macnum = response.length;
-      console.log($rootScope.macnum);
     }).error(function(){
         alert("an unexpected error ocurred!");
     });
@@ -489,6 +485,7 @@ myApp.controller('macCtrl', function($scope, $http, $rootScope) {
 
         $http.get('http://localhost:8282/mac_get').success(function(response){
           $rootScope.macnum = response.length;
+          console.log($rootScope.macnum);
             }).error(function(){
                 alert("an unexpected error ocurred!");
             });
@@ -533,7 +530,7 @@ myApp.controller('macCtrl', function($scope, $http, $rootScope) {
 });
 
 myApp.controller('todoListCtrl', ['$scope', function($scope){
-
+    $scope.dones = [];
         $scope.todos = [
             {text:'Create new test cases and implement automation script.',done:true,showing:true,warning:''},
             {text:'Run BAT test on latest build.',done:false,showing:true,warning:''},
@@ -564,6 +561,21 @@ myApp.controller('todoListCtrl', ['$scope', function($scope){
             $scope.todoText = '';
         }
         $scope.archive = function(){
+            $scope.todone = $scope.todos.filter(function(ele){
+                return ele.done;
+            });
+            //console.log($scope.todone);
+            $scope.todone.forEach(function(ele){
+              $scope.dones.push({
+              text:ele.text,
+              done:ele.done,
+              showing:ele.showing,
+              warning:ele.warning
+            });
+            });
+            
+            console.log($scope.dones);
+
             $scope.todos = $scope.todos.filter(function(ele){
                 return !ele.done;
             });
