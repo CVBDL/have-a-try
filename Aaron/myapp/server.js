@@ -377,6 +377,30 @@ res.end(JSON.stringify(response));
   });
 })
 
+app.get('/task_get', function (req, res) {
+  var readline = require('readline');
+  var fs = require('fs');
+  var uReadMem = 'public/assets/data/task.txt';
+  var uRead = fs.createReadStream(uReadMem);
+  var memReadline = readline.createInterface({
+     input: uRead,
+     });
+  var tmp = "";
+  memReadline.on('line', (line)=>{
+    if(line=="")
+      console.log("blank line");
+    else
+      tmp += line + ',';
+  });
+
+  memReadline.on('close', ()=>{
+    var data=tmp.substring(0,tmp.length-1);
+    var newdata = '[' + data + ']';
+    console.log(newdata);
+    res.end(newdata);
+  });
+})
+
 var server = app.listen(8282, function () {
 
   var host = server.address().address
