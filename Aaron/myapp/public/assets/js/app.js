@@ -53,11 +53,11 @@ myApp.controller('CarouselDemoCtrl', function($scope) {
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
     slides.push({
-        image: 'assets/img/1.jpg'
+        image: 'assets/img/1.png'
     }, {
-        image: 'assets/img/2.jpg'
+        image: 'assets/img/2.png'
     }, {
-        image: 'assets/img/3.jpg'
+        image: 'assets/img/3.png'
     });
 });
 
@@ -531,67 +531,69 @@ myApp.controller('macCtrl', function($scope, $http, $rootScope) {
 
 myApp.controller('todoListCtrl', function($scope, $http){
     $scope.dones = [];
-    // $scope.todos = [
-    //     {text:'Create new test cases and implement automation script.',done:true,showing:true,warning:''},
-    //     {text:'Run BAT test on latest build.',done:false,showing:true,warning:''},
-    //     {text:'Debug automation scripts on CI system.',done:false,showing:true,warning:''}
-    // ];
-    $http.get('http://localhost:8282/task_get').success(function(response){
-      $scope.todos = response;
-      console.log($scope.todos);
-    }).error(function(){
-        alert("an unexpected error ocurred!");
-    });
+    $scope.todos = [];
+       $scope.todos = [
+           {"text":"Create new test cases and implement automation script.","done":"true","showing":"true","warning":""},
+           {"text":"Run BAT test on latest build.","done":"false","showing":"true","warning":""},
+           {"text":"Debug automation scripts on CI system.","done":"false","showing":"true","warning":""}
+       ];
+//  $http.get('http://localhost:8282/task_get').success(function(response){
+//
+//    $scope.todos = response;
+//    console.log(JSON.stringify($scope.todos));
+//  }).error(function(){
+//      alert("an unexpected error ocurred!");
+//  });
 
-    // $scope.changeFlag = function(index){
-    //     if(!$scope.todos[index].done){
-    //         $scope.todos.forEach(function(ele,i){
-    //             if(i != index) ele.showing = true;
-    //         });
-    //         $scope.todos[index].showing = !$scope.todos[index].showing;
-    //     }
-    // }
-    // $scope.remaining = function(){
-    //     var count = 0;
-    //     $scope.todos.forEach(function(ele){
-    //         count += ele.done ? 0 : 1;
-    //     });
-    //     return count;
-    // }
-    // $scope.addTodo = function(){
-    //     $scope.todos.push(
-    //         {text:$scope.todoText,
-    //           done:false,
-    //           showing:true,
-    //           warning:''}
-    //     );
-    //     $scope.todoText = '';
-    // }
-    // $scope.archive = function(){
-    //     $scope.todone = $scope.todos.filter(function(ele){
-    //         return ele.done;
-    //     });
+     $scope.changeFlag = function(index){
+         if(!$scope.todos[index].done){
+             $scope.todos.forEach(function(ele,i){
+                 if(i != index) ele.showing = true;
+             });
+             $scope.todos[index].showing = !$scope.todos[index].showing;
+         }
+     }
+     $scope.remaining = function(){
+         var count = 0;
+         $scope.todos.forEach(function(ele){
+             count += ele.done ? 0 : 1;
+         });
+         return count;
+     }
+       $scope.addTodo = function(){
+           $scope.todos.push(
+               {text:$scope.todoText,
+                 done:false,
+                 showing:true,
+                 warning:''}
+           );
+           $scope.todoText = '';
+       }
+       $scope.archive = function(){
+           $scope.todone = $scope.todos.filter(function(ele){
+               return ele.done;
+           });
 
-    //     $scope.todone.forEach(function(ele){
-    //       $scope.dones.push({
-    //       text:ele.text,
-    //       done:ele.done,
-    //       showing:ele.showing,
-    //       warning:ele.warning
-    //     });
-    //     });
+           $scope.todone.forEach(function(ele){
+             $scope.dones.push({
+             text:ele.text,
+             done:ele.done,
+             showing:ele.showing,
+             warning:ele.warning
+           });
+           });
 
-    //     $scope.todos = $scope.todos.filter(function(ele){
-    //         return !ele.done;
-    //     });
-    // }
-    // $scope.tooltipWarning = function(index){
-    //     if($scope.todos[index].done){
-    //         $scope.todos[index].warning = "Done task couldn't be modified.";
-    //     }else{
-    //         $scope.todos[index].warning = "";
-    //     }
-    // }
+           $scope.todos = $scope.todos.filter(function(ele){
+               return !ele.done;
+           });
+       }
+       $scope.tooltipWarning = function(index){
+           if($scope.todos[index].done){
+               $scope.todos[index].warning = "Done task couldn't be modified.";
+           }else{
+               $scope.todos[index].warning = "";
+           }
+       }
 });
 
 myApp.directive('stRatio', function() {
