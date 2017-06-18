@@ -33,7 +33,6 @@ app.get('/vm_get', function (req, res) {
     var data=tmp.substring(0,tmp.length-1);
     var newdata = '[' + data + ']';
     console.log('readline close...');
-    //console.log(newdata);
     res.end(newdata);
   });
 
@@ -58,7 +57,6 @@ app.get('/member_get', function (req, res) {
   memReadline.on('close', ()=>{
     var data=tmp.substring(0,tmp.length-1);
     var newdata = '[' + data + ']';
-    console.log(newdata);
     res.end(newdata);
   });
 })
@@ -68,7 +66,6 @@ app.post('/member_post', urlencodedParser, function (req, res) {
    var response = {
        "text":req.body.text
    };
-   console.log(response);
    var fs = require('fs');
 
     var myData = response;
@@ -87,7 +84,6 @@ app.post('/member_post', urlencodedParser, function (req, res) {
 
 app.post('/member_del', urlencodedParser, function (req, res) {
   var response = req.body;
-  console.log(response);
   var fs = require('fs');
 
   fs.writeFileSync('public/assets/data/user.txt',"");
@@ -105,7 +101,6 @@ res.end(JSON.stringify(response));
 
 app.post('/vm_del', urlencodedParser, function (req, res) {
   var response = req.body;
-  console.log(response);
   var fs = require('fs');
 
   fs.writeFileSync('public/assets/data/vm.txt',"");
@@ -132,7 +127,6 @@ app.post('/vm_post', urlencodedParser, function (req, res) {
        "production": req.body.production,
        "notes": req.body.notes
    };
-   //console.log(response);
 
    var fs = require('fs');
 
@@ -172,7 +166,6 @@ app.get('/pc_get', function (req, res) {
     var data=tmp.substring(0,tmp.length-1);
     var newdata = '[' + data + ']';
     console.log('readline close...');
-    //console.log(newdata);
     res.end(newdata);
   });
 })
@@ -208,7 +201,6 @@ app.post('/pc_post', urlencodedParser, function (req, res) {
 
 app.post('/pc_del', urlencodedParser, function (req, res) {
   var response = req.body;
-  console.log(response);
   var fs = require('fs');
 
   fs.writeFileSync('public/assets/data/pc.txt',"");
@@ -245,7 +237,6 @@ app.get('/mobile_get', function (req, res) {
     var data=tmp.substring(0,tmp.length-1);
     var newdata = '[' + data + ']';
     console.log('readline close...');
-    //console.log(newdata);
     res.end(newdata);
   });
 })
@@ -282,7 +273,6 @@ app.post('/mobile_post', urlencodedParser, function (req, res) {
 
 app.post('/mobile_del', urlencodedParser, function (req, res) {
   var response = req.body;
-  console.log(response);
   var fs = require('fs');
 
   fs.writeFileSync('public/assets/data/mobile.txt',"");
@@ -319,7 +309,6 @@ app.get('/mac_get', function (req, res) {
     var data=tmp.substring(0,tmp.length-1);
     var newdata = '[' + data + ']';
     console.log('readline close...');
-    //console.log(newdata);
     res.end(newdata);
   });
 })
@@ -356,7 +345,6 @@ app.post('/mac_post', urlencodedParser, function (req, res) {
 
 app.post('/mac_del', urlencodedParser, function (req, res) {
   var response = req.body;
-  console.log(response);
   var fs = require('fs');
 
   fs.writeFileSync('public/assets/data/mac.txt',"");
@@ -372,13 +360,10 @@ app.post('/mac_del', urlencodedParser, function (req, res) {
 res.end(JSON.stringify(response));
 })
 
-
-
-
 app.get('/task_get', function (req, res) {
   var readline = require('readline');
   var fs = require('fs');
-  var uReadMem = 'public/assets/data/task.txt';
+  var uReadMem = 'public/assets/data/task_todos.txt';
   var uRead = fs.createReadStream(uReadMem);
   var memReadline = readline.createInterface({
      input: uRead,
@@ -390,13 +375,66 @@ app.get('/task_get', function (req, res) {
     else
       tmp += line + ',';
   });
-
   memReadline.on('close', ()=>{
     var data=tmp.substring(0,tmp.length-1);
     var newdata = '[' + data + ']';
-    console.log(newdata);
     res.end(newdata);
   });
+})
+
+app.get('/done_get', function (req, res) {
+  var readline = require('readline');
+  var fs = require('fs');
+  var uReadMem = 'public/assets/data/task_dones.txt';
+  var uRead = fs.createReadStream(uReadMem);
+  var memReadline = readline.createInterface({
+     input: uRead,
+     });
+  var tmp = "";
+  memReadline.on('line', (line)=>{
+    if(line=="")
+      console.log("blank line");
+    else
+      tmp += line + ',';
+  });
+  memReadline.on('close', ()=>{
+    var data=tmp.substring(0,tmp.length-1);
+    var newdata = '[' + data + ']';
+    res.end(newdata);
+  });
+})
+
+app.post('/task_dones', urlencodedParser, function (req, res) {
+  var response = req.body;
+  var fs = require('fs');
+
+  for (var i = 0; i < response.length; i++) {
+    fs.appendFile('public/assets/data/task_dones.txt', '\n' + JSON.stringify(response[i]), function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("JSON saved Successed");
+        }
+    })
+  }
+  res.end(JSON.stringify(response));
+})
+
+app.post('/task_todos', urlencodedParser, function (req, res) {
+  var response = req.body;
+  var fs = require('fs');
+
+  fs.writeFileSync('public/assets/data/task_todos.txt',"");
+  for (var i = 0; i < response.length; i++) {
+    fs.appendFile('public/assets/data/task_todos.txt', '\n' + JSON.stringify(response[i]), function(err) {
+        if(err) {
+          console.log(err);
+        } else {
+          console.log("JSON saved Successed");
+        }
+    })
+  }
+  res.end(JSON.stringify(response));
 })
 
 var server = app.listen(8282, function () {

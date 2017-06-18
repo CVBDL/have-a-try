@@ -193,7 +193,6 @@ myApp.controller('memberControl', function($scope, $http) {
     }
     $scope.delete = function (index, members) {
         members.splice(index, 1);
-        console.log(JSON.stringify(members));
         $http.post('http://localhost:8282/member_del', JSON.stringify(members)).success(function(response){
         }).error(function(){
             alert("an unexpected error ocurred!");
@@ -485,7 +484,6 @@ myApp.controller('macCtrl', function($scope, $http, $rootScope) {
 
         $http.get('http://localhost:8282/mac_get').success(function(response){
           $rootScope.macnum = response.length;
-          console.log($rootScope.macnum);
             }).error(function(){
                 alert("an unexpected error ocurred!");
             });
@@ -532,18 +530,17 @@ myApp.controller('macCtrl', function($scope, $http, $rootScope) {
 myApp.controller('todoListCtrl', function($scope, $http){
     $scope.dones = [];
     $scope.todos = [];
-       $scope.todos = [
-           {"text":"Create new test cases and implement automation script.","done":"true","showing":"true","warning":""},
-           {"text":"Run BAT test on latest build.","done":"false","showing":"true","warning":""},
-           {"text":"Debug automation scripts on CI system.","done":"false","showing":"true","warning":""}
-       ];
-//  $http.get('http://localhost:8282/task_get').success(function(response){
-//
-//    $scope.todos = response;
-//    console.log(JSON.stringify($scope.todos));
-//  }).error(function(){
-//      alert("an unexpected error ocurred!");
-//  });
+
+    $http.get('http://localhost:8282/task_get').success(function(response){
+      $scope.todos = response;
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
+    $http.get('http://localhost:8282/done_get').success(function(response){
+      $scope.dones = response;
+    }).error(function(){
+        alert("an unexpected error ocurred!");
+    });
 
      $scope.changeFlag = function(index){
          if(!$scope.todos[index].done){
@@ -568,12 +565,17 @@ myApp.controller('todoListCtrl', function($scope, $http){
                  warning:''}
            );
            $scope.todoText = '';
+           $http.post('http://localhost:8282/task_todos', $scope.todos).success(function(response){
+            $scope.todos = response;
+            }).error(function(data) {
+                alert("failure message:" + JSON.stringify({data:data}));
+            });
        }
        $scope.archive = function(){
+         console.log($scope.todos);
            $scope.todone = $scope.todos.filter(function(ele){
                return ele.done;
            });
-
            $scope.todone.forEach(function(ele){
              $scope.dones.push({
              text:ele.text,
@@ -582,10 +584,21 @@ myApp.controller('todoListCtrl', function($scope, $http){
              warning:ele.warning
            });
            });
-
-           $scope.todos = $scope.todos.filter(function(ele){
+            $http.post('http://localhost:8282/task_dones', $scope.todone).success(function(response){
+            console.log(JSON.stringify(response));
+            $scope.todos = response;
+            }).error(function(data) {
+                alert("failure message:" + JSON.stringify({data:data}));
+            });
+            $scope.todos = $scope.todos.filter(function(ele){
                return !ele.done;
-           });
+            });
+
+           $http.post('http://localhost:8282/task_todos', $scope.todos).success(function(response){
+            $scope.todos = response;
+            }).error(function(data) {
+                alert("failure message:" + JSON.stringify({data:data}));
+            });
        }
        $scope.tooltipWarning = function(index){
            if($scope.todos[index].done){
