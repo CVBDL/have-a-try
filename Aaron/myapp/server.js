@@ -168,6 +168,14 @@ app.get('/pc_get', function (req, res) {
     else
       tmp += line + ',';
   });
+  objReadline.on('close', ()=>{
+    var data=tmp.substring(0,tmp.length-1);
+    var newdata = '[' + data + ']';
+    console.log('readline close...');
+    //console.log(newdata);
+    res.end(newdata);
+  });
+})
 
 app.post('/pc_post', urlencodedParser, function (req, res) {
    // Output JSON
@@ -180,7 +188,6 @@ app.post('/pc_post', urlencodedParser, function (req, res) {
        "production": req.body.production,
        "notes": req.body.notes
    };
-
 
    var fs = require('fs');
 
@@ -217,16 +224,6 @@ app.post('/pc_del', urlencodedParser, function (req, res) {
 res.end(JSON.stringify(response));
 })
 
-  objReadline.on('close', ()=>{
-    var data=tmp.substring(0,tmp.length-1);
-    var newdata = '[' + data + ']';
-    console.log('readline close...');
-    //console.log(newdata);
-    res.end(newdata);
-  });
-})
-
-
 app.get('/mobile_get', function (req, res) {
   var readline = require('readline');
   var fs = require('fs');
@@ -244,6 +241,14 @@ app.get('/mobile_get', function (req, res) {
     else
       tmp += line + ',';
   });
+  objReadline.on('close', ()=>{
+    var data=tmp.substring(0,tmp.length-1);
+    var newdata = '[' + data + ']';
+    console.log('readline close...');
+    //console.log(newdata);
+    res.end(newdata);
+  });
+})
 
 app.post('/mobile_post', urlencodedParser, function (req, res) {
    // Output JSON
@@ -293,15 +298,6 @@ app.post('/mobile_del', urlencodedParser, function (req, res) {
 res.end(JSON.stringify(response));
 })
 
-  objReadline.on('close', ()=>{
-    var data=tmp.substring(0,tmp.length-1);
-    var newdata = '[' + data + ']';
-    console.log('readline close...');
-    //console.log(newdata);
-    res.end(newdata);
-  });
-})
-
 app.get('/mac_get', function (req, res) {
   var readline = require('readline');
   var fs = require('fs');
@@ -319,6 +315,14 @@ app.get('/mac_get', function (req, res) {
     else
       tmp += line + ',';
   });
+  objReadline.on('close', ()=>{
+    var data=tmp.substring(0,tmp.length-1);
+    var newdata = '[' + data + ']';
+    console.log('readline close...');
+    //console.log(newdata);
+    res.end(newdata);
+  });
+})
 
 app.post('/mac_post', urlencodedParser, function (req, res) {
    // Output JSON
@@ -368,14 +372,8 @@ app.post('/mac_del', urlencodedParser, function (req, res) {
 res.end(JSON.stringify(response));
 })
 
-  objReadline.on('close', ()=>{
-    var data=tmp.substring(0,tmp.length-1);
-    var newdata = '[' + data + ']';
-    console.log('readline close...');
-    //console.log(newdata);
-    res.end(newdata);
-  });
-})
+
+
 
 app.get('/task_get', function (req, res) {
   var readline = require('readline');
