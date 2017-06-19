@@ -1,4 +1,4 @@
 
-{"host_name":"ewq","ip_address":"ewq","op_system":"ewq","owner":"Aaron Wang","email":"ewq","production":"ewq","notes":"ewq","$$hashKey":"object:73"}
-{"host_name":"123","ip_address":"123","op_system":"123","owner":"Aaron Wang","email":"123","production":"123","notes":"123","$$hashKey":"object:55"}
-{"host_name":"2","ip_address":"2","op_system":"2","owner":"Aaron Wang","email":"2","production":"2","notes":"2","$$hashKey":"object:57"}
+{"host_name":"Mac Book Pro","ip_address":"Notepad","op_system":"iOS","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"OS X 10.11","notes":"For Mobile Testing"}
+{"host_name":"Mac Book Air","ip_address":"Notepad","op_system":"iOS","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"OS X 10.11","notes":"For Mobile Testing."}
+{"host_name":"Mac Book Pro","ip_address":"Notepad","op_system":"iOS","owner":"Peggy Ma","email":"pma@ra.rockwell.com","production":"OS X 10.11","notes":"For Mobile Testing."}

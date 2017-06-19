@@ -1,13 +1,4 @@
-
-{"text":"123123123123","done":true,"showing":true,"warning":""}
 {"text":"Run BAT test on latest build.","done":true,"showing":"true","warning":""}
 {"text":"Create new test cases and implement automation script.","done":true,"showing":"true","warning":""}
-{"text":"asdfasdfdsfasdfas","done":true,"showing":true,"warning":"Done task couldn't be modified."}
-{"text":"zxcvzxcvzxcv","done":true,"showing":true,"warning":""}
-{"text":"asdfasdfasdf","done":true,"showing":true,"warning":""}
-{"text":"qwerqwerqerw","done":true,"showing":true,"warning":"Done task couldn't be modified."}
-{"text":"1234454545345","done":true,"showing":true,"warning":""}
-{"text":"Create new test cases and implement automation script.123","done":true,"showing":true,"warning":"Done task couldn't be modified."}
-{"text":"Run BAT test on latest build.","done":true,"showing":true,"warning":""}
-{"text":"ewqeqweq","done":true,"showing":true,"warning":"Done task couldn't be modified."}
-{"text":"qweqweqwe","done":true,"showing":true,"warning":"Done task couldn't be modified."}
+{"text":"Finish Web front-end training.","done":true,"showing":true,"warning":"Done task couldn't be modified."}
+{"text":"Demo my application.","done":true,"showing":true,"warning":""}

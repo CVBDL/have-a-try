@@ -36,13 +36,15 @@
                       <h4 class="modal-title" id="add-new-device">Add New Device</h4>
                     </div>
                     <div class="modal-body">
-                      <form class="form-horizontal" id="templateForm" novalidate>
+                      <form class="form-horizontal" id="templateForm" novalidate name="myForm">
                         <div class="form-group">
                           <label class="control-label col-xs-3 col-sm-3" for="new-host-name">
                             <span id="new-host-name-label">Host Name</span> <span class="required">*</span>
                           </label>
                           <div class="col-xs-7 col-sm-7">
                             <input type="text" class="form-control dialog-input" id="new-host-name" ng-model="host_name" name="hostname" required>
+                            <span class="glyphicon glyphicon-ok form-control-feedback"
+                              ng-show="myForm.host_name.$dirty && myForm.host_name.$valid"></span>
                           </div>
                           <label class="control-label col-xs-3 col-sm-3" for="new-ip-address">
                             <span id="new-ip-address-label">IP Address</span> <span class="required">*</span>

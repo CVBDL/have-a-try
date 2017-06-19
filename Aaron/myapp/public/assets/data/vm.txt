@@ -1,9 +1,12 @@
-
-{"host_name":"123","ip_address":"123","op_system":"123","owner":"Peggy Ma","email":"123","production":"123","notes":"123","$$hashKey":"object:20"}
-{"host_name":"qwe","ip_address":"qwe","op_system":"qwe","owner":"Peggy Ma","email":"qwe","production":"qwe","notes":"qwe","$$hashKey":"object:41"}
-{"host_name":"123","ip_address":"123","op_system":"123","owner":"Peggy Ma","email":"123","production":"123","notes":"123","$$hashKey":"object:23"}
-{"host_name":"321","ip_address":"321","op_system":"321","owner":"Peggy Ma","email":"321","production":"321","notes":"321","$$hashKey":"object:32"}
-{"host_name":"123","ip_address":"123","op_system":"123","owner":"Peggy Ma","email":"123","production":"123","notes":"123","$$hashKey":"object:21"}
-{"host_name":"2","ip_address":"2","op_system":"2","owner":"Aaron Wang","email":"2","production":"2","notes":"2","$$hashKey":"object:65"}
-{"host_name":"123","ip_address":"123","op_system":"123","owner":"Peggy Ma","email":"123","production":"123","notes":"123","$$hashKey":"object:34"}
-{"host_name":"123","ip_address":"123","op_system":"123","owner":"Tester","email":"123","production":"123","notes":"123","$$hashKey":"object:31"}
+{"host_name":"FTVP CI Server","ip_address":"10.224.105.17","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean","notes":"As View and VP server for CI Testing.","$$hashKey":"object:21"}
+{"host_name":"FTVP CI Client","ip_address":"10.224.105.24","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:22"}
+{"host_name":"FTVP CI Client1","ip_address":"10.224.105.111","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:23"}
+{"host_name":"FTVP CI Client2","ip_address":"10.224.105.112","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:24"}
+{"host_name":"FTVP CI Client3","ip_address":"10.224.105.113","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:25"}
+{"host_name":"FTVP CI Client4","ip_address":"10.224.105.114","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:26"}
+{"host_name":"FTVP CI Client5","ip_address":"10.224.105.115","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:27"}
+{"host_name":"FTVP CI Client6","ip_address":"10.224.105.116","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:28"}
+{"host_name":"FTVP CI Client7","ip_address":"10.224.105.117","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:29"}
+{"host_name":"FTVP CI Client8","ip_address":"10.224.105.118","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:32"}
+{"host_name":"FTVP CI Client9","ip_address":"10.224.105.119","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:33"}
+{"host_name":"FTVP CI Client10","ip_address":"10.224.105.120","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:34"}
