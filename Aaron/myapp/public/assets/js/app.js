@@ -22,6 +22,12 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
     }).state("dash.task", {
         url: "/task",
         templateUrl: "task.html"
+    }).state("dash.about", {
+        url: "/about",
+        templateUrl: "about.html"
+    }).state("dash.contact", {
+        url: "/contact",
+        templateUrl: "contact.html"
     });
 });
 

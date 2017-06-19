@@ -195,10 +195,6 @@ height: 60px;
     background-color:transparent;
 }
 
-/*.row {
-    margin-top: 40px;
-}*/
-
 /* =============================================================
    FOOTER SECTION STYLES
  ============================================================ */
@@ -236,6 +232,11 @@ table {
     margin: 3px;
 }
 
+.panel-body{
+    overflow-x: auto; 
+    overflow-y: auto;"
+}
+
 /* =============================================================
    MODAL DIALOG
  ============================================================ */
@@ -268,4 +269,8 @@ ul{
 .done-true{
     text-decoration: line-through;
     color: #ccc;
+}
+
+#contactMe{
+    margin-top: 10px;
 }
