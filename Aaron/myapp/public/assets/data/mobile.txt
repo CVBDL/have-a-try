@@ -1,7 +1,7 @@
 
-{"host_name":"iPhone 6 plus","ip_address":"Mobile","op_system":"iOS 10.0.1","owner":"Peggy Ma","email":"pma@ra.rockwell.com","production":"None","notes":"For mobile test."}
-{"host_name":"Samsung Note 4","ip_address":"Mobile","op_system":"Android 6.0","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"None","notes":"For mobile testing."}
-{"host_name":"Samsung Note 6","ip_address":"Mobile","op_system":"Android 6.2","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"None","notes":"For mobile testing."}
-{"host_name":"Samsung tab S","ip_address":"Pad","op_system":"Android 6.1","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"None","notes":"For mobile testing."}
-{"host_name":"Google Galaxy","ip_address":"Mobile","op_system":"Android 6.0","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"None","notes":"For mobile testing."}
-{"host_name":"iPad Air 2","ip_address":"Pad","op_system":"iOS 10.0","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"None","notes":"For mobile testing."}
+{"host_name":"iPhone 6 plus","ip_address":"Mobile","op_system":"iOS 10.0.1","owner":"Peggy Ma","email":"pma@ra.rockwell.com","production":"None","notes":"For mobile test.","$$hashKey":"object:366"}
+{"host_name":"Samsung Note 4","ip_address":"Mobile","op_system":"Android 6.0","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"None","notes":"For mobile testing.","$$hashKey":"object:367"}
+{"host_name":"Samsung Note 6","ip_address":"Mobile","op_system":"Android 6.2","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"None","notes":"For mobile testing.","$$hashKey":"object:368"}
+{"host_name":"Samsung tab S","ip_address":"Pad","op_system":"Android 6.1","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"None","notes":"For mobile testing.","$$hashKey":"object:369"}
+{"host_name":"Google Galaxy","ip_address":"Mobile","op_system":"Android 6.0","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"None","notes":"For mobile testing.","$$hashKey":"object:370"}
+{"host_name":"iPad Air 2","ip_address":"Pad","op_system":"iOS 10.0","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"None","notes":"For mobile testing.","$$hashKey":"object:380"}

@@ -1,7 +1,7 @@
 
-{"host_name":"FTVP CI Server","ip_address":"10.224.105.17","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean","notes":"As View and VP server for CI Testing.","$$hashKey":"object:56"}
-{"host_name":"FTVP CI Client","ip_address":"10.224.105.24","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:57"}
-{"host_name":"Windows 10 Eng x64","ip_address":"10.224.110.125","op_system":"Windows 10","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"FTView 9.0 + FTVP 9.0","notes":"Last release","$$hashKey":"object:70"}
-{"host_name":"Windows 8.1 CHN x64","ip_address":"10.224.110.123","op_system":"Windows 8.1","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"FTView 10.00.134+FTVP 10.00.134","notes":"Test","$$hashKey":"object:58"}
 {"host_name":"Windows 10 Eng x64","ip_address":"10.224.110.124","op_system":"Windows 10","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"FTView 8.0 + FTVP 8.0","notes":"Silverlight","$$hashKey":"object:59"}
+{"host_name":"FTVP CI Server","ip_address":"10.224.105.17","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean","notes":"As View and VP server for CI Testing.","$$hashKey":"object:56"}
 {"host_name":"Windows 10 Eng x64","ip_address":"10.224.110.125","op_system":"Windows 10","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"FTView 8.1 + FTVP 8.1","notes":"HTML5","$$hashKey":"object:60"}
+{"host_name":"Windows 8.1 CHN x64","ip_address":"10.224.110.123","op_system":"Windows 8.1","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"FTView 10.00.134+FTVP 10.00.134","notes":"Test","$$hashKey":"object:58"}
+{"host_name":"Windows 10 Eng x64","ip_address":"10.224.110.125","op_system":"Windows 10","owner":"Star Sun","email":"ssun@ra.rockwell.com","production":"FTView 9.0 + FTVP 9.0","notes":"Last release","$$hashKey":"object:70"}
+{"host_name":"FTVP CI Client","ip_address":"10.224.105.24","op_system":"Windows 8.1 x64 Ent","owner":"Aaron Wang","email":"awang14@ra.rockwell.com","production":"Clean + Chrome + TAF scripts","notes":"As VP client for CI Testing.","$$hashKey":"object:57"}

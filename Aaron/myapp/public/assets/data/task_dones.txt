@@ -2,3 +2,4 @@
 {"text":"Create new test cases and implement automation script.","done":true,"showing":"true","warning":""}
 {"text":"Finish Web front-end training.","done":true,"showing":true,"warning":"Done task couldn't be modified."}
 {"text":"Demo my application.","done":true,"showing":true,"warning":""}
+{"text":"Start regression test, record test result on CLM.12321321","done":true,"showing":true,"warning":"Done task couldn't be modified."}

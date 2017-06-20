@@ -38,20 +38,17 @@
       </div>
       <div ui-view="">
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="col-md-8 col-sm-8 col-xs-12">
             <div ng-controller="CarouselDemoCtrl" id="slides_control">
               <div>
                 <carousel interval="myInterval">
                   <slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}">
+                    <img ng-src="{{slide.image}}" style="width: 100%;">
                   </slide>
                 </carousel>
               </div>
             </div>
           </div>
-        </div>
-        <br />
-        <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="panel panel-primary " ng-controller="memberControl">
               <div class="panel-heading">
@@ -76,7 +73,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8 col-sm-8 col-xs-12">
+          </div>
+          <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="panel panel-default">
                   <div class="panel-heading">
                       Useful Information
