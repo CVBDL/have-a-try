@@ -1,0 +1,11 @@
+[
+  "viewpoint/tests/Python Test/test_01_homepage.py::TestWorkflow01::test_button_size",
+  "viewpoint/tests/Python Test/test_02_static.py::TestWorkflow02::test_text_caption",
+  "viewpoint/tests/Python Test/test_03_input.py::TestWorkflow03::test_input_function",
+  "viewpoint/tests/Python Test/test_04_button01.py::TestWorkflow04::test_button1",
+  "viewpoint/tests/Python Test/test_05_button02.py::TestWorkflow05::test_button2",
+  "viewpoint/tests/Python Test/test_06_button03.py::TestWorkflow06::test_button03",
+  "viewpoint/tests/Python Test/test_16_dateandtime.py::TestWorkflow16::test_dataandtime01",
+  "viewpoint/tests/Python Test/test_17_localmessage.py::TestWorkflow17::test_localmsg01",
+  "viewpoint/tests/Python Test/test_27_controllistselector01.py::TestWorkflow27::test_cls01"
+]
