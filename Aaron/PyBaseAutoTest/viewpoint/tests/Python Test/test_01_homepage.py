@@ -1,4 +1,7 @@
+import sys
+sys.path.append('C:\\Users\\awang14\\Desktop\Merlin\\PyBaseAutoTest - bk')
 from viewpoint.tests.base_test import BaseTestCase
+import viewpoint.lib.viewpoint_globalvar as gl
 
 
 class TestWorkflow01(BaseTestCase):
@@ -6,5 +9,7 @@ class TestWorkflow01(BaseTestCase):
         """
         :type util: viewpoint.lib.viewpoint_browser_util.ViewPointTestUtil
         """
-        # util.openPage()
-        assert util.getElementProperty('Button1', 'FontSize') == 13, "Font size on homepage should be 13"
+        gl.get_value_csv('BAT_SE')
+        util.openPage()
+        assert util.getElementProperty(
+            'Button1', 'FontSize') == 13, "Font size on homepage should be 13"

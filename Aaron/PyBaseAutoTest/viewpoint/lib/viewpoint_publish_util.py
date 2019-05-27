@@ -10,7 +10,6 @@ from .viewpoint_webdriver import BROWSERS
 
 
 class ViewpointPublishUtil(object):
-
     def __init__(self):
         config = configparser.RawConfigParser()
         config.read(os.path.abspath('./config/config.properties'))
@@ -25,8 +24,7 @@ class ViewpointPublishUtil(object):
     def openBrowser(self):
         self.browser = webdriver.Remote(
             command_executor=self.webdriver_url,
-            desired_capabilities=BROWSERS[self.browser_info]
-        )
+            desired_capabilities=BROWSERS[self.browser_info])
 
     def closeBrowser(self):
         if self.browser is not None:
@@ -36,8 +34,7 @@ class ViewpointPublishUtil(object):
         time.sleep(1)
         try:
             element = WebDriverWait(self.browser, timeout).until(
-                EC.visibility_of_element_located((By.ID, element))
-            )
+                EC.visibility_of_element_located((By.ID, element)))
         finally:
             return True
 
@@ -47,13 +44,15 @@ class ViewpointPublishUtil(object):
         config.read(os.path.abspath('./config/config.properties'))
         applicationType = config.get('PublishSection', projectName + '.type')
         applicationName = config.get('PublishSection', projectName + '.name')
-        needPublish = True if config.get('PublishSection', projectName + '.publish') == '1' else False
+        needPublish = True if config.get('PublishSection', projectName +
+                                         '.publish') == '1' else False
         if needPublish is False:
             return
         self.openBrowser()
         self.browser.get(self.viewpoint_url + "/FTVP/admin")
         self.wait_element_by_id('obj1', 10)
-        htmlUrl = self.browser.execute_script("return document.getElementById('obj1').data")
+        htmlUrl = self.browser.execute_script(
+            "return document.getElementById('obj1').data")
         self.browser.get(htmlUrl)
 
         # Home
@@ -71,7 +70,7 @@ class ViewpointPublishUtil(object):
         self.browser.find_element_by_xpath(
             "//select[@id='comboSelectApplication']/option[text()='" + applicationName + "']"
         ).click()
-
+        time.sleep(5)
         self.browser.find_element_by_id('btnNext').click()
 
         # Select displays

@@ -3,12 +3,14 @@ import pytest
 :test
 """
 from viewpoint.lib.viewpoint_browser_util import ViewPointTestUtil
+from viewpoint.lib.viewpoint_publish_util import ViewpointPublishUtil
 
 
 class BaseTestCase(object):
     """
     :test
     """
+
     def setUp(self):
         """
         :test
@@ -23,7 +25,7 @@ class BaseTestCase(object):
         print("tearDown funciton in BaseTestCase")
         pass
 
-    @pytest.fixture(scope="session", autouse=True)
+    @pytest.fixture(scope="function", autouse=True)
     def util(self, request):
         """
         :test
@@ -34,5 +36,6 @@ class BaseTestCase(object):
         util_instance.browser.quit()
 
     @pytest.fixture(scope="module", autouse=True)
-    def open_homepage(self, util):
-        util.openPage()
+    def publish_application(self):
+        util_publish = ViewpointPublishUtil()
+        util_publish.publish('MerlinTest', 500)

@@ -1,10 +1,10 @@
 {
     "python.linting.pylintEnabled": false,
-    "python.unitTest.pyTestArgs": [
+    "python.testing.pyTestArgs": [
       "viewpoint"
     ],
-    "python.unitTest.unittestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false,
-    "python.unitTest.pyTestEnabled": true,
-    "python.pythonPath": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pyTestEnabled": true,
+    "python.pythonPath": "C:\\Users\\awang14\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
 }
