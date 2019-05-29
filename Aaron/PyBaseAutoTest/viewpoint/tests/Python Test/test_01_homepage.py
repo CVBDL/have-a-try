@@ -1,7 +1,7 @@
 import sys
-sys.path.append('C:\\Users\\awang14\\Desktop\Merlin\\PyBaseAutoTest - bk')
+sys.path.append('C:\\EagleEye\\have-a-try\\Aaron\PyBaseAutoTest')
 from viewpoint.tests.base_test import BaseTestCase
-import viewpoint.lib.viewpoint_globalvar as gl
+# import viewpoint.lib.viewpoint_globalvar as gl
 
 
 class TestWorkflow01(BaseTestCase):
@@ -9,7 +9,7 @@ class TestWorkflow01(BaseTestCase):
         """
         :type util: viewpoint.lib.viewpoint_browser_util.ViewPointTestUtil
         """
-        gl.get_value_csv('BAT_SE')
+        # gl.get_value_csv('BAT_SE')
         util.openPage()
         assert util.getElementProperty(
             'Button1', 'FontSize') == 13, "Font size on homepage should be 13"
