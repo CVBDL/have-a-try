@@ -12,7 +12,8 @@ from .viewpoint_webdriver import BROWSERS
 class ViewpointPublishUtil(object):
     def __init__(self):
         config = configparser.RawConfigParser()
-        config.read(os.path.abspath('./config/config.properties'))
+        dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        config.read(os.path.abspath(dir_path + '/config/config.properties'))
         platform_os = config.get('PlatfromSection', 'platform.os')
         if platform_os == 'android':
             platform_os = 'windows'
@@ -41,7 +42,8 @@ class ViewpointPublishUtil(object):
     def publish(self, module, timeout=500):
         projectName = module.split('.')[-1].lower()
         config = configparser.RawConfigParser()
-        config.read(os.path.abspath('./config/config.properties'))
+        dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        config.read(os.path.abspath(dir_path + '/config/config.properties'))
         applicationType = config.get('PublishSection', projectName + '.type')
         applicationName = config.get('PublishSection', projectName + '.name')
         needPublish = True if config.get('PublishSection', projectName +

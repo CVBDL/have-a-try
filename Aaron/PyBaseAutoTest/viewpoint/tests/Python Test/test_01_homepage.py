@@ -1,15 +1,21 @@
+import pytest
 import sys
-sys.path.append('C:\\EagleEye\\have-a-try\\Aaron\PyBaseAutoTest')
+sys.path.append('.')
 from viewpoint.tests.base_test import BaseTestCase
-# import viewpoint.lib.viewpoint_globalvar as gl
+from viewpoint.lib.viewpoint_global import Global
 
 
+@pytest.fixture(scope='module')
+def init_global():
+    Global().caseName = "MerlinTest"
+
+
+@pytest.mark.usefixtures("init_global", "publish_application", "util")
 class TestWorkflow01(BaseTestCase):
     def test_button_size(self, util):
         """
         :type util: viewpoint.lib.viewpoint_browser_util.ViewPointTestUtil
         """
-        # gl.get_value_csv('BAT_SE')
         util.openPage()
         assert util.getElementProperty(
             'Button1', 'FontSize') == 13, "Font size on homepage should be 13"
