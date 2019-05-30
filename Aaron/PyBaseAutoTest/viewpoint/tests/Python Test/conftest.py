@@ -18,7 +18,5 @@ def util():
 
 @pytest.fixture(scope="module")
 def publish_application():
-    a = Global().caseName
     util_publish = ViewpointPublishUtil()
-    initDisplay = Global().caseName
-    util_publish.publish(initDisplay, 500)
+    util_publish.publish(500)

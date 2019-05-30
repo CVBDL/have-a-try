@@ -7,6 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from .viewpoint_webdriver import BROWSERS
+from viewpoint.lib.viewpoint_global import Global
+from viewpoint.lib.viewpoint_solution import get_value_csv
 
 
 class ViewpointPublishUtil(object):
@@ -39,17 +41,10 @@ class ViewpointPublishUtil(object):
         finally:
             return True
 
-    def publish(self, module, timeout=500):
-        projectName = module.split('.')[-1].lower()
-        config = configparser.RawConfigParser()
-        dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        config.read(os.path.abspath(dir_path + '/config/config.properties'))
-        applicationType = config.get('PublishSection', projectName + '.type')
-        applicationName = config.get('PublishSection', projectName + '.name')
-        needPublish = True if config.get('PublishSection', projectName +
-                                         '.publish') == '1' else False
-        if needPublish is False:
+    def publish(self, timeout=500):
+        if Global().needPublish is False:
             return
+        time.sleep(30)
         self.openBrowser()
         self.browser.get(self.viewpoint_url + "/FTVP/admin")
         self.wait_element_by_id('obj1', 10)
@@ -66,20 +61,28 @@ class ViewpointPublishUtil(object):
         time.sleep(10)
         self.wait_element_by_id('comboSelectScope', 10)
         self.browser.find_element_by_xpath(
-            "//select[@id='comboSelectScope']/option[text()='" + applicationType + "']"
+            "//select[@id='comboSelectScope']/option[text()='" + get_value_csv(Global().caseName)['%appTypeCsv'] + "']"
         ).click()
         time.sleep(5)
         self.browser.find_element_by_xpath(
-            "//select[@id='comboSelectApplication']/option[text()='" + applicationName + "']"
+            "//select[@id='comboSelectApplication']/option[text()='" +
+            get_value_csv(Global().caseName)['%SD_App_NameCsv'] + "']"
         ).click()
         time.sleep(5)
         self.browser.find_element_by_id('btnNext').click()
 
-        # Select displays
+        # Select InitDisplay
         time.sleep(10)
+        for initValue in self.browser.find_elements_by_name('initialDisplay'):
+            if initValue.get_attribute('value') == get_value_csv(Global().caseName)['%initialDisplayCsv']:
+                initValue.click()
+
+        # Publish displays
+        time.sleep(2)
         self.wait_element_by_id('btnNext', 10)
         self.browser.find_element_by_id('btnNext').click()
 
+        # Wait until finised
         self.wait_element_by_id('nextArrow', timeout)
 
         self.closeBrowser()

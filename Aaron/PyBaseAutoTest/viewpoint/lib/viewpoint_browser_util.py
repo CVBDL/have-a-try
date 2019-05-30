@@ -13,7 +13,8 @@ from .viewpoint_webdriver import BROWSERS
 class ViewPointTestUtil(object):
     def __init__(self):
         config = configparser.RawConfigParser()
-        config.read(os.path.abspath('./config/config.properties'))
+        dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        config.read(os.path.abspath(dir_path + '/config/config.properties'))
         platform_os = config.get('PlatfromSection', 'platform.os')
         browser_name = config.get('PlatfromSection', 'platform.browser')
         self.webdriver_url = config.get('UrlSection', 'url.webdriver')
@@ -21,9 +22,9 @@ class ViewPointTestUtil(object):
         self.browser_info = platform_os + "_" + browser_name
 
         self.inject_js_files = [
-            './viewpoint/javascripts/FTViewPointOAL.js',
-            './viewpoint/javascripts/FTVPActors.js',
-            './viewpoint/javascripts/browser_utils.js'
+            dir_path + '/javascripts/FTViewPointOAL.js',
+            dir_path + '/javascripts/FTVPActors.js',
+            dir_path + '/javascripts/browser_utils.js'
         ]
 
     def openBrowser(self):

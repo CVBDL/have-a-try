@@ -9,10 +9,9 @@ solution_path = vp_path + '/config/Solution_Config.csv'
 
 
 def get_value_csv(case_name):
-    # case_name = 'BAT_SE'
     with open(solution_path) as solution_config:
         reader = csv.DictReader(solution_config)
         items = list(reader)
         for row in items:
             if row["%CaseName"] == case_name:
-                return row['%initialDisplayCsv']
+                return row

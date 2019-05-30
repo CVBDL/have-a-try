@@ -13,7 +13,10 @@ def singleton(cls):
 class Global:
 
     def __init__(self):
-        self.caseName = "MerlinTest"
+        self.needPublish = ""
+        self.caseName = ""
+        self.applicationType = ""
         self.initDisplay = ""
+
 
     # def get_info_from_csv(self, case_name):

@@ -1,19 +1,19 @@
+import time
 import pytest
-import sys
-sys.path.append('.')
+
 from viewpoint.tests.base_test import BaseTestCase
 from viewpoint.lib.viewpoint_global import Global
-from viewpoint.lib.viewpoint_solution import get_value_csv
 
 
 @pytest.fixture(scope='module')
 def init_global():
-    Global().caseName = "BAT_SE"
-    Global().initDisplay = get_value_csv(Global().caseName)
+    Global().needPublish = True
+    Global().caseName = "MerlinTest"
 
 
 @pytest.mark.usefixtures("init_global", "publish_application", "util")
 class TestWorkflow01(BaseTestCase):
+    @pytest.mark.test
     def test_button_size(self, util):
         """
         :type util: viewpoint.lib.viewpoint_browser_util.ViewPointTestUtil
