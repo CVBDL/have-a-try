@@ -3,7 +3,7 @@ import pytest
 
 from viewpoint.lib.viewpoint_browser_util import ViewPointTestUtil
 from viewpoint.lib.viewpoint_publish_util import ViewpointPublishUtil
-from viewpoint.lib.viewpoint_global import Global
+
 
 @pytest.fixture(scope="function")
 def util():

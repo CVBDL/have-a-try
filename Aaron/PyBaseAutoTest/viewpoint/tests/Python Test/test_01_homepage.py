@@ -1,4 +1,3 @@
-import time
 import pytest
 
 from viewpoint.tests.base_test import BaseTestCase
