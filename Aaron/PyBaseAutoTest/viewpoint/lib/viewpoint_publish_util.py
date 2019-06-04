@@ -1,6 +1,7 @@
 import configparser
 import os
 import time
+import platform
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -25,9 +26,17 @@ class ViewpointPublishUtil(object):
         self.browser_info = platform_os + "_" + browser_name
 
     def openBrowser(self):
-        self.browser = webdriver.Remote(
-            command_executor=self.webdriver_url,
-            desired_capabilities=BROWSERS[self.browser_info])
+        if get_value_csv(Global().caseName)['%DeviceSystem'] == 'Windows':
+            if platform.system() == 'Windows':
+                self.browser = webdriver.Chrome(
+                    '')
+            else:
+                self.browser = webdriver.Chrome(
+                    '/Users/ftvp/Desktop/have-a-try/Aaron/PyBaseAutoTest/webdrivers/chromedriver')
+        else:
+            self.browser = webdriver.Remote(
+                command_executor=self.webdriver_url,
+                desired_capabilities=BROWSERS[self.browser_info])
 
     def closeBrowser(self):
         if self.browser is not None:
@@ -44,7 +53,7 @@ class ViewpointPublishUtil(object):
     def publish(self, timeout=500):
         if Global().needPublish is False:
             return
-        time.sleep(30)
+        # time.sleep(30)
         self.openBrowser()
         self.browser.get(self.viewpoint_url + "/FTVP/admin")
         self.wait_element_by_id('obj1', 10)
