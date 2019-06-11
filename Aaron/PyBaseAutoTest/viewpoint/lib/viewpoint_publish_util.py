@@ -36,8 +36,9 @@ class ViewpointPublishUtil(object):
                     '/Users/ftvp/Desktop/have-a-try/Aaron/PyBaseAutoTest/webdrivers/chromedriver')
         else:
             self.browser = webdriver.Remote(
-            command_executor=self.webdriver_url,
-            desired_capabilities=BROWSERS[self.browser_info])
+                command_executor=self.webdriver_url,
+                desired_capabilities=BROWSERS[self.browser_info]
+            )
 
     def closeBrowser(self):
         if self.browser is not None:
