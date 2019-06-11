@@ -1,10 +1,9 @@
 # coding:utf-8
+import pytest
 import sys
 rootPath = '/Users/ftvp/Desktop/have-a-try/Aaron/PyBaseAutoTest'
 sys.path.append(rootPath)
 
-
-import pytest
 
 from viewpoint.lib.viewpoint_browser_util import ViewPointTestUtil
 from viewpoint.lib.viewpoint_publish_util import ViewpointPublishUtil

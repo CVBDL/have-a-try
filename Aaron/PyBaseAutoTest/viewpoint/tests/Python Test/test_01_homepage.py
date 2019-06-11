@@ -1,9 +1,8 @@
+import pytest
 import sys
-
 rootPath = '/Users/ftvp/Desktop/have-a-try/Aaron/PyBaseAutoTest'
 sys.path.append(rootPath)
 
-import pytest
 
 from viewpoint.tests.base_test import BaseTestCase
 from viewpoint.lib.viewpoint_global import Global

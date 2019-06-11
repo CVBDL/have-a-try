@@ -6,5 +6,5 @@
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.pyTestEnabled": true,
-    "python.pythonPath": "C:\\Users\\awang14\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+    "python.pythonPath": "/usr/local/Cellar/python/3.7.2_2/bin/python3",
 }
