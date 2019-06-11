@@ -7,6 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+
 from .viewpoint_webdriver import BROWSERS
 from viewpoint.lib.viewpoint_global import Global
 from viewpoint.lib.viewpoint_solution import get_value_csv
@@ -35,8 +36,8 @@ class ViewpointPublishUtil(object):
                     '/Users/ftvp/Desktop/have-a-try/Aaron/PyBaseAutoTest/webdrivers/chromedriver')
         else:
             self.browser = webdriver.Remote(
-                command_executor=self.webdriver_url,
-                desired_capabilities=BROWSERS[self.browser_info])
+            command_executor=self.webdriver_url,
+            desired_capabilities=BROWSERS[self.browser_info])
 
     def closeBrowser(self):
         if self.browser is not None:
@@ -53,7 +54,7 @@ class ViewpointPublishUtil(object):
     def publish(self, timeout=500):
         if Global().needPublish is False:
             return
-        # time.sleep(30)
+        time.sleep(30)
         self.openBrowser()
         self.browser.get(self.viewpoint_url + "/FTVP/admin")
         self.wait_element_by_id('obj1', 10)
