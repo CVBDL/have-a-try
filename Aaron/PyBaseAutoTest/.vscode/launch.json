@@ -5,18 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: 模块",
-      "type": "python",
-      "request": "launch",
-      "program": "${file}",
-      "module": "test"
-    },
-    {
       "name": "Python: Current File (Integrated Terminal)",
       "type": "python",
       "request": "launch",
       "program": "${file}",
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "env": {"PYTHONPATH":"${workspaceRoot}"}
     },
     {
       "name": "Python: Remote Attach",
