@@ -1,11 +1,11 @@
 {
     "python.linting.pylintEnabled": false,
-    "python.testing.pyTestArgs": [
+    "python.testing.pytestArgs": [
       "viewpoint"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pyTestEnabled": true,
+    "python.testing.pytestEnabled": true,
     "python.pythonPath": "/usr/local/Cellar/python/3.7.2_2/bin/python3",
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
